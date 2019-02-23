@@ -1,0 +1,10 @@
+#!/ usr/ bin/ env bash
+# File: plier.sh 
+function plier {
+local product=1
+for element in $@ 
+do
+	let product=product*$element
+done
+echo $product
+}
