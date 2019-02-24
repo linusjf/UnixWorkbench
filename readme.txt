@@ -36,3 +36,7 @@ tgif.sh
 vars.sh
 whileloop.sh
 wordcount.sh
+Dir Commands
+extremes
+range
+short
