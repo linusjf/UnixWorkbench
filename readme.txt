@@ -1,4 +1,8 @@
-This is the readme.txt file that describes the shell scripts created for exercises in the book The Unix Workbench by Sean Kross.
+This is the readme.txt file that describes 
+the shell scripts created for exercises in the book The Unix Workbench by Sean Kross.
+
+Dir .
+
 add.sh
 addseq.sh
 addseq2.sh
@@ -36,7 +40,9 @@ tgif.sh
 vars.sh
 whileloop.sh
 wordcount.sh
+
 Dir Commands
+
 extremes
 range
 short
