@@ -2,7 +2,7 @@
 
 ### Dir .
 
-- add.sh
+add.sh
 - addseq.sh
 - addseq2.sh
 - arrayindex.sh
@@ -39,9 +39,9 @@
 - vars.sh
 - whileloop.sh
 - wordcount.sh
-
+- 
 ### Dir Commands
 
-- extremes
-- range
-- short
+extremes
+range
+short
