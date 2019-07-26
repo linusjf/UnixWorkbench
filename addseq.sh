@@ -1,10 +1,10 @@
-#!/ usr/ bin/ env bash
+#!/usr/bin/env bash
 # File: addseq.sh 
 function addseq {
 sum=0
-for element in $@ 
+for element in "$@"
 do
-	let sum=sum+$element
+  sum=$((sum+element))
 done
 echo $sum 
 }
