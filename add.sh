@@ -2,6 +2,6 @@
 # File add.sh
 first=20
 second=1
-sum=$(expr "$first" + "$second")
-echo $sum
+sum=$((first + second))
+echo "$sum"
 
