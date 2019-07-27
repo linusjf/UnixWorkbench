@@ -13,27 +13,27 @@ then
 	fib0=0
 	fib1=1
 	echo -n $fib0 $fib1
-	for i in $(seq 2 $fibcount)
+	for _ in $(seq 2 "$fibcount")
 	do
-		let nextfib=$fib0+$fib1
+    nextfib=$((fib0+fib1))
 		echo -n " "$nextfib
-		let fib0=$fib1
-		let fib1=$nextfib
+    fib0=$((fib1))
+    fib1=$((nextfib))
 	done
 elif [[ $fibcount -lt -1 ]]
 then
 	fib0=0
 	fib1=1
 	echo -n $fib0 $fib1
-	for i in $(seq -2 -1 $fibcount)
+	for _ in $(seq -2 -1 "$fibcount")
 	do
-		let nextfib=$fib0-$fib1
+    nextfib=$((fib0-fib1))
 		echo -n " "$nextfib
-		let fib0=$fib1
-		let fib1=$nextfib
+    fib0=$((fib1))
+    fib1=$((nextfib))
 	done
 else
-	echo "Invalid input: "$*
+	echo "Invalid input: ""$*"
 fi
 echo
 }
