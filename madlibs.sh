@@ -1,14 +1,12 @@
 #! /usr/bin/env bash
-# File madlibs.sh
 echo "Type in an adjective and then 
 press enter:"
-read adjective
+IFS="" read -r adjective
 echo "Type in a noun and then press 
 enter:"
-read noun
+IFS="" read -r noun
 echo "Type in a verb and then press 
 enter:"
-read verb
+IFS="" read -r verb
 echo "$verb off with her $adjective 
 $noun."
-

@@ -1,5 +1,4 @@
-#!/ usr/ bin/ env bash
-# File: manyloops.sh
+#! /usr/bin/env bash
 echo "Explicit list:"
 for picture in img001.jpg img002.jpg img451.jpg
 do
@@ -14,7 +13,8 @@ echo "Current stooge: $stooge"
 done
 echo ""
 echo "Command substitution:"
-for code in $(ls *.sh) 
+for code in *.sh 
 do
-echo "$code is a bash script"
+  [[ -e "$code" ]] || break
+  echo "$code"" is a bash script"
 done
