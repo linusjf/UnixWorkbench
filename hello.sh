@@ -1,4 +1,4 @@
-#!/ usr/ bin/ env bash
+#! /usr/bin/env bash
 # File: hello.sh 
 function hello { 
 	echo "Hello"
