@@ -2,5 +2,4 @@
 # File mult.sh
 input=$1
 multiplier=100
-echo $(expr "$input" \* "$multiplier")
-
+echo $((input * multiplier))

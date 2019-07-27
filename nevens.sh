@@ -1,14 +1,15 @@
-#!/ usr/ bin/ env bash
+#! /usr/bin/env bash
 # File: nevens.sh 
+# shellcheck disable=SC1091
 source isiteven.sh
 function nEvens {
 local count=0
-for element in $@ 
+for element in "$@" 
 do
-	isEven=$(isItEven $element)
-	if [[ 1 -eq $isEven ]]  
+	isEven=$(isItEven "$element")
+	if [[ 1 -eq "$isEven" ]]  
 	then
-		let count=count+1
+    count=$((count+1))
 	fi
 done
 echo $count
