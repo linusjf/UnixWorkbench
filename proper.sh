@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 # File proper.sh
-if [[ $1 =~ ^[A-Z] ]]
+if [[ "$1" =~ ^[A-Z] ]]
 then
 	echo "$1: How proper!"
 else

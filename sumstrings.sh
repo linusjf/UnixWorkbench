@@ -1,8 +1,9 @@
 #! /usr/bin/env bash
 # File sumstring.sh
-if [[ $1 =~ ^[0-9]+$ ]] && [[ $2 =~ ^[0-9]+$ ]]
+if [[ "$1" =~ ^[0-9]+$ ]] \
+  && [[ "$2" =~ ^[0-9]+$ ]]
 then
-	echo $(expr $1 + $2)
+  echo $(( $1 + $2))
 else
 	echo "$1   $2"
 fi

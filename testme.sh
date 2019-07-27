@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#! /usr/bin/env/bash
 
 ######################################################################
 # @author      : $USER ($USER@localhost)
@@ -10,5 +10,3 @@
 #!/bin/bash
 echo "This is Standard Output (stdout) and my parameters are \"$@\""
 echo "This is Standard Error (stderr) and my parameters are \"$@\"" >&2
-
-
