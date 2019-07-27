@@ -1,4 +1,4 @@
-#!/ usr/ bin/ env bash
+#! /usr/bin/env bash
 # File: ifloop.sh
 for number in {1..10}
 do 
