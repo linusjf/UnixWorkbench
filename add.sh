@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/bin/bash
 # File add.sh
 first=20
 second=1

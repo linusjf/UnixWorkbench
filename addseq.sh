@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # File: addseq.sh 
 function addseq {
 sum=0

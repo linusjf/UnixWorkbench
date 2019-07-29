@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/bin/bash
 # File oddeven.sh
 if [[ "$1" =~ ^[0-9]+$ ]]
 then

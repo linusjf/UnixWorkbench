@@ -1,4 +1,4 @@
-#!/ usr/ bin/ env bash
+#!/bin/bash
 # File: math.sh
 
 expr 5 + 2

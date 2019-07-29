@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/bin/bash
 # File: simpleelif.sh
 echo "Start program"
 

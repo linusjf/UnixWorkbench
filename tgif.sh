@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/bin/bash
 # File tgif.sh
 today=$(date)
 if [[ "$today" =~ ^Fri ]]

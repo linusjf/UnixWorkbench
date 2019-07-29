@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/bin/bash
 echo "Explicit list:"
 for picture in img001.jpg img002.jpg img451.jpg
 do

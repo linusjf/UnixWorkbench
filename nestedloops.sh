@@ -1,4 +1,4 @@
-#!/ usr/ bin/ env bash
+#!/bin/bash
 # File: nestedloops.sh
 for number in {1..3}
 do

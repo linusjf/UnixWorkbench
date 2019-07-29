@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/bin/bash
 # File isiteven.sh
 function isItEven {
 if [[ "$1" =~ ^[0-9]+$ ]]

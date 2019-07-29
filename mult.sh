@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/bin/bash
 # File mult.sh
 input=$1
 multiplier=100

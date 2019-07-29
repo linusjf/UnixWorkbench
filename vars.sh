@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/bin/bash
 # File vars.sh
 
 echo "Script arguments: $@"

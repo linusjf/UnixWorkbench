@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/bin/bash
 # File proper.sh
 if [[ "$1" =~ ^[A-Z] ]]
 then

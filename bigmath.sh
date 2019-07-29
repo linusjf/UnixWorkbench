@@ -1,4 +1,4 @@
-#! /usr/bin/env bash 
+#!/bin/bash
 # File: bigmath.sh
 
 echo "22 / 7" | bc -l 
