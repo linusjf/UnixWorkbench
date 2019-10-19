@@ -50,3 +50,9 @@ echo
 echo -e "parallel echo ::: A B C D E :::+ F G\n"
 parallel echo ::: A B C D E :::+ F G
 echo
+echo -e "parallel --arg-sep ,, echo ,, A B C :::: def-file\n"
+parallel --arg-sep ,, echo ,, A B C :::: def-file
+echo
+echo -e "parallel --arg-file-sep // echo ::: A B C // def-file\n"
+parallel --arg-file-sep // echo ::: A B C // def-file
+echo
