@@ -41,3 +41,12 @@ echo
 echo -e "parallel --link echo ::: A B C D E ::: F G\n"
 parallel --link echo ::: A B C D E ::: F G
 echo
+echo -e "parallel echo :::: abc-file :::+ G H I :::: def-file\n"
+parallel echo :::: abc-file :::+ G H I :::: def-file
+echo
+echo -e "parallel echo :::: abc-file ::: G H I ::::+ def-file\n"
+parallel echo :::: abc-file ::: G H I ::::+ def-file
+echo
+echo -e "parallel echo ::: A B C D E :::+ F G\n"
+parallel echo ::: A B C D E :::+ F G
+echo
