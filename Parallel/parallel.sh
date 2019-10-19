@@ -40,3 +40,13 @@ echo
 echo -e "parallel --jobs 2 sleep {}';' echo {} done ::: 5 4 3 1 2\n"
 parallel --jobs 2 sleep {}';' echo {} done ::: 5 4 3 1 2
 echo 
+echo -e "parallel --jobs 5 sleep {}';' echo {} done ::: 5 4 3 1 2\n"
+parallel --jobs 5 sleep {}';' echo {} done ::: 5 4 3 1 2
+echo 
+echo -e "parallel --jobs 0 sleep {}';' echo {} done ::: 5 4 3 1 2\n"
+parallel --jobs 0 sleep {}';' echo {} done ::: 5 4 3 1 2
+echo
+echo -e "seq 1000000 | parallel --pipe wc\n"
+seq 1000000 | parallel --pipe wc
+echo
+exit 0
