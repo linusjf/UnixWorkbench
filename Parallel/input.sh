@@ -26,3 +26,18 @@ echo
 echo -e "parallel -a abc-file -a def-file echo\n"
 parallel -a abc-file -a def-file echo
 echo
+echo -e "cat abc-file | parallel -a - -a def-file echo\n"
+cat abc-file | parallel -a - -a def-file echo
+echo
+echo -e "cat abc-file | parallel echo :::: - def-file\n"
+cat abc-file | parallel echo :::: - def-file
+echo
+echo -e "parallel echo ::: A B C :::: def-file\n"
+parallel echo ::: A B C :::: def-file
+echo
+echo -e "parallel --link echo ::: A B C ::: D E F\n"
+parallel --link echo ::: A B C ::: D E F
+echo
+echo -e "parallel --link echo ::: A B C D E ::: F G\n"
+parallel --link echo ::: A B C D E ::: F G
+echo
