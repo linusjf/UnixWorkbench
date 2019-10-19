@@ -56,3 +56,15 @@ echo
 echo -e "parallel --arg-file-sep // echo ::: A B C // def-file\n"
 parallel --arg-file-sep // echo ::: A B C // def-file
 echo
+echo -e "parallel -d _ echo :::: abc_-file\n"
+parallel -d _ echo :::: abc_-file
+echo
+echo -e "parallel -d '\0' echo :::: abc0-file\n"
+parallel -d '\0' echo :::: abc0-file
+echo
+echo -e "parallel -E stop echo ::: A B stop C D\n"
+parallel -E stop echo ::: A B stop C D
+echo
+echo -e "(echo 1; echo; echo 2) | parallel --no-run-if-empty echo\n"
+(echo 1; echo; echo 2) | parallel --no-run-if-empty echo
+echo
