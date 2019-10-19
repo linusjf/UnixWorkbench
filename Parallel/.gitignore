@@ -1,4 +1,6 @@
 example.*
 abc*
 def*
-!*.sh
+num*
+*.tsv
+fixedlen*
