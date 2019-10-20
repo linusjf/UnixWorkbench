@@ -41,3 +41,6 @@ echo
 echo -e "echo 'No \" needed/nThat's right' | parallel echo {}\n"
 echo -e 'No " needed\nThat'"'s right" | parallel echo {}
 echo
+echo -e "'echo foo; echo bar' | parallel echo baz\; eval {}\n"
+echo 'echo foo; echo bar' | parallel echo baz\; eval {}
+echo
