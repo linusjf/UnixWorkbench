@@ -44,3 +44,52 @@ echo
 echo -e "'echo foo; echo bar' | parallel echo baz\; eval {}\n"
 echo 'echo foo; echo bar' | parallel echo baz\; eval {}
 echo
+echo -e "parallel -I ,, echo ,, ::: A/B.C\n"
+parallel -I ,, echo ,, ::: A/B.C
+echo
+echo -e "parallel --extensionreplace ,, echo ,, ::: A/B.C\n"
+parallel --extensionreplace ,, echo ,, ::: A/B.C
+echo
+echo -e "parallel --basenamereplace ,, echo ,, ::: A/B.C\n"
+parallel --basenamereplace ,, echo ,, ::: A/B.C
+echo
+echo -e "parallel --dirnamereplace ,, echo ,, ::: A/B.C\n"
+parallel --dirnamereplace ,, echo ,, ::: A/B.C
+echo
+echo -e "parallel --basenameextensionreplace ,, echo ,, ::: A/B.C\n"
+parallel --basenameextensionreplace ,, echo ,, ::: A/B.C
+echo
+echo -e "parallel --seqreplace ,, echo ,, ::: A B C\n"
+parallel --seqreplace ,, echo ,, ::: A B C
+echo
+echo -e "parallel -j2 --slotreplace ,, echo ,, ::: A B C\n"
+parallel -j2 --slotreplace ,, echo ,, ::: A B C
+echo
+echo -e "parallel echo '{= s:\.[^.]+$::;s:\.[^.]+$::; =}' ::: foo.tar.gz\n"
+parallel echo '{= s:\.[^.]+$::;s:\.[^.]+$::; =}' ::: foo.tar.gz
+echo
+echo -e "parallel echo '{= s:\.[^.]+\.[^.]+$::; =}' ::: foo.tar.gz\n"
+parallel echo '{= s:\.[^.]+\.[^.]+$::; =}' ::: foo.tar.gz
+echo
+echo -e "parallel echo Job {#} of {= '$_=total_jobs()' =} ::: {1..5}\n"
+parallel echo Job {#} of {= '$_=total_jobs()' =} ::: {1..5}
+echo
+echo -e "parallel -j2 echo The job slot is {%} = {= '$_=slot()' =} ::: {1..5}\n"
+parallel -j2 echo The job slot is {%} = {= '$_=slot()' =} ::: {1..5}
+echo
+echo -e "parallel -j2 echo The job slot is {%} = {= '$_=slot()' =} ::: {1..5}\n"
+parallel -j2 echo The job slot for {} = {= '$_=slot()' =} ::: {1..5}
+echo
+echo -e "parallel echo Job {#} = {= '$_=seq()' =} ::: a b c\n"
+parallel echo Job {#} = {= '$_=seq()' =} ::: a b c
+echo
+echo -e "parallel echo Job {#} = {= '$_=seq()' =} ::: a b c\n"
+parallel echo Job {#} = {= '$_=seq()' =} ::: a b c
+echo
+echo -e "parallel echo Sequence {} has Job {= '$_=seq()' =} ::: a b c\n"
+parallel echo Sequence {} has Job {= '$_=seq()' =} ::: a b c
+echo
+echo -e "parallel echo {} shell quoted is {= '\$_=Q(\$_)' =} ::: '*/!#$'\n"
+parallel echo {} shell quoted is {= '$_=Q($_)' =} ::: '*/!#$'
+echo
+exit 0
