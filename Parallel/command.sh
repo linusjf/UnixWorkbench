@@ -92,4 +92,22 @@ echo
 echo -e "parallel echo {} shell quoted is {= '\$_=Q(\$_)' =} ::: '*/!#$'\n"
 parallel echo {} shell quoted is {= '$_=Q($_)' =} ::: '*/!#$'
 echo
+echo -e "parallel echo {= 'if(\$_==3) { skip() }' =} ::: {1..5}\n"
+parallel echo {= 'if($_==3) { skip() }' =} ::: {1..5}
+echo
+echo -e "parallel echo {= 'if(\$arg[1]==\$arg[2]) { skip() }' =} \
+ ::: {1..3} ::: {1..3}\n"
+parallel echo {= 'if($arg[1]==$arg[2]) { skip() }' =} \
+ ::: {1..3} ::: {1..3}
+echo
+echo -e "parallel --parens ,,,, echo ',, s:\.[^.]+$::;s:\.[^.]+$::; ,,' \
+ ::: foo.tar.gz\n"
+parallel --parens ,,,, echo ',, s:\.[^.]+$::;s:\.[^.]+$::; ,,' \
+ ::: foo.tar.gz
+echo
+echo -e "parallel --rpl '.. s:\.[^.]+$::;s:\.[^.]+$::;' echo '..' \
+ ::: foo.tar.gz\n"
+parallel --rpl '.. s:\.[^.]+$::;s:\.[^.]+$::;' echo '..' \
+ ::: foo.tar.gz
+echo
 exit 0
