@@ -26,3 +26,18 @@ echo
 echo -e "parallel echo {/} ::: A/B.C\n"
 parallel echo {/} ::: A/B.C
 echo
+echo -e "parallel echo {//} ::: A/B.C\n"
+parallel echo {//} ::: A/B.C
+echo
+echo -e "parallel echo {/.} ::: A/B.C\n"
+parallel echo {/.} ::: A/B.C
+echo
+echo -e "parallel echo {#} ::: A B C\n"
+parallel echo {#} ::: A B C
+echo
+echo -e "parallel -j 2 echo {%} ::: A B C\n"
+parallel -j 2 echo {%} ::: A B C
+echo
+echo -e "echo 'No \" needed/nThat's right' | parallel echo {}\n"
+echo -e 'No " needed\nThat'"'s right" | parallel echo {}
+echo
