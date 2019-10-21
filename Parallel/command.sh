@@ -124,4 +124,22 @@ echo
 echo -e "parallel echo /={1/} //={1//} /.={1/.} .={1.} ::: mydir/mysubdir/myfile.ext yourdir/yoursubdir/yourfile.yourext\n"
 parallel echo /={1/} //={1//} /.={1/.} .={1.} ::: mydir/mysubdir/myfile.ext yourdir/yoursubdir/yourfile.yourext
 echo
+echo -e "parallel echo 1={1} 2={2} 3={3} -1={-1} -2={-2} -3={-3} \
+ ::: A B ::: C D ::: E F\n"
+parallel echo 1={1} 2={2} 3={3} -1={-1} -2={-2} -3={-3} \
+ ::: A B ::: C D ::: E F
+echo
+echo -e "parallel echo '{=2 s:\.[^.]+$::;s:\.[^.]+$::; =} {1}' \
+ ::: bar ::: foo.tar.gz\n"
+parallel echo '{=2 s:\.[^.]+$::;s:\.[^.]+$::; =} {1}' \
+ ::: bar ::: foo.tar.gz
+echo
+echo -e "parallel echo '{=1 s:\.[^.]+$::;s:\.[^.]+$::; =} {2}' \
+ ::: foo.tar.gz ::: bar\n"
+parallel echo '{=1 s:\.[^.]+$::;s:\.[^.]+$::; =} {2}' \
+ ::: foo.tar.gz ::: bar 
+echo
+echo -e "parallel --colsep '/t' echo 1={1} 2={2} :::: tsv-file.tsv\n"
+parallel --colsep '\t' echo 1={1} 2={2} :::: tsv-file.tsv
+echo
 exit 0
