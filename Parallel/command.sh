@@ -110,4 +110,18 @@ echo -e "parallel --rpl '.. s:\.[^.]+$::;s:\.[^.]+$::;' echo '..' \
 parallel --rpl '.. s:\.[^.]+$::;s:\.[^.]+$::;' echo '..' \
  ::: foo.tar.gz
 echo
+echo -e "parallel --rpl '{%(.+?)} s/\$\$1$//;' echo {%.tar.gz}.zip ::: foo.tar.gz\n"
+parallel --rpl '{%(.+?)} s/$$1$//;' echo {%.tar.gz}.zip ::: foo.tar.gz
+echo
+echo -e "parallel --rpl '{/(.+?)/(.*?)} s/\$\$1/\$\$2/;' echo {/tar.gz/zip} \
+ ::: foo.tar.gz\n"
+parallel --rpl '{/(.+?)/(.*?)} s/$$1/$$2/;' echo {/tar.gz/zip} \
+ ::: foo.tar.gz
+echo
+echo -e "parallel echo {1} and {2} ::: A B ::: C D\n"
+parallel echo {1} and {2} ::: A B ::: C D
+echo
+echo -e "parallel echo /={1/} //={1//} /.={1/.} .={1.} ::: mydir/mysubdir/myfile.ext yourdir/yoursubdir/yourfile.yourext\n"
+parallel echo /={1/} //={1//} /.={1/.} .={1.} ::: mydir/mysubdir/myfile.ext yourdir/yoursubdir/yourfile.yourext
+echo
 exit 0
