@@ -142,4 +142,10 @@ echo
 echo -e "parallel --colsep '/t' echo 1={1} 2={2} :::: tsv-file.tsv\n"
 parallel --colsep '\t' echo 1={1} 2={2} :::: tsv-file.tsv
 echo
+echo -e "parallel --plus echo {} ::: dir/sub/file.ex1.ex2.ex3\n"
+parallel --plus echo {} ::: dir/sub/file.ex1.ex2.ex3
+echo
+echo -e "parallel --plus echo {+/}/{/} ::: dir/sub/file.ex1.ex2.ex3\n"
+parallel --plus echo {+/}/{/} ::: dir/sub/file.ex1.ex2.ex3
+echo
 exit 0
