@@ -169,4 +169,28 @@ echo
 echo -e "parallel --plus echo Job {#} of {##} ::: {1..5}\n"
 parallel --plus echo Job {#} of {##} ::: {1..5}
 echo
+echo -e "unset myvar\n"
+unset myvar
+echo -e "echo \${myvar:-myval}\n"
+echo ${myvar:-myval}
+echo -e "parallel --plus echo {:-myval} ::: '\$myvar'\n"
+parallel --plus echo {:-myval} ::: "$myvar"
+echo -e "myvar=abcAaAdef\n"
+myvar=abcAaAdef
+echo -e "echo ${myvar:2}\n"
+echo ${myvar:2}
+echo -e "parallel --plus echo {:2} ::: '$myvar'\n"
+parallel --plus echo {:2} ::: "$myvar"
+echo -e "echo ${myvar:2:3}\n"
+echo ${myvar:2:3}
+echo -e "parallel --plus echo {:2:3} ::: '$myvar'\n"
+parallel --plus echo {:2:3} ::: "$myvar"
+echo -e "echo ${myvar#bc}\n"
+echo ${myvar#bc}
+echo -e "parallel --plus echo {#bc} ::: '\$myvar'\n"
+parallel --plus echo {#bc} ::: "$myvar"
+echo -e "echo \${myvar#abc}\n"
+echo ${myvar#abc}
+echo -e "parallel --plus echo {#abc} ::: '\$myvar'\n"
+parallel --plus echo {#abc} ::: "$myvar"
 exit 0
