@@ -148,4 +148,25 @@ echo
 echo -e "parallel --plus echo {+/}/{/} ::: dir/sub/file.ex1.ex2.ex3\n"
 parallel --plus echo {+/}/{/} ::: dir/sub/file.ex1.ex2.ex3
 echo
+echo -e "parallel --plus echo {.}.{+.} ::: dir/sub/file.ex1.ex2.ex3\n"
+parallel --plus echo {.}.{+.} ::: dir/sub/file.ex1.ex2.ex3
+echo
+echo -e "parallel --plus echo {+/}/{/.}.{+.} ::: dir/sub/file.ex1.ex2.ex3\n"
+parallel --plus echo {+/}/{/.}.{+.} ::: dir/sub/file.ex1.ex2.ex3
+echo
+echo -e "parallel --plus echo {..}.{+..} ::: dir/sub/file.ex1.ex2.ex3\n"
+parallel --plus echo {..}.{+..} ::: dir/sub/file.ex1.ex2.ex3
+echo
+echo -e "parallel --plus echo {+/}/{/..}.{+..} ::: dir/sub/file.ex1.ex2.ex3\n"
+parallel --plus echo {+/}/{/..}.{+..} ::: dir/sub/file.ex1.ex2.ex3
+echo
+echo -e "parallel --plus echo {...}.{+...} ::: dir/sub/file.ex1.ex2.ex3\n"
+parallel --plus echo {...}.{+...} ::: dir/sub/file.ex1.ex2.ex3
+echo
+echo -e "parallel --plus echo {+/}/{/...}.{+...} ::: dir/sub/file.ex1.ex2.ex3\n"
+parallel --plus echo {+/}/{/...}.{+...} ::: dir/sub/file.ex1.ex2.ex3
+echo
+echo -e "parallel --plus echo Job {#} of {##} ::: {1..5}\n"
+parallel --plus echo Job {#} of {##} ::: {1..5}
+echo
 exit 0
