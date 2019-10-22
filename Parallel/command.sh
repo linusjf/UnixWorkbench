@@ -232,4 +232,7 @@ echo
 echo -e "parallel -N0 echo foo ::: 1 2 3\n"
 parallel -N0 echo foo ::: 1 2 3
 echo
+echo -e "perl -e 'print \"@ARGV/n\"' A\n"
+perl -e 'print "@ARGV\n"' A
+echo
 exit 0
