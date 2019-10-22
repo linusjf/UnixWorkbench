@@ -171,26 +171,65 @@ parallel --plus echo Job {#} of {##} ::: {1..5}
 echo
 echo -e "unset myvar\n"
 unset myvar
+echo
 echo -e "echo \${myvar:-myval}\n"
 echo ${myvar:-myval}
+echo
 echo -e "parallel --plus echo {:-myval} ::: '\$myvar'\n"
 parallel --plus echo {:-myval} ::: "$myvar"
+echo
 echo -e "myvar=abcAaAdef\n"
 myvar=abcAaAdef
+echo
 echo -e "echo ${myvar:2}\n"
 echo ${myvar:2}
+echo
 echo -e "parallel --plus echo {:2} ::: '$myvar'\n"
 parallel --plus echo {:2} ::: "$myvar"
+echo
 echo -e "echo ${myvar:2:3}\n"
 echo ${myvar:2:3}
+echo
 echo -e "parallel --plus echo {:2:3} ::: '$myvar'\n"
 parallel --plus echo {:2:3} ::: "$myvar"
+echo
 echo -e "echo ${myvar#bc}\n"
 echo ${myvar#bc}
+echo
 echo -e "parallel --plus echo {#bc} ::: '\$myvar'\n"
 parallel --plus echo {#bc} ::: "$myvar"
+echo
 echo -e "echo \${myvar#abc}\n"
 echo ${myvar#abc}
+echo
 echo -e "parallel --plus echo {#abc} ::: '\$myvar'\n"
 parallel --plus echo {#abc} ::: "$myvar"
+echo
+echo -e "cat num30000 | parallel --xargs 'echo {} | wc -w'\n"
+cat num30000 | parallel --xargs 'echo {} | wc -w'
+echo
+echo -e "cat num30000 | parallel --xargs -s 30000 'echo {} | wc -w'\n"
+cat num30000 | parallel --xargs -s 30000 'echo {} | wc -w'
+echo
+echo -e "cat num30000 | parallel -j 4 -m 'echo {} | wc -w'\n"
+cat num30000 | parallel -j 4 -m 'echo {} | wc -w'
+echo
+echo -e "parallel --jobs 4 -m echo ::: 1 2 3 4 5 6 7 8 9 10\n"
+parallel --jobs 4 -m echo ::: 1 2 3 4 5 6 7 8 9 10
+echo
+echo -e "parallel --jobs 4 -m echo pre-{}-post ::: A B C D E F G\n"
+parallel --jobs 4 -m echo pre-{}-post ::: A B C D E F G
+echo
+echo -e "parallel --jobs 4 -X echo pre-{}-post ::: A B C D E F G\n"
+parallel --jobs 4 -X echo pre-{}-post ::: A B C D E F G
+echo
+echo -e "parallel -N3 echo ::: A B C D E F G H\n" 
+parallel -N3 echo ::: A B C D E F G H
+echo
+echo -e "parallel -N3 echo 1={1} 2={2} 3={3} ::: A B C D E F G H\n"
+parallel -N3 echo 1={1} 2={2} 3={3} ::: A B C D E F G H
+echo
+echo -e "parallel -N0 echo foo ::: 1 2 3\n"
+parallel -N0 echo foo ::: 1 2 3
+echo
 exit 0
