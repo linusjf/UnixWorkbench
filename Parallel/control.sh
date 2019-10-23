@@ -32,4 +32,10 @@ echo
 echo -e "parallel -j2 -k half_line_print ::: 4 2 1\n"
 parallel -j2 -k half_line_print ::: 4 2 1
 echo
+echo -e "parallel -j2 half_line_print ::: 4 2 1\n"
+parallel -j2 half_line_print ::: 4 2 1
+echo
+echo -e "parallel -j2 --ungroup half_line_print ::: 4 2 1\n"
+parallel -j2 --ungroup half_line_print ::: 4 2 1
+echo
 exit 0
