@@ -235,4 +235,22 @@ echo
 echo -e "perl -e 'print \"@ARGV/n\"' A\n"
 perl -e 'print "@ARGV\n"' A
 echo
+echo -e "parallel perl -e 'print \"@ARGV/n\"' ::: This wont work\n"
+parallel perl -e 'print "@ARGV/n"' ::: This wont work
+echo
+echo -e "parallel -q perl -e 'print \"@ARGV/n\"' ::: This works\n"
+parallel -q perl -e 'print "@ARGV\n"' ::: This works
+echo
+echo -e "parallel perl -e \''print \"@ARGV/n\"'\' ::: This works, too\n"
+parallel perl -e \''print "@ARGV\n"'\' ::: This works, too
+echo
+echo -e "parallel perl -e \''print \"@ARGV:\"'\' ::: This works, too\n"
+parallel perl -e \''print "@ARGV:"'\' ::: This works, too
+echo
+echo -e "parallel --shellquote < shellquote.txt\n"
+parallel --shellquote < shellquote.txt
+echo
+echo -e "parallel perl\ -e\ \'print\ \"@ARGV\\n\"\' ::: This also works\n"
+parallel perl\ -e\ \'print\ \"@ARGV\\n\"\' ::: This also works
+echo
 exit 0
