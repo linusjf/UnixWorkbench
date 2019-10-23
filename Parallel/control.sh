@@ -71,4 +71,7 @@ echo
 echo -e "parallel --results my{1}-{2}-dir/ echo ::: A B ::: C D\n"
 parallel --results my{1}-{2}-dir/ echo ::: A B ::: C D
 echo
+echo -e "parallel --results my.csv echo ::: A B ::: C D\n"
+parallel --results my.csv echo ::: A B ::: C D
+echo
 exit 0
