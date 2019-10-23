@@ -65,4 +65,7 @@ echo
 echo -e "parallel --header : --results outdir echo ::: f1 A B ::: f2 C D\n"
 parallel --header : --results outdir echo ::: f1 A B ::: f2 C D
 echo
+echo -e "parallel --results my{1}-{2}.out echo ::: A B ::: C D\n" 
+parallel --results my{1}-{2}.out echo ::: A B ::: C D
+echo
 exit 0
