@@ -4,3 +4,4 @@ def*
 num*
 *.tsv
 fixedlen*
+**/outdir/**

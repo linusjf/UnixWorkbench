@@ -38,4 +38,31 @@ echo
 echo -e "parallel -j2 --ungroup half_line_print ::: 4 2 1\n"
 parallel -j2 --ungroup half_line_print ::: 4 2 1
 echo
+echo -e "parallel -j2 --linebuffer half_line_print ::: 4 2 1\n"
+parallel -j2 --linebuffer half_line_print ::: 4 2 1
+echo
+echo -e "parallel -j4 'echo {}-a;sleep {};echo {}-b' ::: 1 3 2 4\n"
+parallel -j4 'echo {}-a;sleep {};echo {}-b' ::: 1 3 2 4
+echo
+echo -e "parallel -j4 --line-buffer 'echo {}-a;sleep {};echo {}-b' ::: 1 3 2 4\n"
+parallel -j4 --line-buffer 'echo {}-a;sleep {};echo {}-b' ::: 1 3 2 4
+echo
+echo -e "parallel -j4 -k --line-buffer 'echo {}-a;sleep {};echo {}-b' ::: 1 3 2 4\n"
+parallel -j4 -k --line-buffer 'echo {}-a;sleep {};echo {}-b' ::: 1 3 2 4
+echo
+echo -e "parallel --files echo ::: A B C\n"
+parallel --files echo ::: A B C
+echo
+echo -e "parallel --tmpdir /var/tmp --files echo ::: A B C\n"
+parallel --tmpdir /var/tmp --files echo ::: A B C
+echo
+echo -e "TMPDIR=/var/tmp parallel --files echo ::: A B C\n"
+TMPDIR=/var/tmp parallel --files echo ::: A B C
+echo
+echo -e "parallel --results outdir echo ::: A B C\n"
+parallel --results outdir echo ::: A B C
+echo
+echo -e "parallel --header : --results outdir echo ::: f1 A B ::: f2 C D\n"
+parallel --header : --results outdir echo ::: f1 A B ::: f2 C D
+echo
 exit 0
