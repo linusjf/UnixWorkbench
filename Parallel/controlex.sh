@@ -97,5 +97,55 @@ echo -e "parallel -k --retries 3 \
  'echo tried {} >>/tmp/runs; echo completed {}; exit {}' ::: 1 2 0\n" 
 parallel -k --retries 3 \
  'echo tried {} >>/tmp/runs; echo completed {}; exit {}' ::: 1 2 0
+echo -e "cat /tmp/runs\n"
+cat /tmp/runs
+echo
+echo -e "show_signals() {
+ perl -e 'for(keys %SIG) {
+ $SIG{$_} = eval \"sub { print \\"Got $_\\n\\"; }\";
+ }
+ while(1){sleep 1}'
+}
+export -f show_signals"
+show_signals() {
+ perl -e 'for(keys %SIG) {
+ $SIG{$_} = eval "sub { print \"Got $_\\n\"; }";
+ }
+ while(1){sleep 1}'
+}
+export -f show_signals
+echo -e "echo | parallel --termseq TERM,200,TERM,100,TERM,50,KILL,25 \
+ -u --timeout 1 show_signals"
+echo | parallel --termseq TERM,200,TERM,100,TERM,50,KILL,25 \
+ -u --timeout 1 show_signals
+echo
+echo "echo | parallel -u --timeout 1 show_signals\n"
+echo | parallel -u --timeout 1 show_signals
+echo
+echo -e "echo | parallel --termseq INT,200,TERM,100,KILL,25 \
+ -u --timeout 1 show_signals\n"
+echo | parallel --termseq INT,200,TERM,100,KILL,25 \
+ -u --timeout 1 show_signals
+echo
+echo -e "parallel --nice 17 echo this is being run with nice -n ::: 17\n"
+parallel --nice 17 echo this is being run with nice -n ::: 17
+echo
+echo -e "parallel --load 100% echo load is less than {} job per CPU ::: 1\n"
+parallel --load 100% echo load is less than {} job per CPU ::: 1
+echo
+echo -e "parallel --noswap echo the system is not swapping ::: now\n"
+parallel --noswap echo the system is not swapping ::: now
+echo
+echo -e "parallel --memfree 1G --retries 5 echo More than 1 GB is ::: free\n"
+parallel --memfree 1G --retries 5 echo More than 1 GB is ::: free
+echo
+#echo -e "parallel --limit \"io 10\" echo ::: less than 10% disk I/O\n"
+#parallel --limit "io 10" echo ::: less than 10% disk I/O
+echo
+echo -e "parallel --limit \"mem 1g\" echo ::: more than 10G free\n"
+parallel --limit "mem 1g" echo ::: more than 10G free
+echo
+echo -e "parallel --limit \"load 3\" echo ::: less than 3 procs running\n"
+parallel --limit "load 3" echo ::: less than 3 procs running
 echo
 exit 0
