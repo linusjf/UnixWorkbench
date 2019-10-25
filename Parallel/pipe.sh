@@ -61,8 +61,16 @@ echo -n 'foo,bar,_baz,__qux' | \
  echo JOB{#}';'cat';'echo END
 echo
 echo -e "cat num_%header | \
- parallel --header '(%.*\n)*' --pipe -N3 echo JOB{#}\;cat\n"
+ parallel --dryrun --header '(%.*\n)*' --pipe -N3 echo JOB{#}\;cat\n"
 cat num_%header | \
- parallel --header '(%.*\n)*' --pipe -N3 echo JOB{#}\;cat
+ parallel --dryrun --header '(%.*\n)*' --pipe -N3 echo JOB{#}\;cat
+echo
+echo -e "cat num_%header | \
+ parallel -k --header '(%.*\n)*' --pipe -N3 echo JOB{#}\;cat\n"
+cat num_%header | \
+ parallel -k --header '(%.*\n)*' --pipe -N3 echo JOB{#}\;cat
+echo
+echo -e "cat num_%header | parallel --header 2 --pipe -N3 echo JOB{#}\;cat\n"
+cat num_%header | parallel --header 2 --pipe -N3 echo JOB{#}\;cat
 echo
 exit 0
