@@ -14,4 +14,4 @@ sem --wait
 sem --id my_id -u 'echo First started; sleep 10; echo First done' && \
 sem --id my_id -u 'echo Second started; sleep 10; echo Second done' \ 
 sem --id my_id -u 'echo all done;' 
-sem --wait
+sem --wait --id my_id
