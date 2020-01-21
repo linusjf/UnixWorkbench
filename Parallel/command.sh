@@ -8,8 +8,8 @@ echo -e "my_func() {
 export -f my_func
 parallel my_func ::: 1 2 3\n"
 # Only works in Bash
-my_func() {
- echo in my_func $1
+function my_func() {
+  echo in my_func $1
 }
 export -f my_func
 parallel my_func ::: 1 2 3
@@ -20,7 +20,7 @@ echo
 echo -e "parallel echo {} ::: A/B.C\n"
 parallel echo {} ::: A/B.C
 echo
-echo -e "parallel echo {.} ::: A/B.C\n" 
+echo -e "parallel echo {.} ::: A/B.C\n"
 parallel echo {.} ::: A/B.C
 echo
 echo -e "parallel echo {/} ::: A/B.C\n"
@@ -98,17 +98,17 @@ echo
 echo -e "parallel echo {= 'if(\$arg[1]==\$arg[2]) { skip() }' =} \
  ::: {1..3} ::: {1..3}\n"
 parallel echo {= 'if($arg[1]==$arg[2]) { skip() }' =} \
- ::: {1..3} ::: {1..3}
+  ::: {1..3} ::: {1..3}
 echo
 echo -e "parallel --parens ,,,, echo ',, s:\.[^.]+$::;s:\.[^.]+$::; ,,' \
  ::: foo.tar.gz\n"
 parallel --parens ,,,, echo ',, s:\.[^.]+$::;s:\.[^.]+$::; ,,' \
- ::: foo.tar.gz
+  ::: foo.tar.gz
 echo
 echo -e "parallel --rpl '.. s:\.[^.]+$::;s:\.[^.]+$::;' echo '..' \
  ::: foo.tar.gz\n"
 parallel --rpl '.. s:\.[^.]+$::;s:\.[^.]+$::;' echo '..' \
- ::: foo.tar.gz
+  ::: foo.tar.gz
 echo
 echo -e "parallel --rpl '{%(.+?)} s/\$\$1$//;' echo {%.tar.gz}.zip ::: foo.tar.gz\n"
 parallel --rpl '{%(.+?)} s/$$1$//;' echo {%.tar.gz}.zip ::: foo.tar.gz
@@ -116,7 +116,7 @@ echo
 echo -e "parallel --rpl '{/(.+?)/(.*?)} s/\$\$1/\$\$2/;' echo {/tar.gz/zip} \
  ::: foo.tar.gz\n"
 parallel --rpl '{/(.+?)/(.*?)} s/$$1/$$2/;' echo {/tar.gz/zip} \
- ::: foo.tar.gz
+  ::: foo.tar.gz
 echo
 echo -e "parallel echo {1} and {2} ::: A B ::: C D\n"
 parallel echo {1} and {2} ::: A B ::: C D
@@ -127,17 +127,17 @@ echo
 echo -e "parallel echo 1={1} 2={2} 3={3} -1={-1} -2={-2} -3={-3} \
  ::: A B ::: C D ::: E F\n"
 parallel echo 1={1} 2={2} 3={3} -1={-1} -2={-2} -3={-3} \
- ::: A B ::: C D ::: E F
+  ::: A B ::: C D ::: E F
 echo
 echo -e "parallel echo '{=2 s:\.[^.]+$::;s:\.[^.]+$::; =} {1}' \
  ::: bar ::: foo.tar.gz\n"
 parallel echo '{=2 s:\.[^.]+$::;s:\.[^.]+$::; =} {1}' \
- ::: bar ::: foo.tar.gz
+  ::: bar ::: foo.tar.gz
 echo
 echo -e "parallel echo '{=1 s:\.[^.]+$::;s:\.[^.]+$::; =} {2}' \
  ::: foo.tar.gz ::: bar\n"
 parallel echo '{=1 s:\.[^.]+$::;s:\.[^.]+$::; =} {2}' \
- ::: foo.tar.gz ::: bar 
+  ::: foo.tar.gz ::: bar
 echo
 echo -e "parallel --colsep '/t' echo 1={1} 2={2} :::: tsv-file.tsv\n"
 parallel --colsep '\t' echo 1={1} 2={2} :::: tsv-file.tsv
@@ -223,7 +223,7 @@ echo
 echo -e "parallel --jobs 4 -X echo pre-{}-post ::: A B C D E F G\n"
 parallel --jobs 4 -X echo pre-{}-post ::: A B C D E F G
 echo
-echo -e "parallel -N3 echo ::: A B C D E F G H\n" 
+echo -e "parallel -N3 echo ::: A B C D E F G H\n"
 parallel -N3 echo ::: A B C D E F G H
 echo
 echo -e "parallel -N3 echo 1={1} 2={2} 3={3} ::: A B C D E F G H\n"

@@ -1,7 +1,7 @@
 #!/bin/bash
-# File: hello.sh 
-function hello { 
-	echo "Hello"
+# File: hello.sh
+function hello() {
+  echo "Hello"
 }
 
 hello

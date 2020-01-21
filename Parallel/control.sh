@@ -18,11 +18,11 @@ echo -e "half_line_print() {
  echo \$1-end
 }
 export -f half_line_print"
-half_line_print() {
- printf "%s-start\n%s" $1 $1
- sleep $1
- printf "%s\n" -middle
- echo $1-end
+function half_line_print() {
+  printf "%s-start\n%s" $1 $1
+  sleep $1
+  printf "%s\n" -middle
+  echo $1-end
 }
 export -f half_line_print
 echo
@@ -65,7 +65,7 @@ echo
 echo -e "parallel --header : --results outdir echo ::: f1 A B ::: f2 C D\n"
 parallel --header : --results outdir echo ::: f1 A B ::: f2 C D
 echo
-echo -e "parallel --results my{1}-{2}.out echo ::: A B ::: C D\n" 
+echo -e "parallel --results my{1}-{2}.out echo ::: A B ::: C D\n"
 parallel --results my{1}-{2}.out echo ::: A B ::: C D
 echo
 echo -e "parallel --results my{1}-{2}-dir/ echo ::: A B ::: C D\n"

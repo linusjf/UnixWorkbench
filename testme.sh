@@ -5,7 +5,7 @@
 # @file        : testme
 # @created     : Sunday Apr 28, 2019 02:16:24 IST
 #
-# @description : 
+# @description :
 ######################################################################
 #!/bin/bash
 echo "This is Standard Output (stdout) and my parameters are \"$@\""

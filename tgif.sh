@@ -3,5 +3,5 @@
 today=$(date)
 if [[ "$today" =~ ^Fri ]]
 then
-	echo "Thank Moses it's Friday."
+  echo "Thank Moses it's Friday."
 fi

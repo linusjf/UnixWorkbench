@@ -9,6 +9,6 @@ perl -e 'for(1..128){print "$_\n"}' > num128
 perl -e 'for(1..30000){print "$_\n"}' > num30000
 perl -e 'for(1..1000000){print "$_\n"}' > num1000000
 (echo %head1; echo %head2; \
- perl -e 'for(1..10){print "$_\n"}') > num_%header
+  perl -e 'for(1..10){print "$_\n"}') > num_%header
 perl -e 'print "HHHHAAABBBCCC"' > fixedlen
 exit 0
