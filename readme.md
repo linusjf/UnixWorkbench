@@ -1,6 +1,6 @@
 # Shell scripts created for exercises in the book The Unix Workbench by Sean Kross.
 
-### Dir .
+### Dir Programs
 
 - add.sh
 - addseq.sh
