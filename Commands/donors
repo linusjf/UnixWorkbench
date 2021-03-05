@@ -1,0 +1,10 @@
+#!/bin/bash
+# simple lookup of our generous donors
+#
+grep $1 <<\EOF
+# name amt
+pete $100
+joe $200
+sam $ 25
+bill $ 9
+EOF
