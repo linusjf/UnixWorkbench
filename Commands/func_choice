@@ -17,5 +17,3 @@ function choice {
  * ) CHOICE="$answer";;
  esac
 } # end of function choice
-choice "Do you want to play a game? "
-echo $CHOICE
