@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# cookbook filename: select_dir
+
+directorylist="Finished $(ls -d)"
+# Set a useful select prompt
+PS3='Directory to process? ' 
+until [ "$directory" == "Finished" ]; do
+  printf "%b" "\a\n\nSelect a directory to process:\n" >&2
+  select directory in $directorylist; do
+    # User types a number which is stored in $REPLY, but select
+    # returns the value of the entry
+    if [ "$directory" = "Finished" ]; then
+      echo "Finished processing directories."
+      break
+    elif [ -n "$directory" ]; then
+      # Do something here
+      echo "You chose number $REPLY, processing $directory ..."
+      break
+    else
+      # end of handle user's selection
+      echo "Invalid selection!"
+    fi 
+    # end of select a directory
+  done
+  # end of while not finished
+done 
