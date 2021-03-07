@@ -13,16 +13,14 @@ function choose {
  local prompt="$2"
  local choice_yes="$3"
  local choice_no="$4"
- choice_no=$(echo "$choice_no" | sed -e "s/^'//" -e "s/$'//")
- choice_no=$(echo "$choice_no" | sed -e 's/^"//' -e 's/$"//')
  local answer
  read -p "$prompt" answer
  [ -z "$answer" ] && answer="$default"
  case "$answer" in
- [yY1] ) exec "$choice_yes"
+ [yY1] ) eval "$choice_yes"
  # error check
  ;;
- [nN0] ) eval "$choice_no"
+[nN0] ) eval "$choice_no"
  # error check
  ;;
  * ) printf "%b" "Unexpected answer '$answer'!" >&2 ;;
@@ -30,5 +28,5 @@ function choose {
 } # end of function choose
 choose "y" \
   "Do you want to play a game? " \
-  /usr/bin/ls \
+  '/usr/bin/ls -a' \
   'printf "%b" "See you later, Professor Falkin.\n"'
