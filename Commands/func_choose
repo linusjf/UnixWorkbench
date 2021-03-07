@@ -13,6 +13,7 @@ function choose {
  local prompt="$2"
  local choice_yes="$3"
  local choice_no="$4"
+ choice_no=$(echo "$choice_no" | sed -e "s/^'//" -e "s/$'//")
  local answer
  read -p "$prompt" answer
  [ -z "$answer" ] && answer="$default"
