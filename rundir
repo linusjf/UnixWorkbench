@@ -13,8 +13,8 @@ then
   do
     if [ -f "$SCRIPT" -a -x "$SCRIPT" ]
     then
-      "$SCRIPT"
-      if (( ! "$?" )); 
+      timeout --preserve-status 30s "$SCRIPT"
+      if (( "$?" )); 
       then 
         failCount=failCount+1
       fi
