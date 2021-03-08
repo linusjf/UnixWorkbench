@@ -3,7 +3,7 @@
 #
 # change permissions on a bunch of files
 #
-for FN in $*
+for FN in "$@"
 do
  echo "${FN}"
 done
