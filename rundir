@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+dir="$1"
+if [ ! -d "$dir" ];
+then
+  echo "Usage: $0 dir"
+  exit 1
+fi
+(cd "$dir";
+if (( ! "$?" ))
+then
+  declare -i failCount=0
+  for SCRIPT in *
+  do
+    if [ -f "$SCRIPT" -a -x "$SCRIPT" ]
+    then
+      "$SCRIPT"
+      if (( ! "$?" )); 
+      then 
+        failCount=failCount+1
+      fi
+    fi
+  done
+  exit "$failCount"
+else
+  exit 1
+fi
+)
