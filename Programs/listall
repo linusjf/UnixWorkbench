@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# cookbook filename: listall.1
+#
+# change permissions on a bunch of files
+#
+for FN in $*
+do
+ echo "${FN}"
+done
