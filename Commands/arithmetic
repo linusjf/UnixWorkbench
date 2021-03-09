@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+MAX=$((2**8))
+COUNT=$((COUNT + 5 + MAX * 2))
+echo $COUNT
+let COUNT+=5+MAX*2
+echo $COUNT

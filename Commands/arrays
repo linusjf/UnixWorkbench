@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+MYRA=(first second third home)
+echo runners on ${MYRA[0]} and ${MYRA[2]}
