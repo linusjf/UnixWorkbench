@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# cookbook filename: suffixer
+#
+# rename files that end in .bad to be .bash
+touch first.bad
+touch second.bad
+touch third.bad
+for FN in *.bad
+do
+  mv "${FN}" "${FN%bad}bash"
+done
+touch first.bad
+touch second.bad
+touch third.bad
+for FN in *.bad
+do
+  NOBAD="${FN%bad}"
+  echo "$NOBAD"
+  NEWNAME="${NOBAD}bash"
+  mv "${FN}" "${NEWNAME}"
+done
