@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+touch testfile.tst
+FILE="testfile.tst"
+if [ -r $FILE -a -w $FILE ]
+  then
+  echo "testfile is rw"
+fi
+FN="$FILE"
+if [ -r "$FN" -a \( -f "$FN" -o -p "$FN" \) ]
+  then
+  echo "testfile is r"
+fi
+if [ -z "$V1" -o -z "${V2:=YIKES}" ]
+then
+  echo "$V2"
+fi
