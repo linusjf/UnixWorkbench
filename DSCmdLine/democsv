@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+curl -sL 'https://www.openml.org/data/get_csv/21854866/penguins.arff' \
+       | tee penguin.csv | head -5
+sed -i -re '1s/_(mm|g)//g' penguin.csv
+cat penguin.csv \
+      | xsv sample 15 \
+      | xsv select species,culmen_length,culmen_depth,flipper_length,body_mass \
+      | csvlook
