@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+curl -s https://en.wikipedia.org/wiki/List_of_windmills_in_Friesland |\
+pup -n -c 'table.wikitable tr' 

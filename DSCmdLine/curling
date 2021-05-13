@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+curl -s https://en.wikipedia.org/wiki/List_of_windmills_in_Friesland -O
+curl -s ftp://ftp.gnu.org/welcome.msg | head -5
+curl -s dict://dict.org/d:windmill | head -10
+curl -s https://bit.ly/2XBxvwK
+curl -sI https://youtu.be/dQw4w9WgXcQ
+man curl | head -20
+
