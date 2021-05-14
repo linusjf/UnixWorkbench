@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
-curl https://www.nporadio2.nl/data/download/TOP-2000-2020.xlsx \
-  | in2csv --format xlsx \
+curl https://www.nporadio2.nl/data/download/TOP-2000-2020.xlsx -o top2000.xlsx
+in2csv top2000.xlsx \
+  | tee top2000.csv \
   | head -10
+csvgrep top2000.csv -c ARTIEST -r '^Queen$' \
+  | csvlook -I
+in2csv --names top2000.xlsx
