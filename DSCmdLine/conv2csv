@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+curl https://www.nporadio2.nl/data/download/TOP-2000-2020.xlsx \
+  | in2csv --format xlsx \
+  | head -10
