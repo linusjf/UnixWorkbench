@@ -2,3 +2,4 @@
 *.xlsx
 .secret/**
 wikimedia-*
+stopwords
