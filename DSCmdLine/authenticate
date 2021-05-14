@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+curl -s "http://newsapi.org/v2/everything?q=linux" | jq .
+curl -s "http://newsapi.org/v2/everything?q=linux&apiKey=$(< ./.secret/newsapi.org_apikey)" \
+  | jq '.' | head -30
+

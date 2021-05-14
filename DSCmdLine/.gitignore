@@ -1,2 +1,3 @@
 *_windmills_*
 *.xlsx
+.secret/**
