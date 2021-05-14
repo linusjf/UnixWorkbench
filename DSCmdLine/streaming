@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+curl -s "https://stream.wikimedia.org/v2/stream/recentchange" -m 10 \
+  > wikimedia-stream-sample
+< wikimedia-stream-sample head -10
+< wikimedia-stream-sample sed -n 's/^data: //p' \
+  | jq 'select(.type == "edit" and .server_name == "en.wikipedia.org") | [.title, .user]'
+
