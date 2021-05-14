@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+sql2csv --db 'postgresql://localhost/mydb' \
+  --query 'SELECT * FROM customers' \
+  | csvlook
