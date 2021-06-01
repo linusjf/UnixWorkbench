@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+awk 'length($1) > 5 {print}' mywords.txt
+awk '$1 ~ /^[b,c]/ {print $1}' mywords.txt
+awk 'NR % 2 == 0 {print}' mywords.txt
+awk '{print NR, $0}' mywords.txt
+awk '{print substr($0, 4)}' source.c > dest.c
