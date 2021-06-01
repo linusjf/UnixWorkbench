@@ -73,3 +73,25 @@ puts [expr 6 & 3]
 puts [expr 3 & 6]
 puts [expr 6 | 3]
 puts [expr 3 | 6]
+
+puts [expr 6 | 3]
+puts [expr 3 | 6]
+
+puts [expr 6 ^ 3]
+puts [expr 3 ^ 6]
+
+puts [expr 3 + 5 * 5]
+puts [expr (3 + 5) * 5]
+
+puts [expr ! 1 || 1]
+puts [expr ! (1 || 1)] 
+
+set age 32
+set adult [expr $age >= 18 ? true : false]
+
+puts "Adult: $adult"
+
+set nums {1 2 3 4 5 6}
+puts $nums
+puts [tcl::mathfunc::max {*}$nums]
+puts [tcl::mathfunc::min {*}$nums]
