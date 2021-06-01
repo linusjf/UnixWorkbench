@@ -10,3 +10,7 @@ awk 'match($0, /^[c,b]/)' mywords.txt mywords2.txt
 awk 'match($0, /i/) {print $0 " has i character at " RSTART}' mywords.txt mywords2.txt
 awk 'BEGIN { print ARGC, ARGV[0], ARGV[1], ARGV[2]}' mywords.txt mywords2.txt
 awk -f stats.awk values.txt
+echo "Jane 17#Tom 23#Mark 34" | awk 'BEGIN {RS="#"} {print $1, "is", $2, "years old"}'
+awk -f grep.awk -v word=the french.txt
+awk -F: '{print $1, $7}' passwd | head -7
+awk -F: '$7 ~ /bash/ {print $1}' passwd | wc -l
