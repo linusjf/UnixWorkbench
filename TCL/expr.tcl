@@ -58,13 +58,18 @@ proc Two {} {
 puts "Short circuit"
 
 if { [One] && [Two] } {
-
     puts "Pass"
 }
 
 puts "###################"
 
 if { [Two] || [One] } {
-
     puts "Pass"
 }
+
+puts [expr ~7] 
+puts [expr ~-8]
+puts [expr 6 & 3]
+puts [expr 3 & 6]
+puts [expr 6 | 3]
+puts [expr 3 | 6]
