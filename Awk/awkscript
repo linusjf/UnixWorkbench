@@ -14,3 +14,5 @@ echo "Jane 17#Tom 23#Mark 34" | awk 'BEGIN {RS="#"} {print $1, "is", $2, "years 
 awk -f grep.awk -v word=the french.txt
 awk -F: '{print $1, $7}' passwd | head -7
 awk -F: '$7 ~ /bash/ {print $1}' passwd | wc -l
+echo -e "1 2 3 5\n2 2 3 8" | awk '{print $(NF)}'
+echo 9 | awk -f rockpaperscissors.awk 

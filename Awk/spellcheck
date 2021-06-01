@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+awk -f spellcheck.awk mistakes.txt
