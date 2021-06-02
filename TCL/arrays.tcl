@@ -68,3 +68,17 @@ puts [array names nums]
 foreach n [array names nums] {
     puts $nums($n)
 }
+
+set start [array startsearch weekdays]
+
+while {[array anymore weekdays $start]} {
+    set key [array nextelement weekdays $start]
+    puts $days($key)
+}
+array donesearch weekdays $start
+
+puts [array size names]
+unset names(1)
+unset names(2)
+
+puts [array size names]
