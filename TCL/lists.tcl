@@ -51,3 +51,38 @@ puts $nums
 
 puts [linsert $nums 0 1 2 3]
 puts $nums
+
+set animals1 { lion eagle elephant dog cat }
+set animals2 { giraffe tiger horse dolphin }
+
+set animals [concat $animals1 $animals2]
+
+puts $animals
+
+puts [lsearch -exact $animals eagle]
+puts [lreplace $animals 3 4 buffalo crocodile]
+
+set names { John Mary Lenka Veronika Julia Robert }
+set nums { 1 5 4 3 6 7 9 2 11 0 8 2 3 }
+
+puts [lsort $names]
+puts [lsort -ascii $names]
+puts [lsort -ascii -decreasing $names]
+puts [lsort -integer -increasing $nums]
+puts [lsort -integer -decreasing $nums]
+puts [lsort -integer -unique $nums]
+
+set nums {1 2 {1 2 3 4} {{1 2} {3 4}} 3 4}
+
+puts [llength $nums]
+puts [llength [lindex $nums 2]]
+
+puts [lindex $nums 0]
+puts [lindex [lindex $nums 2] 1]
+puts [lindex [lindex [lindex $nums 3] 1] 1]
+
+set nums { 1 2 {1 2 3 {4 5}} 3 4 }
+
+puts [lindex $nums 0]
+puts [lindex $nums 2 1]
+puts [lindex $nums 2 3 1]
