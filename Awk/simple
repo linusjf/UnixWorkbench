@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+echo "awk '/foo/ { print $0 }' BBS.txt"
+awk '/foo/ { print $0 }' BBS.txt
+echo "awk '/foo/ { print }' BBS.txt"
+awk '/foo/ { print }' BBS.txt
+echo "awk '/foo/' BBS.txt"
+awk '/foo/' BBS.txt
+echo "awk '/foo/ {}' BBS.txt"
+awk '/foo/ {}' BBS.txt
+echo "awk '/th/' names.txt"
+awk '/th/' names.txt
