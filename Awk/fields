@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+echo "cat BBS.txt"
+cat BBS.txt
+echo "awk '"'$1'" ~ /foo/ { print "'$0'" }' BBS.txt"
+awk '$1 ~ /foo/ { print $0 }' BBS.txt
+echo "awk '/foo/ { print "'$1'", "'$NF'" }' BBS.txt"
+awk '/foo/ { print $1, $NF }' BBS.txt
+echo "awk '{ print "'$NR'" }' BBS.txt"
+awk '{ print $NR }' BBS.txt
+echo "awk '{ print "'$(2*2)'" }' BBS.txt"
+awk '{ print $(2*2) }' BBS.txt
+echo "awk '{ print "'$(2-2)'" }' BBS.txt"
+awk '{ print $(2-2) }' BBS.txt
+echo "awk '{ "'$3 = $2'" - 10; print "'$2, $3'" }' inventory.txt"
+awk '{ $3 = $2 - 10; print $2, $3 }' inventory.txt
+echo "awk '{ "'$2 = $2'" - 10; print "'$0'" }' inventory.txt"
+awk '{ $2 = $2 - 10; print $0 }' inventory.txt
+echo "awk '{ "'$6 = ($5 + $4 + $3 + $2) ; print $6'" }' inventory.txt"
+awk '{ $6 = ($5 + $4 + $3 + $2) ; print $6 }' inventory.txt
+echo "awk '{ "'$6 = ($5 + $4 + $3 + $2) ; print $0'" }' inventory.txt"
+awk '{ $6 = ($5 + $4 + $3 + $2) ; print $0 }' inventory.txt
+echo "echo a b c d | awk '{ OFS = "'":"'"; "'$2'" = "'""'" ; print ; print NF }'"
+echo a b c d | awk '{ OFS = ":"; $2 = "" ; print ; print NF }'
+echo "echo John Q. Smith, 29 Oak St., Walamazoo, MI 42139 | awk 'BEGIN { FS = "'","'" } ; { print "'$2'" }'"
+echo John Q. Smith, 29 Oak St., Walamazoo, MI 42139 | awk 'BEGIN { FS = "," } ; { print $2 }'

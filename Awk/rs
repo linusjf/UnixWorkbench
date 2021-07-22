@@ -4,3 +4,5 @@ echo "awk 'BEGIN { RS = "'"/"'" } ; { print "'$0'" }' BBS.txt"
 awk 'BEGIN { RS = "/" } ; { print $0 }' BBS.txt
 echo "awk '{ print "'$0'" }' RS="'"/"'" BBS.txt"
 awk '{ print $0 }' RS="/" BBS.txt
+echo "awk '{ print "'$0'" }' RS="'""'" BBS.txt"
+awk '{ print $0 }' RS="" BBS.txt
