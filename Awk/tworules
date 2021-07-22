@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 echo "awk '/12/ { print $0 } /21/ { print $0 }' BBS.txt inventory.txt"
 awk '/12/ { print $0 } /21/ { print $0 }' BBS.txt inventory.txt
+echo "awk '/12/ { print $0 } ; /21/ { print $0 }' BBS.txt inventory.txt"
+awk '/12/ { print $0 } ; /21/ { print $0 }' BBS.txt inventory.txt
