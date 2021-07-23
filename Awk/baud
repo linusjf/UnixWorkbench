@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+awk 'BEGIN { FS="-"}; { print $1 }' BBS.txt
