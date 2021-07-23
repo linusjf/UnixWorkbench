@@ -15,3 +15,15 @@ awk 'BEGIN { srand(); for (i = 1; i <= 7; i++)
 print int(101 * rand()) }'
 echo "ls -l | awk '{ x += "'$5'" } ; END { print "'"total bytes: "'" x }'"
 ls -l | awk '{ x += $5 } ; END { print "total bytes: " x }'
+echo "expand program.java | awk '{ if (x < length()) x = length() } \
+END { print "'"maximum line length is "'" x }'"
+expand program.java | awk '{ if (x < length()) x = length() }
+END { print "maximum line length is " x }'
+echo "awk '{ nlines++ } \
+END { print nlines }' BBS.txt"
+awk '{ nlines++ }
+END { print nlines }' BBS.txt
+echo "awk 'END { print NR }' BBS.txt"
+awk 'END { print NR }' BBS.txt
+echo "awk '{ print NR, "'$0'" }' BBS.txt"
+awk '{ print NR, $0 }' BBS.txt
