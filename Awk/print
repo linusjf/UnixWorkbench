@@ -19,3 +19,29 @@ echo "awk 'BEGIN { OFS = "'";"'"; ORS = "'"\n\n"'" } \
 { print "'$1, $2'" }' BBS.txt"
 awk 'BEGIN { OFS = ";"; ORS = "\n\n" }
 { print $1, $2 }' BBS.txt
+echo "awk 'BEGIN { OFMT = "'"%d"'" # print numbers as integers \
+print 17.23 }'"
+awk 'BEGIN { OFMT = "%d" # print numbers as integers
+print 17.23 }'
+echo "awk '{ printf "'"%-10s %s\n"'", "'$1, $2'" }' BBS.txt"
+awk '{ printf "%-10s %s\n", $1, $2 }' BBS.txt
+echo "awk 'BEGIN { print "'"Name Number"'" \
+print "'"---- ------"'" } \
+{ printf "'"%-10s %s\n"'", "'$1, $2'" }' BBS.txt"
+awk 'BEGIN { print "Name Number"
+print "---- ------" }
+{ printf "%-10s %s\n", $1, $2 }' BBS.txt
+echo "awk 'BEGIN { printf "'"%-10s %s\n"'", "'"Name"'", "'"Number"'" \
+printf "'"%-10s %s\n"'", "'"----", "------" }'" \
+{ printf "'"%-10s %s\n", $1, $2 }'"' BBS.txt"
+awk 'BEGIN { printf "%-10s %s\n", "Name", "Number"
+printf "%-10s %s\n", "----", "------" }
+{ printf "%-10s %s\n", $1, $2 }' BBS.txt
+echo "awk 'BEGIN { format = "'"%-10s %s\n"'" \
+printf format, "'"Name", "Number"'" \
+printf format, "'"----", "------"' }" \
+{ printf format, "'$1, $2'" }' BBS.txt"
+awk 'BEGIN { format = "%-10s %s\n"
+printf format, "Name", "Number"
+printf format, "----", "------" }
+{ printf format, $1, $2 }' BBS.txt
