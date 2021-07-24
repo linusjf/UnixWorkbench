@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+awk '{if ($0 ~ /barfly/ || $0 ~ /camelot/)
+print "found"}' BBS.txt
+awk '{if (/barfly/ || /camelot/)
+print "found"}' BBS.txt
