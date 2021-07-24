@@ -21,3 +21,11 @@ echo "awk '/2400/ || /foo/' BBS.txt"
 awk '/2400/ || /foo/' BBS.txt
 echo "awk '! /foo/' BBS.txt"
 awk '! /foo/' BBS.txt
+echo "awk 'BEGIN { print "'"Analysis of '"'foo'"'"'" } \
+/foo/ { ++foobar } \
+END { print "'"'"'foo'"' appears " foobar " times." }'"' BBS.txt"
+awk 'BEGIN { print "Analysis of ‘foo’" }
+/foo/ { ++foobar }
+END { print "‘foo’ appears " foobar " times." }' BBS.txt
+printf "awk '{ print \$1 }' BBS.txt\n"
+awk '{ print $1 }' BBS.txt
