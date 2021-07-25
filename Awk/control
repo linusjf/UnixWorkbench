@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+printf "awk 'BEGIN { x = 2; if (x %% 2 == 0) print \"x is even\"; else \
+print \"x is odd\" }'\n"
+awk 'BEGIN { x = 2; if (x % 2 == 0) print "x is even"; else \
+print "x is odd" }'
+printf "awk 'BEGIN { x = 3; if (x %% 2 == 0) print \"x is even\"; else \
+print \"x is odd\" }'\n"
+awk 'BEGIN { x = 3; if (x % 2 == 0) print "x is even"; else \
+print "x is odd" }'
+printf "awk '{
+  i = 1
+  while (i <= 3) {
+    printf \$i \" \"
+    i++
+  }
+  printf \"\\\\n\"
+}' BBS.txt\n"
+awk '{
+  i = 1
+  while (i <= 3) {
+    printf $i " "
+    i++
+  }
+  printf "\n"
+}' BBS.txt
+printf "awk '{ i = 1
+do {
+print \$0
+i++
+} while (i <= 10)
+}' BBS.txt\n"
+awk '{ i = 1
+do {
+print $0
+i++
+} while (i <= 10)
+}' BBS.txt
+printf "awk '{ for (i = 1; i <= 3; i++)
+print \$i
+}' BBS.txt\n"
+awk '{ for (i = 1; i <= 3; i++)
+print $i
+}' BBS.txt
+printf "echo 75 | awk '# find smallest divisor of num
+{ num = \$1
+for (div = 2; div*div <= num; div++)
+if (num %% div == 0)
+break
+if (num %% div == 0)
+printf \"Smallest divisor of %%d is %%d\\\\n\", num, div
+else
+printf \"%%d is prime\\\\n\", num }'\n"
+echo 75 | awk '# find smallest divisor of num
+{ num = $1
+for (div = 2; div*div <= num; div++)
+if (num % div == 0)
+break
+if (num % div == 0)
+printf "Smallest divisor of %d is %d\n", num, div
+else
+printf "%d is prime\n", num }'
