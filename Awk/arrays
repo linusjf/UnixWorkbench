@@ -61,3 +61,31 @@ if (b in data)
 printf "%s is in data", b
 else
 printf "%s is not in data\n", b}'
+printf "awk '{
+if (max_nf < NF)
+max_nf = NF
+max_nr = NR
+for (x = 1; x <= NF; x++)
+vector[x, NR] = \$x
+}
+END {
+for (x = 1; x <= max_nf; x++) {
+for (y = max_nr; y >= 1; --y)
+printf(\"%%s \", vector[x, y])
+printf(\"\\\\n\")
+}
+}' matrix.txt\n"
+awk '{
+if (max_nf < NF)
+max_nf = NF
+max_nr = NR
+for (x = 1; x <= NF; x++)
+vector[x, NR] = $x
+}
+END {
+for (x = 1; x <= max_nf; x++) {
+for (y = max_nr; y >= 1; --y)
+printf("%s ", vector[x, y])
+printf("\n")
+}
+}' matrix.txt
