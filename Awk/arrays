@@ -47,3 +47,17 @@ print x
 }
 print num_long_words, "words longer than 10 characters"
 }' french.txt
+printf "awk 'BEGIN {a = b = 12.153
+data[a] = 1
+CONVFMT = \"%%2.2f\"
+if (b in data)
+printf \"%%s is in data\", b
+else
+printf \"%%s is not in data\n\", b}'\n"
+awk 'BEGIN {a = b = 12.153
+data[a] = 1
+CONVFMT = "%2.2f"
+if (b in data)
+printf "%s is in data", b
+else
+printf "%s is not in data\n", b}'
