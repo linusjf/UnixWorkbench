@@ -59,3 +59,29 @@ if (num % div == 0)
 printf "Smallest divisor of %d is %d\n", num, div
 else
 printf "%d is prime\n", num }'
+printf "echo 163 | awk '# find smallest divisor of num
+{ num = \$1
+for (div = 2; ; div++) {
+if (num %% div == 0) {
+printf \"Smallest divisor of %%d is %%d\\\\n\", num, div
+break
+}
+if (div*div > num) {
+printf \"%%d is prime\\\\n\", num
+break
+}
+}
+}'\n"
+echo 163 | awk '# find smallest divisor of num
+{ num = $1
+for (div = 2; ; div++) {
+if (num % div == 0) {
+printf "Smallest divisor of %d is %d\n", num, div
+break
+}
+if (div*div > num) {
+printf "%d is prime\n", num
+break
+}
+}
+}'
