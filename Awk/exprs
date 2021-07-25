@@ -1,5 +1,37 @@
 #!/usr/bin/env bash
+printf "awk '{if (\$0 ~ /barfly/ || \$0 ~ /camelot/)
+print \"found\"}' BBS.txt\n"
 awk '{if ($0 ~ /barfly/ || $0 ~ /camelot/)
 print "found"}' BBS.txt
+printf "awk '{if (/barfly/ || /camelot/)
+print \"found\"}' BBS.txt\n"
 awk '{if (/barfly/ || /camelot/)
 print "found"}' BBS.txt
+printf "awk '{ print \$n }' n=4 inventory.txt n=2 BBS.txt\n"
+awk '{ print $n }' n=4 inventory.txt n=2 BBS.txt
+printf "awk '{ \$1 = \$2 + \$3 / \$4; print }' inventory.txt\n"
+awk '{ $1 = $2 + $3 / $4; print }' inventory.txt
+printf "awk '{ print \"Field number one: \" \$1 }' BBS.txt\n"
+awk '{ print "Field number one: " $1 }' BBS.txt
+printf "echo 1e2 3 | awk '{ print (\$1 < \$2) ? \"true\" : \"false\" }'\n"
+echo 1e2 3 | awk '{ print ($1 < $2) ? "true" : "false" }'
+printf "awk 'BEGIN {
+CONVFMT = \"%%2.2f\" \n
+a = 123.456 \n
+b = a \"\" # force 'a' to have string value too \n
+printf \"a = %%s\\\\n\", a \n
+CONVFMT = \"%%.6g\" \n
+printf \"a = %%s\\\\n\", a \n
+a += 0 # make 'a' numeric only again \n
+printf \"a = %%s\\\\n\", a # use 'a' as string \n
+}'\n"
+awk 'BEGIN {
+CONVFMT = "%2.2f"
+a = 123.456
+b = a "" # force 'a' to have string value too
+printf "a = %s\n", a
+CONVFMT = "%.6g"
+printf "a = %s\n", a
+a += 0 # make 'a' numeric only again
+printf "a = %s\n", a # use 'a' as string
+}'
