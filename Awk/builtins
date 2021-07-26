@@ -78,3 +78,5 @@ print str;
 }'
 printf "awk '{ sub(/\|/, \"\\\\\\&\"); print }' pipes.txt\n"
 awk '{ sub(/\|/, "\\&"); print }' pipes.txt
+printf "awk '{ gsub(/Britain/, \"United Kingdom\"); print }' britains.txt\n"
+awk '{ gsub(/Britain/, "United Kingdom"); print }' britains.txt
