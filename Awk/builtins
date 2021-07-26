@@ -48,3 +48,21 @@ split("auto-da-fe", a, "-");
 for (_ in a)
   print a[_];
 }'
+printf "awk 'BEGIN { str = sprintf(\"pi = %.2f (approx.)\", 22/7);
+print str;}'\n"
+awk 'BEGIN { str = sprintf("pi = %.2f (approx.)", 22/7);
+print str;}'
+printf "awk 'BEGIN {str = \"water, water, everywhere\";
+sub(/at/, \"ith\", str);
+print str;
+}'\n"
+awk 'BEGIN {str = "water, water, everywhere";
+sub(/at/, "ith", str);
+print str;
+}'
+printf "awk 'BEGIN { 
+str = \"candidate\";
+sub(/candidate/, \"& and his wife\",str); print str }'\n"
+awk 'BEGIN { 
+str = "candidate";
+sub(/candidate/, "& and his wife",str); print str }'
