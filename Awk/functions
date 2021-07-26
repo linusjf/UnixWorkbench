@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+awk '
+function myprint(num)
+{
+printf "%6.3g\n", num
+}
+$3 > 0 { myprint($3) }' fields.txt
+awk 'function rev (str, len) {
+if (len == 0) {
+return
+}
+printf "%c", substr(str, len, 1)
+rev(str, len - 1)
+}
+BEGIN {print rev("hello", 5)}'
