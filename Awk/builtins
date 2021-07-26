@@ -66,3 +66,13 @@ sub(/candidate/, \"& and his wife\",str); print str }'\n"
 awk 'BEGIN { 
 str = "candidate";
 sub(/candidate/, "& and his wife",str); print str }'
+printf "awk 'BEGIN {
+str = \"daabaaa\"
+sub(/a+/, \"c&c\", str)
+print str
+}'\n"
+awk 'BEGIN {
+str = "daabaaa";
+sub(/a+/, "c&c", str);
+print str;
+}'
