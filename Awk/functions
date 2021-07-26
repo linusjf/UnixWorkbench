@@ -1,10 +1,24 @@
 #!/usr/bin/env bash
+printf "awk '
+function myprint(num)
+{
+printf \"%%6.3g\n\", num
+}
+\$3 > 0 { myprint(\$3) }' fields.txt\n"
 awk '
 function myprint(num)
 {
 printf "%6.3g\n", num
 }
 $3 > 0 { myprint($3) }' fields.txt
+printf "awk 'function rev (str, len) {
+if (len == 0) {
+return
+}
+printf \"%%c\", substr(str, len, 1)
+rev(str, len - 1)
+}
+BEGIN {print rev("hello", 5)}'\n"
 awk 'function rev (str, len) {
 if (len == 0) {
 return
@@ -13,3 +27,19 @@ printf "%c", substr(str, len, 1)
 rev(str, len - 1)
 }
 BEGIN {print rev("hello", 5)}'
+printf "awk 'function changeit (array, ind, nvalue) {
+array[ind] = nvalue
+}
+BEGIN {
+a[1] = 1 ; a[2] = 2 ; a[3] = 3
+changeit(a, 2, \"two\")
+printf \"a[1] = %%s, a[2] = %%s, a[3] = %%s\n\", a[1], a[2], a[3]
+}'\n"
+awk 'function changeit (array, ind, nvalue) {
+array[ind] = nvalue
+}
+BEGIN {
+a[1] = 1 ; a[2] = 2 ; a[3] = 3
+changeit(a, 2, "two")
+printf "a[1] = %s, a[2] = %s, a[3] = %s\n", a[1], a[2], a[3]
+}'
