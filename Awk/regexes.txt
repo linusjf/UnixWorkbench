@@ -1,0 +1,7 @@
+FIND fo*bar
+My program was a foobar
+But none of it would doobar
+FIND Melvin
+JF+KM
+This line is property of The Reality Engineering Co.
+This file created by Melvin.

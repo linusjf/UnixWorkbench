@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+printf "awk '# Function to roll a simulated die.
+function roll(n) { return 1 + int(rand() * n); }
+BEGIN { 
+# Roll 3 six-sided dice and print total number of points.
+  srand();
+  printf(\"%%d points\\\\n\", roll(6)+roll(6)+roll(6));
+}'\n"
+awk '
+# Function to roll a simulated die.
+function roll(n) { return 1 + int(rand() * n); }
+BEGIN { 
+# Roll 3 six-sided dice and print total number of points.
+  srand();
+  printf("%d points\n", roll(6)+roll(6)+roll(6));
+}'
+printf "awk 'BEGIN { print index(\"peanut\", \"an\") }'\n"
+awk 'BEGIN { print index("peanut", "an") }'
+printf "awk 'BEGIN { print length(\"abcde\");
+print length(50 * 30);}'\n"
+awk 'BEGIN { print length("abcde");
+print length(50 * 30);}'
+printf "awk '{
+if (\$1 == \"FIND\")
+regex = \$2
+else {
+where = match(\$0, regex)
+if (where)
+print \"Match of\", regex, \"found at\", where, \"in\", \$0
+}
+}' regexes.txt\n"
+awk '{
+if ($1 == "FIND")
+regex = $2
+else {
+where = match($0, regex)
+if (where)
+print "Match of", regex, "found at", where, "in", $0
+}
+}' regexes.txt
+printf "awk 'BEGIN {
+split(\"auto-da-fe\", a, \"-\");
+for (_ in a)
+  print a[_];
+}'\n"
+awk 'BEGIN {
+split("auto-da-fe", a, "-");
+for (_ in a)
+  print a[_];
+}'
