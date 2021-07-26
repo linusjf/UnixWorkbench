@@ -76,3 +76,5 @@ str = "daabaaa";
 sub(/a+/, "c&c", str);
 print str;
 }'
+printf "awk '{ sub(/\|/, \"\\\\\\&\"); print }' pipes.txt\n"
+awk '{ sub(/\|/, "\\&"); print }' pipes.txt
