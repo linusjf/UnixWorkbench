@@ -7,6 +7,8 @@ for (i = 1; i <= NF; i++)
 freq[$i]++
 }
 END {
+sort = "sort +1 -nr"
 for (word in freq)
-printf "%s\t%d\n", word, freq[word]
+printf "%s\t%d\n", word, freq[word] | sort
+close(sort)
 }
