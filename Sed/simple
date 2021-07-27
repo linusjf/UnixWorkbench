@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+printf "sed 's/Massachusetts/MA/' list.txt\n"
+sed 's/Massachusetts/MA/' list.txt
+printf "sed -e 's/Massachusetts/MA/' -e 's/Pennsylvania/PA/' \
+  -e 's/California/CA/' -e 's/Virginia/VA/' \
+  -e 's/Oklahoma/OK/' list.txt\n"
+sed -e 's/Massachusetts/MA/' -e 's/Pennsylvania/PA/' \
+  -e 's/California/CA/' -e 's/Virginia/VA/' \
+  -e 's/Oklahoma/OK/' list.txt
