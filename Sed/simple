@@ -17,3 +17,13 @@ sed -e 's/Massachusetts/MA/' -e 's/Pennsylvania/PA/' \
   | sed -f sedscr
 printf "sed -n 's/Massachusetts/MA/p' list.txt\n"
 sed -n 's/Massachusetts/MA/p' list.txt
+printf "awk '{ print \$1 }' list.txt\n"
+awk '{ print $1 }' list.txt
+printf "awk '/Massachusetts/' list.txt\n"
+awk '/Massachusetts/' list.txt
+printf "awk '/Massachusetts/ {print \$1 }' list.txt\n"
+awk '/Massachusetts/ {print $1 }' list.txt
+printf "awk -F, '/Massachusetts/ {print \$1 }' list.txt\n"
+awk -F, '/Massachusetts/ {print $1 }' list.txt
+printf "awk -F, '{ print \$1; print \$2; print \$3 }' list.txt\n"
+awk -F, '{ print $1; print $2; print $3 }' list.txt
