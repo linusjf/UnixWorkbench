@@ -27,3 +27,5 @@ printf "awk -F, '/Massachusetts/ {print \$1 }' list.txt\n"
 awk -F, '/Massachusetts/ {print $1 }' list.txt
 printf "awk -F, '{ print \$1; print \$2; print \$3 }' list.txt\n"
 awk -F, '{ print $1; print $2; print $3 }' list.txt
+printf "sed -f namestate list.txt | awk -F, '{ print \$4 }' | sort | uniq \n"
+sed -f namestate list.txt | awk -F, '{ print $4 }' | sort | uniq
