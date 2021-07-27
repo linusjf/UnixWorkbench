@@ -43,3 +43,35 @@ a[1] = 1 ; a[2] = 2 ; a[3] = 3
 changeit(a, 2, "two")
 printf "a[1] = %s, a[2] = %s, a[3] = %s\n", a[1], a[2], a[3]
 }'
+printf "awk '
+function maxelt (vec, i, ret) {
+for (i in vec) {
+if (ret == \"\" || vec[i] > ret)
+ret = vec[i]
+}
+return ret
+}
+# Load all fields of each record into nums.
+{
+for(i = 1; i <= NF; i++)
+nums[NR, i] = \$i
+}
+END {
+print maxelt(nums)
+}' maxnums.txt\n"
+awk '
+function maxelt (vec, i, ret) {
+for (i in vec) {
+if (ret == "" || vec[i] > ret)
+ret = vec[i]
+}
+return ret
+}
+# Load all fields of each record into nums.
+{
+for(i = 1; i <= NF; i++)
+nums[NR, i] = $i
+}
+END {
+print maxelt(nums)
+}' maxnums.txt

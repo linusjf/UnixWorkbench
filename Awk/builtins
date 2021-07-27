@@ -81,3 +81,13 @@ awk '{ sub(/\|/, "\\&"); print }' pipes.txt
 printf "awk '{ gsub(/Britain/, \"United Kingdom\"); print }' britains.txt\n"
 awk '{ gsub(/Britain/, "United Kingdom"); print }' britains.txt
 awk 'BEGIN { system("") } # flush output'
+printf "awk 'BEGIN {
+for (i = 0; i < ARGC; i++)
+printf  ARGV[i] \" \"
+print \"\"
+}' inventory.txt BBS.txt\n"
+awk 'BEGIN {
+for (i = 0; i < ARGC; i++)
+printf ARGV[i] " "
+print ""
+}' inventory.txt BBS.txt
