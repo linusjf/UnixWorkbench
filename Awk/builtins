@@ -85,9 +85,23 @@ printf "awk 'BEGIN {
 for (i = 0; i < ARGC; i++)
 printf  ARGV[i] \" \"
 print \"\"
-}' inventory.txt BBS.txt\n"
+}
+{print FILENAME}
+' inventory.txt BBS.txt\n"
 awk 'BEGIN {
 for (i = 0; i < ARGC; i++)
 printf ARGV[i] " "
 print ""
-}' inventory.txt BBS.txt
+}
+{print FILENAME}
+' inventory.txt BBS.txt
+printf "awk 'BEGIN {
+for (i in ENVIRON)
+printf i \"=\" ENVIRON[i] \" \"
+print \"\"
+}'\n"
+awk 'BEGIN {
+for (i in ENVIRON)
+printf i "=" ENVIRON[i] " "
+print ""
+}'
