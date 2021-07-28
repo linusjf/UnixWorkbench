@@ -5,3 +5,8 @@ printf "grep -e 'A.E' lines.txt\n"
 grep -e 'A.E' lines.txt
 printf "grep -e 'A.*E' lines.txt\n"
 grep -e 'A.*E' lines.txt
+printf "grep -e '\.   ' lines.txt\n"
+grep -e '\.   ' lines.txt
+printf "grep -e '80.86' lines.txt\n"
+grep -e '80.86' lines.txt
+
