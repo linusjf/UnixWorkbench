@@ -25,3 +25,12 @@ printf "grep -e '[][ a-z]' lines.txt\n"
 grep -e '[][ a-z]' lines.txt
 printf "awk '/[[\] a-z]/ { print }' lines.txt\n"
 awk '/[[\[ a-z]/ { print }' lines.txt
+printf "grep -e '[A-Z]' lines.txt\n"
+grep -e '[A-Z]' lines.txt
+printf "grep -e '[0-9]' lines.txt\n"
+grep -e '[0-9]' lines.txt
+printf "grep -e '[cC]hapter [1-9]' lines.txt\n"
+grep -e '[cC]hapter [1-9]' lines.txt
+grep -e '[0-9a-z?,.;:’"]' lines.txt
+printf "grep -e \"[0-9a-z?,.;:'\"]\" lines.txt\n"
+grep -e "[0-9a-z?,.;:'\"]" lines.txt

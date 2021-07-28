@@ -39,3 +39,6 @@ ch02:.H2 "A Quick Tour"
 b[1
 a]1
 fdsl[]
+you will find the information in chapter 9
+and chapter 12.
+Chapter 4 contains a summary at the end.
