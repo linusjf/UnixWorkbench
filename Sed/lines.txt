@@ -48,3 +48,10 @@ Chapter 4 contains a summary at the end.
 .DS "I"
 .DS "2"
 
+<dose>
+today
+</dose>
+I cannot do it
+I can not do it
+I can't do it
+I cant do it

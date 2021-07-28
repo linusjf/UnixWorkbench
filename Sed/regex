@@ -68,3 +68,7 @@ printf "grep -e '[[:upper:]]' lines.txt\n"
 grep -e '[[:upper:]]' lines.txt
 printf "grep -e '[[:xdigit:]]' lines.txt\n"
 grep -e '[[:xdigit:]]' lines.txt
+printf "grep -e '<.*>' lines.txt\n"
+grep -e '<.*>' lines.txt
+printf "grep -e \"can[ no']*t\" lines.txt\n"
+grep -e "can[ no']*t" lines.txt
