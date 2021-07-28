@@ -82,3 +82,7 @@ printf "grep -c '^[[:blank:]]*$' lines.txt\n"
 grep -c '^[[:blank:]]*$' lines.txt
 printf "grep -c '^.*$' lines.txt\n"
 grep -c '^.*$' lines.txt
+printf "./gres \"A*Z\" \"00\" lines.txt\n"
+./gres "A*Z" "00" lines.txt
+printf "./gres '\"[^\"]*\"' '00' lines.txt\n"
+./gres '"[^"]*"' '00' lines.txt

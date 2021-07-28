@@ -65,4 +65,13 @@ Here are the books that you requested
 Yes, it is a good book for children
 It is amazing to think that it was called a "harmful book" when
 once you get to the end of the book, you can’t believe
-(Note that only the second line would be matched by the fix
+All of us, including Zippy, our dog
+Some of us, including Zippy, our dog
+I heard it on radio station WVAZ 1060.
+All of us, including Zippy, our dog
+All of us, including Zippy and Ziggy
+All of us, including Zippy and Ziggy and Zelda
+All of us, including Zippy, our dog
+All of us, including Zippy and Ziggy
+All of us, including Zippy and Ziggy and Zelda
+.Se "Appendix" "Full Program Listings"
