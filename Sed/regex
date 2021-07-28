@@ -9,4 +9,13 @@ printf "grep -e '\.   ' lines.txt\n"
 grep -e '\.   ' lines.txt
 printf "grep -e '80.86' lines.txt\n"
 grep -e '80.86' lines.txt
-
+printf "grep -e 'Chapter.' lines.txt\n"
+grep -e 'Chapter.' lines.txt
+printf "grep -e '[Ww]hat' lines.txt\n"
+grep -e '[Ww]hat' lines.txt
+printf "grep -e '\.H[123]' lines.txt\n"
+grep -e '\.H[123]' lines.txt
+printf "grep -e '.[!?;:,\".] .' lines.txt\n"
+grep -e '.[!?;:,".] .' lines.txt
+printf "awk '/[a\]1]/ { print }' lines.txt\n"
+awk '/[a\]1]/ { print }' lines.txt

@@ -17,3 +17,22 @@ A LONG WAY HOME
 80386
 80486
 809867
+you will find several examples in Chapter 9.
+"Quote me ’Chapter and Verse’," she said.
+Chapter Ten
+Chapter
+What
+what
+whatever
+somewhat
+Watt
+ch01:.H1 "Contents of Distribution Tape"
+ch01:.H1 "Installing the Software"
+ch01:.H1 "Configuring the System"
+ch01:.H2 "Specifying Input Devices"
+ch01:.H3 "Using the Touch Screen"
+ch01:.H3 "Using the Mouse"
+ch01:.H2 "Specifying Printers"
+ch02:.H1 "Getting Started"
+ch02:.H2 "A Quick Tour"
+a]1
