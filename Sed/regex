@@ -44,3 +44,27 @@ printf "grep -e '[ˆaeiou]' lines.txt\n"
 grep -e '[ˆaeiou]' lines.txt
 printf "grep -e '\.DS \"[^1]\"' lines.txt\n"
 grep -e '\.DS "[^1]"' lines.txt
+printf "grep -e '[[:alnum:]]' lines.txt\n"
+grep -e '[[:alnum:]]' lines.txt
+printf "grep -e '[[:alpha:]]' lines.txt\n"
+grep -e '[[:alpha:]]' lines.txt
+printf "grep -e '[[:blank:]]' lines.txt\n"
+grep -e '[[:blank:]]' lines.txt
+printf "grep -e '[[:cntrl:]]' lines.txt | cat -A\n"
+grep -e '[[:cntrl:]]' lines.txt | cat -A
+printf "grep -e '[[:digit:]]' lines.txt\n"
+grep -e '[[:digit:]]' lines.txt
+printf "grep -e '[[:graph:]]' lines.txt\n"
+grep -e '[[:graph:]]' lines.txt
+printf "grep -e '[[:lower:]]' lines.txt\n"
+grep -e '[[:lower:]]' lines.txt
+printf "grep -e '[[:print:]]' lines.txt\n"
+grep -e '[[:print:]]' lines.txt
+printf "grep -e '[[:punct:]]' lines.txt\n"
+grep -e '[[:punct:]]' lines.txt
+printf "grep -e '[[:space:]]' lines.txt\n"
+grep -e '[[:space:]]' lines.txt
+printf "grep -e '[[:upper:]]' lines.txt\n"
+grep -e '[[:upper:]]' lines.txt
+printf "grep -e '[[:xdigit:]]' lines.txt\n"
+grep -e '[[:xdigit:]]' lines.txt
