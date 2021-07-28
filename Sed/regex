@@ -19,3 +19,5 @@ printf "grep -e '.[!?;:,\".] .' lines.txt\n"
 grep -e '.[!?;:,".] .' lines.txt
 printf "awk '/[a\]1]/ { print }' lines.txt\n"
 awk '/[a\]1]/ { print }' lines.txt
+printf "grep -e '[]a1]' lines.txt\n"
+grep -e '[]a1]' lines.txt
