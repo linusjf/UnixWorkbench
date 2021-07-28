@@ -14,6 +14,7 @@ AFFABLE
 A LONG WAY HOME
 .   hello
 hello
+8086 
 80286 
 80386
 80486

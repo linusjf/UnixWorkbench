@@ -72,3 +72,5 @@ printf "grep -e '<.*>' lines.txt\n"
 grep -e '<.*>' lines.txt
 printf "grep -e \"can[ no']*t\" lines.txt\n"
 grep -e "can[ no']*t" lines.txt
+printf "grep -E '80[234]?86' lines.txt\n"
+grep -E '80[2-4]?86' lines.txt
