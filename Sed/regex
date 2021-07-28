@@ -74,3 +74,11 @@ printf "grep -e \"can[ no']*t\" lines.txt\n"
 grep -e "can[ no']*t" lines.txt
 printf "egrep '80[234]?86' lines.txt\n"
 egrep '80[2-4]?86' lines.txt
+printf "egrep ' book.? ' lines.txt\n"
+egrep ' book.? ' lines.txt
+printf "grep -c '^$' lines.txt\n"
+grep -c '^$' lines.txt
+printf "grep -c '^[[:blank:]]*$' lines.txt\n"
+grep -c '^[[:blank:]]*$' lines.txt
+printf "grep -c '^.*$' lines.txt\n"
+grep -c '^.*$' lines.txt
