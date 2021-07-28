@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+printf "grep -e '^  *.*' lines.txt\n"
+grep -e '^  *.*' lines.txt
+printf "grep -e 'A.E' lines.txt\n"
+grep -e 'A.E' lines.txt
+printf "grep -e 'A.*E' lines.txt\n"
+grep -e 'A.*E' lines.txt
