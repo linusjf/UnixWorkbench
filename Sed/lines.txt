@@ -13,6 +13,7 @@ A FINE
 AFFABLE
 A LONG WAY HOME
 .   hello
+hello
 80286 
 80386
 80486
@@ -35,4 +36,6 @@ ch01:.H3 "Using the Mouse"
 ch01:.H2 "Specifying Printers"
 ch02:.H1 "Getting Started"
 ch02:.H2 "A Quick Tour"
+b[1
 a]1
+fdsl[]
