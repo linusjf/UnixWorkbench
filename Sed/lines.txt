@@ -75,3 +75,7 @@ All of us, including Zippy, our dog
 All of us, including Zippy and Ziggy
 All of us, including Zippy and Ziggy and Zelda
 .Se "Appendix" "Full Program Listings"
+1........5
+5........10
+10.......20
+100......200

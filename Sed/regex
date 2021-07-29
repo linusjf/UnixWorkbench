@@ -86,3 +86,5 @@ printf "./gres \"A*Z\" \"00\" lines.txt\n"
 ./gres "A*Z" "00" lines.txt
 printf "./gres '\"[^\"]*\"' '00' lines.txt\n"
 ./gres '"[^"]*"' '00' lines.txt
+printf "sed 's/\([0-9][0-9]*\)\.\{5,\}\([0-9][0-9]*\)/\1-\2/' lines.txt\n"
+sed 's/\([0-9][0-9]*\)\.\{5,\}\([0-9][0-9]*\)/\1-\2/' lines.txt
