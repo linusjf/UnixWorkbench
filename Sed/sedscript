@@ -5,3 +5,40 @@ printf "sed -f pomescript2 pome.txt\n"
 sed -f pomescript2 pome.txt
 printf "sed -f unixscript unix.txt\n"
 sed -f unixscript unix.txt
+printf "sed /Cerritos/s/CA/California/g addresses.txt\n"
+sed /Cerritos/s/CA/California/g addresses.txt
+printf "sed s/CA/California/g addresses.txt\n"
+sed s/CA/California/g addresses.txt
+printf "sed d addresses.txt\n"
+sed d addresses.txt
+printf "sed 1d addresses.txt\n"
+sed 1d addresses.txt
+printf "sed '\$d' addresses.txt\n"
+sed '$d' addresses.txt
+printf "sed '/^\$/d' addresses.txt\n"
+sed '/^$/d' addresses.txt
+printf "sed '/^739/,/90703\$/d' addresses.txt\n"
+sed '/^739/,/90703$/d' addresses.txt
+printf "sed '3,\$d' addresses.txt\n"
+sed '3,$d' addresses.txt
+printf "sed '1,/^$/d' addresses.txt\n"
+sed '1,/^$/d' addresses.txt
+printf "sed '/^739/,/90703\$/!d' addresses.txt\n"
+sed '/^739/,/90703$/!d' addresses.txt
+printf "sed '/^739/,/90703\$/{
+/^$/d
+}' addresses.txt\n"
+sed '/^739/,/90703$/{
+/^$/d
+s/^Chula/Hasta/
+}' addresses.txt
+printf "sed '/^739/,/90703\$/{
+/^$/d
+s/^Chula/Hasta/
+s/91911$/92456/
+}' addresses.txt\n"
+sed '/^739/,/90703$/{
+/^$/d
+s/^Chula/Hasta/
+s/91911/92456/
+}' addresses.txt
