@@ -1,2 +1,7 @@
 #!/usr/bin/env bash
+printf "sed -f pomescript pome.txt\n"
 sed -f pomescript pome.txt
+printf "sed -f pomescript2 pome.txt\n"
+sed -f pomescript2 pome.txt
+printf "sed -f unixscript unix.txt\n"
+sed -f unixscript unix.txt
