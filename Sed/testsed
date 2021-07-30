@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-if [ "$#" = 0 ]
+if [ "$#" -eq 0 ]
 then
   printf "usage: $0 {sed script} data1 data2 data3 ...\n"
   exit 127

@@ -1,26 +1,39 @@
 #!/usr/bin/env bash
+if [ "$#" -eq 0 ]
+then
+  printf "$0 [sedscript] data1 data2 .... datan"
+  exit 127
+fi
+sedscr="$1"
+if [ ! -f "$sedscr" ] 
+then
+  printf "$sedscr is not a file!"
+  exit 1
+fi
+shift
+mkdir -p tmp
 for x
 do
   echo "editing $x: \c"
-  if test "$x" = sedscr; then
-    echo "not editing sedscript!"
+  if test "$x" = "$sedscr"; then
+    echo "not editing sedscript $sedscr!"
   elif test -s "$x"; then
-    sed -f sedscr "$x" > /tmp/"$x"$$
-    if test -s /tmp/"$x"$$
+    sed -f "$sedscr" "$x" > tmp/"$x"$$
+    if test -s tmp/"$x"$$
     then
-      if cmp -s "$x" /tmp/"$x"$$
+      if cmp -s "$x" tmp/"$x"$$
       then
         echo "file not changed: \c"
       else
         mv "$x" "$x".bak # save original, just in case
-        cp /tmp/"$x"$$ "$x"
+        cp tmp/"$x"$$ "$x"
       fi
       echo "done"
     else
       echo "Sed produced an empty file\c"
       echo " - check your sedscript."
     fi
-    rm -f /tmp/"$x"$$
+    rm -f tmp/"$x"$$
   else
     echo "original file is empty."
   fi
