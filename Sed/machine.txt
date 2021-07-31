@@ -1,0 +1,24 @@
+ON switch
+ON button
+STANDBY switch
+STANDBY button
+STANDBY
+cabinet light
+Cabinet light
+cabinet Light
+Cabinet Light
+core system diskettes
+TERM=5420 TERM=5425
+Teletype 5420
+Teletype 5425
+5420 terminal
+5425 terminal
+Documentation Road Map
+Owner/Operator Guide
+AT&T 3B20 computer
+AT&T 3B20 Computer
+AT&T 3B2 computer
+AT&T 3B2 Computer
+3B2 computer
+3B2 Computer
+3B2

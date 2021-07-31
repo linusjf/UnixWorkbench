@@ -1,0 +1,11 @@
+s/ON/START/g
+s/button/switch/g
+s/STANDBY/STOP/g
+s/[cC]abinet [Ll]ight/control panel light/g
+s/core system diskettes/core system tape/g
+s/542[05]/PT200/g
+s/Teletype/BigOne/g
+s/Documentation Road Map/Documentation Directory/g
+s/Owner\/Operator Guide/Installation and Operation Guide/g
+s/(AT&T 3B2)0? [cC]omputer/BigOne XL Computer/g
+s/3B2( [cC]omputer)?/BigOne XL Computer/g
