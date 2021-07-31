@@ -1,0 +1,9 @@
+.Se 13 Let the Computer Do the Dirty Work
+.Ah Shell Programming
+.Bh Stored Commands
+.Bh Passing Arguments to Shell Scripts
+.Bh Conditional Execution
+.Bh Discarding Used Arguments
+.Bh Repetitive Execution
+.Bh Setting Default Values
+.Bh What We’ve Accomplished
