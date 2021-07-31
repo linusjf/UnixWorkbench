@@ -1,1 +1,7 @@
 Column1	Column2	Column3	Column4
+.Ah "Major Heading"
+ORA
+on the UNIX Operating System.
+See Section 78.2
+second:first
+two:one

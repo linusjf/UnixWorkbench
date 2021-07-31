@@ -1,3 +1,15 @@
 s/	/>/2
 s/	/\
 /2
+/^\.Ah/{
+s/\.Ah */\
+\
+@A HEAD = /
+s/"//g
+s/$/\
+/
+}
+s/ORA/O'Reilly \& Associates, Inc./g
+s/UNIX/\\s-2&\\s0/g
+s/See Section [1-9][0-9]*\.[1-9][0-9]*/(&)/
+s/\(.*\):\(.*\)/\2:\1/
