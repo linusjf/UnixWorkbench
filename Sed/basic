@@ -13,3 +13,12 @@ s/ORA/O'Reilly \& Associates, Inc./g
 s/UNIX/\\s-2&\\s0/g
 s/See Section [1-9][0-9]*\.[1-9][0-9]*/(&)/
 s/\(.*\):\(.*\)/\2:\1/
+/<Larry's Address>/i\
+4700 Cross Court\
+French Lick, IN
+/<Jane's Address>/a\
+4702 Cross Court\
+English Toast, MN
+/<Plato's Place>/c\
+Apollo Towers\
+Athens, Greece

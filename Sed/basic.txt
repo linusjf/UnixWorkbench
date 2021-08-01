@@ -5,3 +5,6 @@ on the UNIX Operating System.
 See Section 78.2
 second:first
 two:one
+<Larry's Address>
+<Jane's Address>
+<Plato's Place>
