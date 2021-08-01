@@ -1,0 +1,5 @@
+/^From: /,/^$/{
+s/^From: //p
+c\
+<Mail Header Removed>
+}
