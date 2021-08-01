@@ -8,3 +8,15 @@ two:one
 <Larry's Address>
 <Jane's Address>
 <Plato's Place>
+Here is a string of special characters    
+The Great  is a movie starring Steve McQueen.
+if( rand_type == TYPE_0 ) {
+if( rand_type == TYPE_0 ) state[ -1 ] = rand_type;
+if( n < BREAK_1 ) {
+if( n < BREAK_3 ) {
+if( rand_type == TYPE_0 ) state[ -1 ] = rand_type;
+if( rand_type == TYPE_0 ) state[ -1 ] = rand_type;
+.H1 "On Egypt"
+
+Napoleon, pointing to the Pyramids, said to his troops:
+"Soldiers, forty centuries have their eyes upon you."
