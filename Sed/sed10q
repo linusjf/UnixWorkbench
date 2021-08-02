@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+for file
+do
+  sed 10q $file
+done

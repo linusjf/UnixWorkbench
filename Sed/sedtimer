@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+time ./sed10q $* &> /dev/null
+time ./sed10p $* &> /dev/null
+
