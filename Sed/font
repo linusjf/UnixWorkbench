@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+sed -f sed.len test.font
+printf "\n------------------\n"
+sed -f sed.len2 test.font
+printf "\n------------------\n"
+sed -f sed.len3 test.font
+printf "\n------------------\n"
+sed -f sed.new test.font
+printf "\n------------------\n"
+sed -f sed.fin test.font
