@@ -1,0 +1,10 @@
+s/Unix/UNIX/
+s/UNIX System/UNIX Operating System/
+/UNIX$/{
+  N
+  /\nSystem/{
+    s// Operating &/
+    P
+    D
+  }
+}
