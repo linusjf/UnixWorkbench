@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+printf '%s\n' a1 a2 a3 | sed -E '/1/bx ; s/a/z/ ; :x ; y/123/456/'
+printf '%s\n' a1 a2 a3 | sed -E '/1/!s/a/z/ ; y/123/456/'
+seq 3 | sed b
+seq 3 | sed ':x ; n ; bx'
+seq 3 | sed ':x ; N ; bx'
+printf '%s\n' aa bb cc dd | sed ':x ; n ; = ; bx'
+printf '%s\n' aa bb cc dd | sed ':x ; N ; = ; bx'
+printf '%s\n' aa bb cc dd | sed ':x ; n; s/\n/***/; bx'
+printf '%s\n' aa bb cc dd | sed ':x ; N ; s/\n/***/ ; bx'
