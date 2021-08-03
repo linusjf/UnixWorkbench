@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+grep -E '\b(\w+)\s+\1\b' doubled.txt
+printf "\n------------------\n"
+grep -n -E '\b(\w+)\s+\1\b' doubled.txt
+printf "\n------------------\n"
+sed -En '/\b(\w+)\s+\1\b/p' doubled.txt
+printf "\n------------------\n"
+sed -En '/\b(\w+)\s+\1\b/{=;p}' doubled.txt
+printf "\n------------------\n"
+sed -En '{N; /\b(\w+)\s+\1\b/{=;p} ; D}' doubled.txt
