@@ -8,3 +8,5 @@ printf '%s\n' aa bb cc dd | sed ':x ; n ; = ; bx'
 printf '%s\n' aa bb cc dd | sed ':x ; N ; = ; bx'
 printf '%s\n' aa bb cc dd | sed ':x ; n; s/\n/***/; bx'
 printf '%s\n' aa bb cc dd | sed ':x ; N ; s/\n/***/ ; bx'
+sed ':x ; /=$/ { N ; s/=\n//g ; bx }' jaques.txt
+sed ':x ; $!N ; s/=\n// ; tx ; P ; D' jaques.txt
