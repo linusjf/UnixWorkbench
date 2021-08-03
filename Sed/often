@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+seq 6 | sed 'n;n;s/./x/'
+printf "\n-------------------\n"
+seq 6 | sed '0~3s/./x/'
+printf "\n-------------------\n"
+seq 3 | sed -n '2{s/2/X/ ; p}'
+printf "\n-------------------\n"
+echo hello world | sed 'y/abcdefghij/0123456789/'
+printf "\n-------------------\n"
+seq 3 | sed '2a hello'
+printf "\n-------------------\n"
+seq 3 | sed '2a\
+hello'
+printf "\n-------------------\n"
+seq 3 | sed '2a\
+hello\
+world
+3s/./X/'
+printf "\n-------------------\n"
+seq 3 | sed -e '2a\' -e hello
+printf "\n-------------------\n"
+printf '%s\n' aaa bbb ccc | sed =
+printf "\n-------------------\n"
+seq 3 | sed -e '2c\' -e hello
+printf "\n-------------------\n"
+seq 3 | sed '2c\
+hello
+s/./X/'
+seq 5 | sed '2,4c\
+hello\
+world'
+seq 10 | sed '2,9c hello'
