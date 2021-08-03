@@ -1,0 +1,12 @@
+"Mellow"
+"What is today? Not tomorrow."
+.ES
+"Heklo"
+"talent"
+"naje"
+"njiy"
+.EE
+"Tallowellow"
+"What is tomorrow? Not today."
+
+
