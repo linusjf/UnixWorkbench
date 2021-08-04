@@ -25,3 +25,16 @@ printf "\n---------------\n"
 echo "abaaaababbbbbaaaaaabbbbbbb" \
   | sed 's/a\+b/\
 &/g' | sed '1d'
+echo "abaaaababbbbbaaaaaabbbbbbb" \
+  | sed -n 's/.*/&/p'
+echo  \
+  | sed -n 's/.*/&/p'
+echo "main(int argc, char* argv)" \
+  | sed -n 's/^main.*(.*)/&/p'
+echo "#main(int argc, char* argv)" \
+  | sed -n 's/^#/&/p'
+echo "https://google.com/index/" \
+  | sed -n 's/\/$/&/p'
+echo "https://google.com/index/" \
+  | sed 's/[a-zA-Z0-9]/\
+&/g' | sed '1d'
