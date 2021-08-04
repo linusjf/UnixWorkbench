@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+sed -n '/hello/p' hello.txt
+printf "%s\n" abode bad bed bit bid byte body | sed -n '/^b.d/p'
+printf "\n---------------\n"
+echo 'a+b=c' > foo
+sed -n '/a+b/p' foo
+printf "\n---------------\n"
+echo 'a+b=c' > foo
+sed -E -n '/a\+b/p' foo
+printf "\n---------------\n"
+echo aab > foo
+sed -n '/a\+b/p' foo
+printf "\n---------------\n"
+echo aab > foo
+sed -E -n '/a+b/p' foo
+printf "\n---------------\n"
+echo "abcdef abcdef" | sed 's/abcdef/\U&/g'
+printf "\n---------------\n"
+echo "bab" | sed 's/a*b/\
+&/g' | sed '1d'
+printf "\n---------------\n"
+echo "bab" | sed 's/a\?b/\
+&/g' | sed '1d'
+printf "\n---------------\n"
+echo "abaaaababbbbbaaaaaabbbbbbb" \
+  | sed 's/a\+b/\
+&/g' | sed '1d'
