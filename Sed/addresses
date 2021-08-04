@@ -23,3 +23,9 @@ printf "\n------------------\n"
 sed -n '\%^/home/alice/documents/%p' alice.txt
 printf "\n------------------\n"
 sed -n '\;^/home/alice/documents/;p' alice.txt
+printf "\n------------------\n"
+printf "%s\n" a b c | sed '/b/Id'
+printf "\n------------------\n"
+printf "%s\n" a b c | sed '/b/id'
+printf "\n------------------\n"
+seq 9 | sed -n 's/[2468]/X/ ; /[0-9]/p'
