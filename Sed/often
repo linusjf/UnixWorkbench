@@ -57,3 +57,16 @@ printf "\n-------------------\n"
 seq 2 | sed '1a\
 Hello
 2d'
+printf "\n-------------------\n"
+seq 2 | sed '1w hello.txt ; 2d'
+ls -log *hello*
+cat 'hello.txt ; 2d'
+rm -f 'hello.txt ; 2d'
+echo x | sed '1rhello.txt ; N'
+printf "\n-------------------\n"
+echo a | sed '1e touch foo#bar'
+ls -1 foo#*
+echo a | sed '1e touch foo ; s/a/b/'
+printf "\n-------------------\n"
+echo a | sed 's/a/b/w1.txt#foo'
+ls -1 1.txt#*

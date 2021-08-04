@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+sed '10s/hello/world/' hello.txt > output.txt
+cat output.txt
+printf "\n------------------\n"
+sed '/apple/s/hello/world/' hello.txt > output.txt
+cat output.txt
+printf "\n------------------\n"
+sed '4,17s/hello/world/' hello.txt > output.txt
+cat output.txt
+printf "\n------------------\n"
+sed '/apple/!s/hello/world/' hello.txt > output.txt
+cat output.txt
+printf "\n------------------\n"
+sed '4,17!s/hello/world/' hello.txt > output.txt
+cat output.txt
+printf "\n------------------\n"
+seq 10 | sed -n '0~4p'
+printf "\n------------------\n"
+seq 10 | sed -n '1~3p'
+printf "\n------------------\n"
+sed -n '/^\/home\/alice\/documents\//p' alice.txt
+printf "\n------------------\n"
+sed -n '\%^/home/alice/documents/%p' alice.txt
+printf "\n------------------\n"
+sed -n '\;^/home/alice/documents/;p' alice.txt
