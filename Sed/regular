@@ -25,16 +25,29 @@ printf "\n---------------\n"
 echo "abaaaababbbbbaaaaaabbbbbbb" \
   | sed 's/a\+b/\
 &/g' | sed '1d'
+printf "\n---------------\n"
 echo "abaaaababbbbbaaaaaabbbbbbb" \
   | sed -n 's/.*/&/p'
+printf "\n---------------\n"
 echo  \
   | sed -n 's/.*/&/p'
+printf "\n---------------\n"
 echo "main(int argc, char* argv)" \
   | sed -n 's/^main.*(.*)/&/p'
+printf "\n---------------\n"
 echo "#main(int argc, char* argv)" \
   | sed -n 's/^#/&/p'
+printf "\n---------------\n"
 echo "https://google.com/index/" \
   | sed -n 's/\/$/&/p'
+printf "\n---------------\n"
 echo "https://google.com/index/" \
   | sed 's/[a-zA-Z0-9]/\
 &/g' | sed '1d'
+printf "\n---------------\n"
+echo "https://google.com/index/" \
+  | sed -n 's/[^\  ]/&/p'
+printf "\n---------------\n"
+echo "Words are words" \
+  | sed -n 's/[^\  ]\+/\
+&/gp' | sed '1d'
