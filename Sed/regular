@@ -51,3 +51,6 @@ printf "\n---------------\n"
 echo "Words are words" \
   | sed -n 's/[^\  ]\+/\
 &/gp' | sed '1d'
+printf "\n---------------\n"
+printf "New\nNew\n" \
+  | sed -n 'N;s,^\(.*\)\n\1$,&,pg'
