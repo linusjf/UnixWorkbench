@@ -29,3 +29,18 @@ printf "\n------------------\n"
 printf "%s\n" a b c | sed '/b/id'
 printf "\n------------------\n"
 seq 9 | sed -n 's/[2468]/X/ ; /[0-9]/p'
+printf "\n------------------\n"
+seq 10 | sed -n '4,6p'
+printf "\n------------------\n"
+seq 10 | sed -n '4,/[0-9]/p'
+printf "\n------------------\n"
+seq 10 | sed -n '4,1p'
+printf "\n------------------\n"
+seq 10 | sed -n '1,/[0-9]/p'
+printf "\n------------------\n"
+seq 10 | sed -n '0,/[0-9]/p'
+printf "\n------------------\n"
+seq 10 | sed -n '6,+2p'
+printf "\n------------------\n"
+seq 10 | sed -n '6,~4p'
+
