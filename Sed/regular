@@ -54,3 +54,9 @@ echo "Words are words" \
 printf "\n---------------\n"
 printf "New\nNew\n" \
   | sed -n 'N;s,^\(.*\)\n\1$,&,pg'
+printf "\n---------------\n"
+echo "123456789A" | \
+  sed 's/.\{9\}A$/&/'
+printf "\n---------------\n"
+echo "123456789ABCDEA" | \
+  sed 's/.\{15\}A$/&/'
