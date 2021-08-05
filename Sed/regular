@@ -91,3 +91,20 @@ echo "123456789ABCDEA" | \
 printf "\n---------------\n"
 echo "123456789ABCDEA" | \
   sed -E 's/.{15}A$/&/'
+printf "\n---------------\n"
+printf "grey gray\n" | \
+  sed 's/gr[ae]y/blue/g'
+printf "\n---------------\n"
+echo 1 | sed 's/[[:digit:]]/X/'
+printf "\n---------------\n"
+echo a | sed 's/[[:alpha:]]/X/'
+printf "\n---------------\n"
+echo a1 | sed 's/[[:alnum:]]/X/g'
+printf "\n---------------\n"
+echo "  " | sed 's/[[:blank:]]/X/g'
+printf "\n---------------\n"
+echo "" | sed 's/[[:cntrl:]]/X/g'
+printf "\n---------------\n"
+echo "'\"" | sed 's/[[:punct:]]/X/g'
+printf "\n---------------\n"
+echo AbCdeFgHiJkLmN | sed 's/[[:lower:]]/X/g'
