@@ -184,3 +184,6 @@ LC_ALL=C sed '3s/\o316\o316//' invalid.txt > fixed.txt
 printf "\n---------------\n"
 #printf 'ABC\u03a3\n'
 #printf 'ABC\u03a3\n' | sed 's/.\+/\L&/'
+echo A | sed 's/[a-z]/-/'
+printf "\n---------------\n"
+printf 'clichÃ©\n' | LC_ALL=fr_FR.utf8 sed 's/[[=e=]]/X/g'
