@@ -108,3 +108,14 @@ printf "\n---------------\n"
 echo "'\"" | sed 's/[[:punct:]]/X/g'
 printf "\n---------------\n"
 echo AbCdeFgHiJkLmN | sed 's/[[:lower:]]/X/g'
+printf "\n---------------\n"
+printf "\" # $ %% \& ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ \` { | } ~\n" \
+  | sed 's/[[:graph:]]/X/g'
+printf "\n---------------\n"
+printf "\" # $ %% \& ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ \` { | } ~\n" \
+  | sed 's/[[:print:]]/X/g'
+printf "\n---------------\n"
+printf "0 1 2 3 4 5 6 7 8 9 A B C D E F a b c d e f\n" |
+  sed 's/[[:xdigit:]]/X/g'
+printf "\n---------------\n"
+echo AbCdeFgHiJkLmN | sed 's/[[:upper:]]/X/g'
