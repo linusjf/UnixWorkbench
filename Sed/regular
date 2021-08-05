@@ -141,3 +141,5 @@ printf "\n---------------\n"
 printf "a\nb\nc\n" | sed 'N;N;s/\`/X/gm'
 printf "\n---------------\n"
 printf "a\nb\nc\n" | sed "N;N;s/\'/X/gm"
+printf "\n---------------\n"
+sed -E -n '/^(.)[aeiou]\1$/p' words.txt
