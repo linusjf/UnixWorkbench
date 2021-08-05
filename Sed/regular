@@ -165,3 +165,22 @@ printf "\n---------------\n"
 printf 'a\u03A3b' | od -tx1 -An
 printf "\n---------------\n"
 printf 'a\u03A3b\n' | LC_ALL=C sed 's/./X/g'
+printf "\n---------------\n"
+printf 'a\xCEb\n' | sed 's/./X/g'
+printf "\n---------------\n"
+printf 'a\xCEc\n' | sed 's/./X/g' | od -tx1c -An
+printf "\n---------------\n"
+printf 'a\xCEc\n' | sed 's/.*//' | od -tx1c -An
+printf "\n---------------\n"
+printf 'a\xCEc\n' | sed 'z' | od -tx1c -An
+printf "\n---------------\n"
+printf 'ab\nc\n\xCE\xCEde\n\xCE\xA3f\n' > invalid.txt
+cat invalid.txt
+sed -n 's/.//g ; H ; ${x;s/\n//g;l}' invalid.txt
+printf "\n---------------\n"
+sed -n 's/.//g;=;l' invalid.txt | paste - -  | awk '$2!="$"'
+printf "\n---------------\n"
+LC_ALL=C sed '3s/\o316\o316//' invalid.txt > fixed.txt
+printf "\n---------------\n"
+#printf 'ABC\u03a3\n'
+#printf 'ABC\u03a3\n' | sed 's/.\+/\L&/'
