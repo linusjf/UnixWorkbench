@@ -159,3 +159,9 @@ printf "\n---------------\n"
 echo 'a^c' | sed 's/\^/b/'
 printf "\n---------------\n"
 echo 'a^c' | sed 's/\\\x5e/b/'
+printf "\n---------------\n"
+printf 'a\u03A3b' | sed 's/./X/g'
+printf "\n---------------\n"
+printf 'a\u03A3b' | od -tx1 -An
+printf "\n---------------\n"
+printf 'a\u03A3b\n' | LC_ALL=C sed 's/./X/g'
