@@ -19,12 +19,24 @@ printf "\n---------------\n"
 echo "bab" | sed 's/a*b/\
 &/g' | sed '1d'
 printf "\n---------------\n"
+echo "bab" | \
+  sed -E 's/a*b/\n&/g' | \
+  sed '1d'
+printf "\n---------------\n"
 echo "bab" | sed 's/a\?b/\
 &/g' | sed '1d'
+printf "\n---------------\n"
+echo "bab" | \
+  sed -E 's/a?b/\n&/g' | \
+  sed '1d'
 printf "\n---------------\n"
 echo "abaaaababbbbbaaaaaabbbbbbb" \
   | sed 's/a\+b/\
 &/g' | sed '1d'
+printf "\n---------------\n"
+echo "abaaaababbbbbaaaaaabbbbbbb" \
+  | sed -E 's/a+b/\n&/g' \
+  | sed '1d'
 printf "\n---------------\n"
 echo "abaaaababbbbbaaaaaabbbbbbb" \
   | sed -n 's/.*/&/p'
@@ -42,21 +54,40 @@ echo "https://google.com/index/" \
   | sed -n 's/\/$/&/p'
 printf "\n---------------\n"
 echo "https://google.com/index/" \
+  | sed -n 's/\/$/&/p'
+printf "\n---------------\n"
+echo "https://google.com/index/" \
   | sed 's/[a-zA-Z0-9]/\
 &/g' | sed '1d'
 printf "\n---------------\n"
 echo "https://google.com/index/" \
   | sed -n 's/[^\  ]/&/p'
 printf "\n---------------\n"
+echo "https://google.com/index/" \
+  | sed -n 's/[^  ]/&/p'
+printf "\n---------------\n"
 echo "Words are words" \
   | sed -n 's/[^\  ]\+/\
 &/gp' | sed '1d'
 printf "\n---------------\n"
+echo "Words are words" \
+  | sed -n -E 's/[^  ]+/\n&/gp' \
+  | sed '1d'
+printf "\n---------------\n"
 printf "New\nNew\n" \
   | sed -n 'N;s,^\(.*\)\n\1$,&,pg'
+printf "\n---------------\n"
+printf "New\nNew\n" \
+  | sed -n -E 'N;s,^(.*)\n\1$,&,pg'
 printf "\n---------------\n"
 echo "123456789A" | \
   sed 's/.\{9\}A$/&/'
 printf "\n---------------\n"
+echo "123456789A" | \
+  sed -E 's/.{9}A$/&/'
+printf "\n---------------\n"
 echo "123456789ABCDEA" | \
   sed 's/.\{15\}A$/&/'
+printf "\n---------------\n"
+echo "123456789ABCDEA" | \
+  sed -E 's/.{15}A$/&/'
