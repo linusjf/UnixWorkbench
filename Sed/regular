@@ -147,3 +147,15 @@ printf "\n---------------\n"
 sed -E -n '/^(.)(.)(.)\3\2\1$/p' words.txt
 printf "\n---------------\n"
 echo "James Bond" | sed -E 's/(.*) (.*)/The name is \2, \1 \2./'
+printf "\n---------------\n"
+echo 'a^c' | sed 's/^/b/'
+printf "\n---------------\n"
+echo 'a^c' | sed 's/\x5e/b/'
+printf "\n---------------\n"
+echo abc | sed 's/[a]/x/'
+printf "\n---------------\n"
+echo abc | sed 's/\x5ba\x5d/x/'
+printf "\n---------------\n"
+echo 'a^c' | sed 's/\^/b/'
+printf "\n---------------\n"
+echo 'a^c' | sed 's/\\\x5e/b/'
