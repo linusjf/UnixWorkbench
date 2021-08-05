@@ -119,3 +119,24 @@ printf "0 1 2 3 4 5 6 7 8 9 A B C D E F a b c d e f\n" |
   sed 's/[[:xdigit:]]/X/g'
 printf "\n---------------\n"
 echo AbCdeFgHiJkLmN | sed 's/[[:upper:]]/X/g'
+printf "\n---------------\n"
+echo "abc %-= def." | sed 's/\w/X/g'
+printf "\n---------------\n"
+echo "abc %-= def." | sed 's/\W/X/g'
+printf "\n---------------\n"
+echo "abc %-= def." | sed 's/\b/X/g'
+printf "\n---------------\n"
+echo "abc %-= def." | sed 's/\B/X/g'
+printf "\n---------------\n"
+echo "abc %-= def." | sed 's/\s/X/g'
+printf "\n---------------\n"
+echo "abc %-= def." | sed 's/\S/X/g'
+printf "\n---------------\n"
+echo "abc %-= def." | sed 's/\</X/g'
+printf "\n---------------\n"
+echo "abc %-= def." | sed 's/\>/X/g'
+printf "\n---------------\n"
+printf "a\nb\nc\n" | sed 'N;N;s/^/X/gm'
+printf "\n---------------\n"
+printf "a\nb\nc\n" | sed 'N;N;s/\`/X/gm'
+printf "\n---------------\n"
