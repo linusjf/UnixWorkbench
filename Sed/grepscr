@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+grep "boo" grepstuff.txt
+printf "\n-------------------\n"
+grep -n "boo" grepstuff.txt
+printf "\n-------------------\n"
+grep -vn "boo" grepstuff.txt
+printf "\n-------------------\n"
+grep -c "boo" grepstuff.txt
+printf "\n-------------------\n"
+grep -l "boo" *.txt
+printf "\n-------------------\n"
+grep -in "BOO" *.txt
+printf "\n-------------------\n"
+grep -x "boo" *.txt
+printf "\n-------------------\n"
+grep -A2 "mach" *.txt
