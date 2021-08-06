@@ -21,4 +21,4 @@ s/^(.{41}).*$/\1/
 
 # \2 matches half of the spaces, which are moved to the beginning
 #s/^(.*)\n(.*)\2/\2\1/
-s/^(.*)\n(.*)\2/\2\1/
+s/^(.+)\n(.+)\2/\2\1/
