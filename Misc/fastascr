@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+grep -e '>' example.fa \
+  | wc -l > 1_num_seqs.txt
+grep -v '>' example.fa \
+  | cut -c2-8 | sort -u > 2_unique_seeds.txt
