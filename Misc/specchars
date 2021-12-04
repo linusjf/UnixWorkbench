@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+variable=abc
+case "$variable" in
+  abc)  echo "\$variable = abc" ;;
+  xyz)  echo "\$variable = xyz" ;;
+esac
+
+var=xyz
+case "$var" in
+  abc)  echo "\$var = abc" ;;&
+  xyz)  echo "\$var = xyz" ;&
+esac
+
+# comma operator
+# Set "a = 9" and "t2 = 15 / 3"
+let "t2 = ((a = 9, 15 / 3))"
+echo $a
+echo $t2
+
+for file in {$PREFIX/,$PREFIX/usr/}bin/*calc
+#             ^    Find all executable files ending in "calc"
+#+                 in $PREFIX/bin and $PREFIX/usr/bin directories.
+do
+  if [ -x "$file" ]
+  then
+    echo $file
+  fi
+done
