@@ -27,3 +27,70 @@ do
     echo $file
   fi
 done
+
+var=veryMixedUpVariable
+# veryMixedUpVariable
+echo ${var}            
+#         *              First char --> uppercase.
+# VeryMixedUpVariable
+echo ${var^}           
+#         **             All chars  --> uppercase.
+# VERYMIXEDUPVARIABLE
+echo ${var^^}          
+#         *              First char --> lowercase.
+# veryMixedUpVariable
+echo ${var,}           
+# verymixedupvariable
+#         **             All chars  --> lowercase.
+echo ${var,,} 
+
+# command is itself a Bash builtin, and its exit status is true (0).
+
+:
+echo $?   # 0
+
+# Endless loop:
+
+while :
+do
+  sleep 1
+  break
+done
+
+# Same as:
+#    while true
+#    do
+#      :
+#    done
+# Placeholder in if/then test:
+
+if :
+then :   
+  # Do nothing and branch ahead
+  echo true
+else     
+  # Or else ...
+  # take-some-action
+  :
+fi
+
+: ${username=`whoami`}
+# ${username=`whoami`}   Gives an error without the leading :
+#                        unless "username" is a command or builtin...
+
+# From "usage-message.sh example script.
+: ${1?"Usage: $0 ARGUMENT"}   
+
+: ${HOSTNAME?} ${UID?}
+#: ${HOSTNAME?} ${USER?} ${MAIL?}
+#  Prints error message
+#+ if one or more of essential environmental variables not set
+
+ls | wc -l > data.xxx
+cat data.xxx  
+# File "data.xxx" now empty.	      
+: > data.xxx   
+cat data.xxx  
+
+# Same effect as   cat /dev/null >data.xxx
+# However, this does not fork a new process, since ":" is a builtin.
