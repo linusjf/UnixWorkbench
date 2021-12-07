@@ -39,3 +39,35 @@ done
 echo 'BASH VERSION:'
 
 echo "BASH VERSION = $BASH_VERSION"
+
+echo 'CDPATH'
+
+echo $CDPATH
+
+echo 'DIRSTACK'
+
+echo $DIRSTACK
+
+echo 'EDITOR'
+
+echo $EDITOR
+
+echo 'EUID'
+
+echo $EUID
+
+echo 'FUNCNAME'
+
+echo $FUNCNAME
+
+echo 'GLOBIGNORE'
+
+echo $GLOBIGNORE
+
+echo 'GROUPS'
+
+echo $GROUPS
+
+
+
+
