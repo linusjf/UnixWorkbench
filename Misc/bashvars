@@ -78,3 +78,21 @@ do
   echo "for group $grp group id = ${GROUPS[$cnt]}"
   cnt=cnt+1
 done
+
+echo 'HOSTNAME'
+
+echo $HOSTNAME
+
+echo 'HOSTTYPE'
+
+echo $HOSTTYPE
+echo 'MACHTYPE'
+
+echo $MACHTYPE
+echo 'HOME'
+
+echo $HOME
+
+echo 'IFS'
+echo "$IFS" | cat -vte
+bash -c 'set w x y z; IFS=":-;"; echo "$*"'
