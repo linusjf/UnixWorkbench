@@ -57,8 +57,12 @@ echo 'EUID'
 echo $EUID
 
 echo 'FUNCNAME'
+xyz23 ()
+{
+  echo "$FUNCNAME now executing."  # xyz23 now executing.
+}
 
-echo $FUNCNAME
+xyz23
 
 echo 'GLOBIGNORE'
 
@@ -68,6 +72,9 @@ echo 'GROUPS'
 
 echo $GROUPS
 
-
-
-
+declare -i cnt=0
+for grp in $(groups)
+do
+  echo "for group $grp group id = ${GROUPS[$cnt]}"
+  cnt=cnt+1
+done
