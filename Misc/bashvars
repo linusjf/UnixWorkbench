@@ -178,3 +178,39 @@ output_args_one_per_line $var
 # The same thing happens with the "FS" field separator in awk.
 
 echo
+
+echo 'IGNOREEOF'
+
+echo $IGNOREEOF
+
+echo 'LC_COLLATE'
+
+echo $LC_COLLATE
+
+echo 'LC_CTYPE'
+
+echo $LC_CTYPE
+
+echo 'LINENO'
+
+echo $LINENO
+
+echo 'OLDPWD'
+
+echo $OLDPWD
+
+echo 'OSTYPE'
+
+echo $OSTYPE
+
+echo 'PATH'
+
+echo $PATH
+
+echo 'PIPESTATUS'
+
+echo $PIPESTATUS
+
+ls -al | bogus_command &> /dev/null
+echo ${PIPESTATUS[0]}
+echo ${PIPESTATUS[1]}
