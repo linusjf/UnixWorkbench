@@ -36,3 +36,6 @@ do
   echo "BASH_VERSINFO[$n] = ${BASH_VERSINFO[$n]}"
 done  
 
+echo 'BASH VERSION:'
+
+echo "BASH VERSION = $BASH_VERSION"
