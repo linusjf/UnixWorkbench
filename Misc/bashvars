@@ -240,6 +240,7 @@ echo 'PWD'
 echo "$PWD"
 
 # REPLY is the default value for a 'read' command.
+TMOUT=1    # Prompt times out at three seconds.
 
 echo
 echo -n "What is your favorite vegetable? "
@@ -271,3 +272,22 @@ echo "$SHELLOPTS"
 echo 'SHLVL'
 
 echo "$SHLVL"
+
+echo 'BASH_SUBSHELL'
+
+echo "$BASH_SUBSHELL"
+
+TMOUT=10    # Prompt times out at three seconds.
+
+echo "What is your favorite song?"
+echo "Quickly now, you only have $TMOUT seconds to answer!"
+read song
+
+if [ -z "$song" ]
+then
+  song="(no answer)"
+  # Default response.
+fi
+
+echo "Your favorite song is $song."
+

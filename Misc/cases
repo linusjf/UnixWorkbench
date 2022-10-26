@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+MSG="aBcDeFg"
+# returns ABCDEFG
+echo ${MSG^^}
+# returns abcdef
+echo ${MSG,,}
+# Word replacement
+MSG="Say hi to Chris and Sidney"
+# returns Say hi to Billy and Sidney
+echo ${MSG//Chris/Billy}
+MSG="I need 10"
+# returns X XXXX 10
+echo ${MSG//[a-zA-Z]/X}
+MSG="The Rolling Stones"
+echo ${MSG:4}
+# returns Rolling Stones
+# Use the : symbol to get the substring of all the characters after the starting at position 4 :
+# Case conversion
+MSG="aBcDeFg"
+echo ${MSG^}
+# returns ABcDeFg
+# Use the ^ symbol to convert the first character in a string to uppercase. ^
+# Use the : symbol to get the substring that has 7 characters starting at position 4 :
+MSG="The Rolling Stones"
+echo ${MSG:4:7}
+# returns Rolling
+# Use the # symbol to get the substring after the characters The starting from the left side of the string # The
+echo ${MSG#The}
+# returns Rolling Stones
+# Use the % symbol to get the substring before the characters Rolling Stones starting the right side of the string % Rolling Stones
+echo ${MSG%Rolling Stones}
