@@ -36,3 +36,21 @@ echo "curl -s http://api.open-notify.org/iss-now.json | jq '.'"
 echo
 curl -s http://api.open-notify.org/iss-now.json | jq '.'
 echo
+echo "cat fruit.json | jq .fruit"
+echo
+cat fruit.json | jq .fruit
+echo
+echo "jq '.fruit.color' fruit.json"
+echo
+jq '.fruit.color' fruit.json
+echo
+echo "jq '.fruit.color,.fruit.price' fruit.json"
+jq '.fruit.color,.fruit.price' fruit.json
+echo
+printf "echo '{ \"with space\": \"hello\" }' | jq '.\"with space\"'\n"
+echo '{ "with space": "hello" }' | jq '."with space"'
+echo
+printf "echo '[\"x\",\"y\",\"z\"]' | jq '.[]'\n"
+echo
+echo '["x","y","z"]' | jq '.[]'
+echo
