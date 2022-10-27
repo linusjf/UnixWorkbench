@@ -6,51 +6,104 @@ then
   curl -s -o tutorial.json 'https://api.github.com/repos/stedolan/jq/commits?per_page=5'
 fi
 echo
-echo "cat tutorial.json | jq '.'"
-cat tutorial.json | jq '.'
+echo "cat tutorial.json | jq -c '.'"
+cat tutorial.json | jq -c '.'
 echo
-echo "cat tutorial.json | jq '.[0]"
+echo "cat tutorial.json | jq -c '.[0]"
 echo
-cat tutorial.json | jq '.[0]'
+cat tutorial.json | jq -c '.[0]'
 echo
-echo "cat tutorial.json | jq '.[0] | {message: .commit.message, name: .commit.committer.name}'"
+echo "cat tutorial.json | jq -c '.[0] | {message: .commit.message, name: .commit.committer.name}'"
 echo
-cat tutorial.json | jq '.[0] | {message: .commit.message, name: .commit.committer.name}'
+cat tutorial.json | jq -c '.[0] | {message: .commit.message, name: .commit.committer.name}'
 echo
-echo "cat tutorial.json | jq '[.[] | {message: .commit.message, name: .commit.committer.name, parents: [.parents[].html_url]}]'" 
+echo "cat tutorial.json | jq -c '[.[] | {message: .commit.message, name: .commit.committer.name, parents: [.parents[].html_url]}]'" 
 echo
-cat tutorial.json | jq '[.[] | {message: .commit.message, name: .commit.committer.name, parents: [.parents[].html_url]}]'
+cat tutorial.json | jq -c '[.[] | {message: .commit.message, name: .commit.committer.name, parents: [.parents[].html_url]}]'
 echo
-printf "echo '{\"fruit\":{\"name\":\"apple\",\"color\":\"green\",\"price\":1.20}}' | jq '.'\n"
-echo '{"fruit":{"name":"apple","color":"green","price":1.20}}' | jq '.'
+printf "echo '{\"fruit\":{\"name\":\"apple\",\"color\":\"green\",\"price\":1.20}}' | jq -c '.'\n"
+echo '{"fruit":{"name":"apple","color":"green","price":1.20}}' | jq -c '.'
 printf "echo '{\"fruit\":{\"name\":\"apple\",\"color\":\"green\",\"price\":1.20}}' > fruit.json\n"
 if [[ ! -e "fruit.json" ]]
 then
   echo '{"fruit":{"name":"apple","color":"green","price":1.20}}' > fruit.json
 fi
-echo "jq . fruit.json"
+echo "jq -c . fruit.json"
 echo
-jq . fruit.json
+jq -c . fruit.json
 echo
-echo "curl -s http://api.open-notify.org/iss-now.json | jq '.'"
+echo "curl -s http://api.open-notify.org/iss-now.json | jq -c '.'"
 echo
-curl -s http://api.open-notify.org/iss-now.json | jq '.'
+curl -s http://api.open-notify.org/iss-now.json | jq -c '.'
 echo
-echo "cat fruit.json | jq .fruit"
+echo "cat fruit.json | jq -c .fruit"
 echo
-cat fruit.json | jq .fruit
+cat fruit.json | jq -c .fruit
 echo
-echo "jq '.fruit.color' fruit.json"
+echo "jq -c '.fruit.color' fruit.json"
 echo
-jq '.fruit.color' fruit.json
+jq -c '.fruit.color' fruit.json
 echo
-echo "jq '.fruit.color,.fruit.price' fruit.json"
-jq '.fruit.color,.fruit.price' fruit.json
+echo "jq -c '.fruit.color,.fruit.price' fruit.json"
+jq -c '.fruit.color,.fruit.price' fruit.json
 echo
-printf "echo '{ \"with space\": \"hello\" }' | jq '.\"with space\"'\n"
-echo '{ "with space": "hello" }' | jq '."with space"'
+printf "echo '{ \"with space\": \"hello\" }' | jq -c '.\"with space\"'\n"
+echo '{ "with space": "hello" }' | jq -c '."with space"'
 echo
-printf "echo '[\"x\",\"y\",\"z\"]' | jq '.[]'\n"
+printf "echo '[\"x\",\"y\",\"z\"]' | jq -c '.[]'\n"
 echo
-echo '["x","y","z"]' | jq '.[]'
+echo '["x","y","z"]' | jq -c '.[]'
 echo
+echo "jq -c '.[] | .name' fruits.json"
+echo
+jq -c '.[] | .name' fruits.json
+echo "jq -c '.[].name' fruits.json"
+echo
+jq -c '.[].name' fruits.json
+echo
+jq -c '.[1].price' fruits.json
+echo
+printf "echo '[1,2,3,4,5,6,7,8,9,10]' | jq -c '.[6:9]'"
+echo
+echo '[1,2,3,4,5,6,7,8,9,10]' | jq -c '.[6:9]'
+echo
+printf "echo '[1,2,3,4,5,6,7,8,9,10]' | jq -c '.[:6]' | jq -c '.[-2:]'"
+echo
+echo '[1,2,3,4,5,6,7,8,9,10]' | jq -c '.[:6]' | jq -c '.[-2:]'
+echo
+echo "jq -c '.fruit | keys' fruits.json"
+jq -c '.fruit | keys' fruit.json
+echo "jq -c '.fruit | length' fruit.json"
+echo
+jq -c '.fruit | length' fruit.json
+echo
+echo "jq -c '.fruit.name | length' fruit.json"
+echo
+jq -c '.fruit.name | length' fruit.json
+echo
+printf "jq -c 'map(has(\"name\"))' fruits.json\n"
+echo
+jq -c 'map(has("name"))' fruits.json
+echo
+printf "jq -c 'map(.price+2)' fruits.json\n"
+echo
+jq -c 'map(.price+2)' fruits.json
+echo
+printf "jq -c '[.[].price] | min' fruits.json\n"
+echo
+jq -c '[.[].price] | min' fruits.json
+echo
+printf "jq -c '[.[].price] | max' fruits.json\n"
+echo
+jq -c '[.[].price] | max' fruits.json
+echo
+echo "jq -c '.[] | select(.price>0.5)' fruits.json"
+echo
+jq -c '.[] | select(.price>0.5)' fruits.json
+echo
+printf "jq -c '.[] | select(.color==\"yellow\")' fruits.json\n"
+echo
+jq -c '.[] | select(.color=="yellow")' fruits.json
+echo
+
+
