@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+echo "curl -o tutorial.json 'https://api.github.com/repos/stedolan/jq/commits?per_page=5'"
+echo
+if [[ ! -e "tutorial.json" ]]
+then
+  curl -o tutorial.json 'https://api.github.com/repos/stedolan/jq/commits?per_page=5'
+fi
+echo
+echo "cat tutorial.json | jq '.'"
+cat tutorial.json | jq '.'
+echo
+echo "cat tutorial.json | jq '.[0]"
+echo
+cat tutorial.json | jq '.[0]'
+echo
+echo "cat tutorial.json | jq '.[0] | {message: .commit.message, name: .commit.committer.name}'"
+echo
+cat tutorial.json | jq '.[0] | {message: .commit.message, name: .commit.committer.name}'
+echo
+echo "cat tutorial.json | jq '[.[] | {message: .commit.message, name: .commit.committer.name, parents: [.parents[].html_url]}]'" 
+echo
+cat tutorial.json | jq '[.[] | {message: .commit.message, name: .commit.committer.name, parents: [.parents[].html_url]}]'
