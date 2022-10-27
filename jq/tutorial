@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-echo "curl -o tutorial.json 'https://api.github.com/repos/stedolan/jq/commits?per_page=5'"
+echo "curl -s -o tutorial.json 'https://api.github.com/repos/stedolan/jq/commits?per_page=5'"
 echo
 if [[ ! -e "tutorial.json" ]]
 then
-  curl -o tutorial.json 'https://api.github.com/repos/stedolan/jq/commits?per_page=5'
+  curl -s -o tutorial.json 'https://api.github.com/repos/stedolan/jq/commits?per_page=5'
 fi
 echo
 echo "cat tutorial.json | jq '.'"
@@ -20,3 +20,19 @@ echo
 echo "cat tutorial.json | jq '[.[] | {message: .commit.message, name: .commit.committer.name, parents: [.parents[].html_url]}]'" 
 echo
 cat tutorial.json | jq '[.[] | {message: .commit.message, name: .commit.committer.name, parents: [.parents[].html_url]}]'
+echo
+printf "echo '{\"fruit\":{\"name\":\"apple\",\"color\":\"green\",\"price\":1.20}}' | jq '.'\n"
+echo '{"fruit":{"name":"apple","color":"green","price":1.20}}' | jq '.'
+printf "echo '{\"fruit\":{\"name\":\"apple\",\"color\":\"green\",\"price\":1.20}}' > fruit.json\n"
+if [[ ! -e "fruit.json" ]]
+then
+  echo '{"fruit":{"name":"apple","color":"green","price":1.20}}' > fruit.json
+fi
+echo "jq . fruit.json"
+echo
+jq . fruit.json
+echo
+echo "curl -s http://api.open-notify.org/iss-now.json | jq '.'"
+echo
+curl -s http://api.open-notify.org/iss-now.json | jq '.'
+echo
