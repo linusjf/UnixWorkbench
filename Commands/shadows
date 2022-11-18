@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-if [ -e /etc/shadow ]
+FILE="/etc/shadow"
+if [ -e "$FILE" ]
 then
   echo "Shadow passwords are enabled."
-  if [ -w /etc/shadow ]
+  if [ -w "$FILE" ]
   then
     echo "You have permissions to edit /etc/shadow."
   else
