@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Source: https://github.com/jasonc/scripts/blob/master/ping-host
 # Usage: ping-host HOST [HOSTN]...
-# Retuns 0 if the hosts respond to ping or 1 if any of them fail to respond.
+# Returns 0 if the hosts respond to ping or 1 if any of them fail to respond.
 #
 # Supported operating systems: Linux, Mac, BSDs, Solaris.
 
