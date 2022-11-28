@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# Source: https://github.com/jasonc/scripts/blob/master/show-cmdb-info
 # Usage: cmdbinfo [-c]
 # Display server information that may be requested for CMDB entries or inventory.
 # Options:
