@@ -24,36 +24,24 @@ echo "FQDN${FIELD_SEPARATOR}$(hostname -f)"
 dmidecode -t system | grep -E 'Manufacturer:|Product Name:|Serial Number:' | sed 's/^\s*//' | sed "s/: /${FIELD_SEPARATOR}/"
 
 # OS, kernel, platform.
-echo "Release${FIELD_SEPARATOR}$(cat /etc/redhat-release 2> /dev/null || cat /etc/os-release)"
+echo "Release${FIELD_SEPARATOR}$(cat /etc/redhat-release 2> /dev/null || cat $PREFIX/etc/os-release)"
 echo "Kernel Release${FIELD_SEPARATOR}$(uname -r)"
 echo "Architecture${FIELD_SEPARATOR}$(uname -m)"
 
 # Memory:
 # Assumes MB are being reported by dmidecode.
-MEMORY_IN_MB=$(dmidecode --type memory | grep -e '^\sSize:' | grep -v "No" | awk '{sum+=$2} END{printf("%d\n",sum)}')
+MEMORY_IN_KB=$(cat /proc/meminfo | grep -e 'MemTotal:' | awk -F ':' '{print $2}' | awk -F ' ' '{print $1}')
+MEMORY_IN_MB=$(($MEMORY_IN_KB / 1024))
 MEMORY_IN_GB=$(($MEMORY_IN_MB / 1024))
 echo "Memory in GB${FIELD_SEPARATOR}${MEMORY_IN_GB}"
 
 # CPU info:
-TOTAL_PHYSICAL_CPUS=0
-TOTAL_CORES=0
-TOTAL_THREADS=0
-echo "CPU Model${FIELD_SEPARATOR}$(cat /proc/cpuinfo | grep 'model name' | cut -f2 -d: | sort -u | sed 's/^\s*//')"
-for PHYSICAL_CPU in $(cat /proc/cpuinfo | grep 'physical id' | sort -u | awk '{print $NF}')
-do
-  CORES=$(cat /proc/cpuinfo | grep -E -m1 -A6 "physical.*:\ ${PHYSICAL_CPU}$" | grep -i 'cpu cores' | awk '{print $NF}')
-  THREADS=$(grep 'physical id' /proc/cpuinfo | grep ": ${PHYSICAL_CPU}$" | wc -l)
-  echo "CPU ${PHYSICAL_CPU} Cores${FIELD_SEPARATOR}${CORES}"
-  echo "CPU ${PHYSICAL_CPU} Threads${FIELD_SEPARATOR}${THREADS}"
-  TOTAL_PHYSICAL_CPUS=$(($TOTAL_PHYSICAL_CPUS + 1))
-  TOTAL_CORES=$(($TOTAL_CORES + $CORES))
-  TOTAL_THREADS=$(($TOTAL_THREADS + $THREADS))
-done
-echo "Total Physical CPUs${FIELD_SEPARATOR}${TOTAL_PHYSICAL_CPUS}"
-echo "Total Cores${FIELD_SEPARATOR}${TOTAL_CORES}"
-echo "Total Threads${FIELD_SEPARATOR}${TOTAL_THREADS}"
-
-echo "Storage assigned to volume groups in GB${FIELD_SEPARATOR}$(vgs --units g --noheadings 2>&1 | grep -v "^|" | grep -v 'Could' | awk '{print $6}' | cut -f1 -d. | awk '{sum+=$1} END{printf("%d\n",sum)}')"
+echo "CPU Model${FIELD_SEPARATOR}$(lscpu 2> /dev/null | grep 'Model name' | cut -f2 -d: | sort -u | sed 's/^\s*//')"
+echo "Number of processors${FIELD_SEPARATOR}$(nproc --all)"
+SIZE_IN_KB=$(df -h --output=size -k | awk '{sum+=$1} END{print sum}')
+SIZE_IN_MB=$(($SIZE_IN_KB / 1024))
+SIZE_IN_GB=$(($SIZE_IN_MB / 1024))
+echo "Storage assigned to volume groups in GB${FIELD_SEPARATOR}${SIZE_IN_GB}"
 
 # NICS
 echo "Network interfaces${FIELD_SEPARATOR}$(netstat -i 2> /dev/null| grep -Ev 'Iface|Interface' | awk '{print $1}' | grep -v "^lo$" | sort | xargs)"
