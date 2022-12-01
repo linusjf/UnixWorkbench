@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+awk '
+function reverse(a) { 
+b="" 
+for(i=length(a);i>=1;i--) 
+b = b""substr(a,i,1) 
+return b 
+} 
+BEGIN { 
+while ( "ls"|getline) 
+print $0" --> "reverse($0) } 
+'
