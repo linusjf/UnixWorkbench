@@ -1,0 +1,12 @@
+#!/usr/bin/env bash 
+# This program creates a scanner that scans a specified port number to check whether they are open or not in a local network 
+if [ -z "$2" ]
+then
+  #nmap -sT "$1" -oG resultsfile1 
+  nmap -sT "$1" | grep open
+else
+  #nmap -sT "$1" -p "$2" -oG resultsfile1 
+  nmap -sT "$1" -p "$2" | grep open
+fi
+#cat resultsfile1 | grep open > resultsfile2 
+#cat resultsfile2
