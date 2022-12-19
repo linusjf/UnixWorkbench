@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+date 
+#You can customize the display by using a formatting string.  
+#Some examples:  
+date '+%m/%d/%Y'  
+date '+%m/%d/%y'  
+date '+%m%d%y.%H%M%S' 
+#The last example is great for creating unique log file names. 
+#So you can do the following in your script:  
+DATE=$(date '+%m%d%y.%H%M%S')
+LOG=/tmp/programname.$DATE
+echo $LOG
