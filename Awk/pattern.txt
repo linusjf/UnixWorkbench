@@ -1,0 +1,5 @@
+abc xyz
+abc rst
+abc 0.00
+0.00 abc xyz
+abc xyz rst
