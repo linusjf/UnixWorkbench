@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+touch file.txt
+# True if file file.txt exists and is readable. 
+test -r file.txt
+echo $?
+# True if file file.txt exists and is writeable. 
+test -w file.txt   
+echo $?
+# True if file file.txt exists and is executable. 
+test -x file.txt   
+echo $?
+# True if file file.txt exists and is a directory. 
+test -d file.txt   
+echo $?
+test -s file.txt   
+# True if file file.txt exists and is non-empty. 
+echo $?
+string=""
+# True if string is empty. 
+test -z string
+echo $?
+rm file.txt
+SIZE=500
+DAY="Sun"
+test $SIZE -lt 5000 -o $DAY != "Sun"
+echo $?
