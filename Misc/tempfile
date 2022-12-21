@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+TMPfile=$PREFIX/tmp/stordata.$$
+echo "Temp file: "$TMPfile
+touch $TMPfile
+rm -f $TMPfile
