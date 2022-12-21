@@ -2,8 +2,8 @@
 {
   c="@";
   if (index($0,c)) 
-    print $0
+    print NR": "$0
   c="®";
   if (index($0,c)) 
-    print $0
+    print NR": "$0
 }
