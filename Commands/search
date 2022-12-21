@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+echo "The pattern is found in these files:" 
+find . -exec grep -Hn "$*" {} \;
