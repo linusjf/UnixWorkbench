@@ -2,4 +2,4 @@
 TMPfile=$PREFIX/tmp/stordata.$$
 echo "Temp file: "$TMPfile
 touch $TMPfile
-rm -f $TMPfile
+rm -f $TMPfile > /dev/null
