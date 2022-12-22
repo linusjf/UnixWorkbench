@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+function usage() {
+  echo "Usage: $0 linecount pattern file1 file2 ..." >&2;
+  exit 1
+}
+if test "$#" -lt 3
+then
+  usage
+fi
+re='^[0-9]+$'
+if ! [[ "$1" =~ $re ]] ; then
+   echo "error: Not a number" >&2; 
+   usage
+fi
+declare -i nolines="$1"
+pattern="$2"
+shift
+shift
+for file in "$@"
+do
+awk "FNR<=$nolines && /$pattern/ {
+printf(FILENAME)
+printf(\"(\")
+printf(NR)
+printf(\")\")
+printf(\": \")
+print \$0
+}" "$file"
+done
+exit 0
+
