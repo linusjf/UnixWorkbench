@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+awk 'BEGIN { 
+  while ("env"|getline)  {  
+    print $0  
+  }  
+}'
