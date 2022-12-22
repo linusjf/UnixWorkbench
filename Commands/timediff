@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+function usage() {
+  echo "Usage: $0 hh:mm:ss hh:mm:ss" >&2;
+  exit 1
+}
+re='^[0-2][0-9]:[0-5][0-9]:[0-5][0-9]$'
+if ! [[ "$1" =~ $re ]] || ! [[ "$2" =~ $re ]] ; then
+   echo "Invalid time" >&2;
+   usage
+fi
+T1="$1"
+T2="$2"
+h1=$(echo $T1|cut -d: -f1)  
+m1=$(echo $T1|cut -d: -f2) 
+s1=$(echo $T1|cut -d: -f3)  
+x1=$(echo "$h1*3600 + $m1*60 + $s1"|bc -l) 
+h2=$(echo $T2|cut -d: -f1)  
+m2=$(echo $T2|cut -d: -f2)  
+s2=$(echo $T2|cut -d: -f3) 
+x2=$(echo "$h2*3600 + $m2*60 + $s2"|bc -l)  
+if test $x1 -lt $x2  
+then  
+  diff=$(echo "$x2 - $x1"|bc -l)  
+else  
+  diff=$(echo "$x1 - $x2"|bc -l) 
+fi  
+echo "diff of $h1,$m1,$s1 and $h2,$m2,$s2 is $diff seconds"
