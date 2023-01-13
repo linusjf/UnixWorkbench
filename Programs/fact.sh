@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # fact.sh - Shell script to to find factorial of given command line arg
 
 function factorial() {

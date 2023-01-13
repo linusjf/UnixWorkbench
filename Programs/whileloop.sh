@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # File: whileloop.sh
 count=3
 while [[ "$count" -gt 0 ]]

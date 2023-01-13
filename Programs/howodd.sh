@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # File: howodd.sh
 source nevens.sh
 function howodd() {

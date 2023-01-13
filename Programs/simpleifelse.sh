@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # File: simpleifelse.sh
 echo "Start program"
 

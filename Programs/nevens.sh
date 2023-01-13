@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # File: nevens.sh
 # shellcheck disable=SC1091
 source isiteven.sh

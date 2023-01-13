@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # File: fib.sh
 function fibonacci() {
   fibcount=$1

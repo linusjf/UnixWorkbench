@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # File: condexif.sh
 
 if [[ $1 -gt 3 ]] && [[ $1 -lt 7 ]]

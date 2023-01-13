@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # File: extremes.sh
 if [[ $# -gt 0 ]]
 then

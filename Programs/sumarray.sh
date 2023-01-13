@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # File: sumarray.sh
 firstarray=(a ab abe abs abu ace ack act
 ada add ade)

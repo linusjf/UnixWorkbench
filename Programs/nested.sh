@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # File: nested.sh
 if [[ "$1" -gt 3 ]] && [[ "$1" -lt 7 ]]
 then

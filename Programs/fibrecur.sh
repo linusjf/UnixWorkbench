@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # fibrecur.sh - Shell script to to find ith fibonacci number  of given command line arg i
 
 function fibrecur() {

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 echo "Type in an adjective and then
 press enter:"
 IFS="" read -r adjective

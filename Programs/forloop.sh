@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # File: forloop.sh
 echo "Before Loop"
 for i in {1..3}
