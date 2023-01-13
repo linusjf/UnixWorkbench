@@ -17,3 +17,21 @@ echo "$(expr index "$str" "$word")"
 foss="Fedora is a free operating system"
 echo "${foss:0:6}"
 echo "${foss:12}"
+echo ${foss/Fedora/Ubuntu}
+echo ${foss/free/popular}
+fact="Sun is a big star"
+echo ${fact/big}
+cell="112-358-1321"
+echo ${cell/-}
+echo ${cell//-}
+echo $cell
+cell=${cell//-}
+echo $cell
+legend="john nash"
+actor="JULIA ROBERTS"
+echo ${legend^^}
+echo ${actor,,}
+echo ${legend^}
+echo ${actor,}
+echo ${legend^^[jn]}
+echo ${legend^^[oa]}
