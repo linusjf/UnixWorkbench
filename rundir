@@ -1,22 +1,25 @@
 #!/usr/bin/env bash
+require() {
+hash "$@" || exit 127;
+}
+require timeout
 dir="$1"
 if [ ! -d "$dir" ];
 then
   echo "Usage: $0 dir"
   exit 1
 fi
-(cd "$dir";
-if (( ! "$?" ))
+(
+if ! cd "$dir"
 then
   declare -i failCount=0
   for SCRIPT in *
   do
-    if [ -f "$SCRIPT" -a -x "$SCRIPT" ]
+    if [ -f "$SCRIPT" ] && [ -x "$SCRIPT" ]
     then
-      timeout --preserve-status 30s "$SCRIPT"
-      if (( "$?" )); 
+      if timeout --preserve-status 30s "$SCRIPT"
       then 
-        failCount=failCount+1
+        failCount="$failCount"+1
       fi
     fi
   done
