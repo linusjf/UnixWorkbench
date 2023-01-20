@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
-echo "awk '{ print "'$2'" > "'"phone.txt"'" \
-print "'$1'" > "'"name.txt"'" }' BBS.txt"
+println() {
+  printf '%s\n' "$*"
+}
+println "awk '{ print \$2 > \"phone.txt\" \
+print \$1 > \"name.txt\" }' BBS.txt"
 awk '{ print $2 > "phone.txt"
 print $1 > "name.txt" }' BBS.txt
-echo "awk '{ print "'$1'" > "'"names.unsorted"'" \
-print "'$1'" | "'"sort -r > names.sorted"'" }' BBS.txt"
+println "awk '{ print \$1 > \"names.unsorted\" \
+print \$1 | \"sort -r > names.sorted\" }' BBS.txt"
 awk '{ print $1 > "names.unsorted"
 print $1 | "sort -r > names.sorted" }' BBS.txt
