@@ -1,46 +1,49 @@
 #!/usr/bin/env bash
-echo "awk 'BEGIN { print "'"line one\nline two\nline three"'" }'"
+println() {
+  printf '%s\n' "$*"
+}
+println "awk 'BEGIN { print \"line one\nline two\nline three\" }'"
 awk 'BEGIN { print "line one\nline two\nline three" }'
-echo "awk '{ print "'$1, $2'" }' inventory.txt"
+println "awk '{ print \$1, \$2 }' inventory.txt"
 awk '{ print $1, $2 }' inventory.txt
-echo "awk 'BEGIN { print "'"Month Crates"'" \
-print "'"----- ------"'" } \
-{ print "'$1, $2'" }' inventory.txt"
+println "awk 'BEGIN { print \"Month Crates\" \
+print \"----- ------\" } \
+{ print \$1, \$2 }' inventory.txt"
 awk 'BEGIN { print "Month Crates"
 print "----- ------" }
 { print $1, $2 }' inventory.txt
-echo "awk 'BEGIN { print "'"Month Crates"'" \
-print "'"----- ------"'" } \
-{ print "'$1, " ", $2'" }' inventory.txt"
+println "awk 'BEGIN { print \"Month Crates\" \
+print \"----- ------\" } \
+{ print \$1, " ", \$2 }' inventory.txt"
 awk 'BEGIN { print "Month Crates"
 print "----- ------" }
 { print $1, " ", $2 }' inventory.txt
-echo "awk 'BEGIN { OFS = "'";"'"; ORS = "'"\n\n"'" } \
-{ print "'$1, $2'" }' BBS.txt"
+println "awk 'BEGIN { OFS = \";\"; ORS = \"\n\n\" } \
+{ print \$1, \$2 }' BBS.txt"
 awk 'BEGIN { OFS = ";"; ORS = "\n\n" }
 { print $1, $2 }' BBS.txt
-echo "awk 'BEGIN { OFMT = "'"%d"'" # print numbers as integers \
+println "awk 'BEGIN { OFMT = \"%d\" # print numbers as integers \
 print 17.23 }'"
 awk 'BEGIN { OFMT = "%d" # print numbers as integers
 print 17.23 }'
-echo "awk '{ printf "'"%-10s %s\n"'", "'$1, $2'" }' BBS.txt"
+println "awk '{ printf \"%-10s %s\n\", \"\$1, \$2 }' BBS.txt"
 awk '{ printf "%-10s %s\n", $1, $2 }' BBS.txt
-echo "awk 'BEGIN { print "'"Name Number"'" \
-print "'"---- ------"'" } \
-{ printf "'"%-10s %s\n"'", "'$1, $2'" }' BBS.txt"
+println "awk 'BEGIN { print \"Name Number\" \
+print \"---- ------\" } \
+{ printf \"%-10s %s\n\", \"\$1, \$2\" }' BBS.txt"
 awk 'BEGIN { print "Name Number"
 print "---- ------" }
 { printf "%-10s %s\n", $1, $2 }' BBS.txt
-echo "awk 'BEGIN { printf "'"%-10s %s\n"'", "'"Name"'", "'"Number"'" \
-printf "'"%-10s %s\n"'", "'"----", "------" }'" \
-{ printf "'"%-10s %s\n", $1, $2 }'"' BBS.txt"
+println "awk 'BEGIN { printf \"%-10s %s\n\", \"Name\", \"Number\" \
+printf \"8%-10s %s\n\", \"----\", \"------\" }'\" \
+{ printf \"%-10s %s\n\", \$1,\$2 }' BBS.txt"
 awk 'BEGIN { printf "%-10s %s\n", "Name", "Number"
 printf "%-10s %s\n", "----", "------" }
 { printf "%-10s %s\n", $1, $2 }' BBS.txt
-echo "awk 'BEGIN { format = "'"%-10s %s\n"'" \
-printf format, "'"Name", "Number"'" \
-printf format, "'"----", "------"' }" \
-{ printf format, "'$1, $2'" }' BBS.txt"
+println "awk 'BEGIN { format = \"%-10s %s\n\" \
+printf format, \"Name\", \"Number\" \
+printf format, \"----\", \"------\" } \
+{ printf format, \$1, \$2 }' BBS.txt"
 awk 'BEGIN { format = "%-10s %s\n"
 printf format, "Name", "Number"
 printf format, "----", "------" }
