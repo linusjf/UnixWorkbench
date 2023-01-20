@@ -96,9 +96,9 @@ continue
 print names[x]
 }
 }'"
-cat lines.txt | awk '# print names that don’t contain the string "ignore"
+awk "# print names that don't contain the string \"ignore\"
 # first, save the text of each line
-{ names[NR] = $0 }
+{ names[NR] = \$0 }
 # print what we’re interested in
 END {
 for (x in names) {
@@ -106,14 +106,14 @@ if (names[x] ~ /ignore/)
 continue
 print names[x]
 }
-}'
-awk 'BEGIN {
-if (("date" | getline date_now) < 0) {
-print "Can’t get system date" > "/dev/stderr"
+}" <lines.txt
+awk "BEGIN {
+if ((\"date\" | getline date_now) < 0) {
+print \"Can't get system date\" > \"/dev/stderr\"
 exit 4
 }
-}'
-cat lines.txt | awk 'NF != 4 {
-printf("line %d skipped: doesn’t have 4 fields", FNR) > "/dev/stderr"
+}"
+awk "NF != 4 {
+printf(\"line %d skipped: doesn't have 4 fields\n\", FNR) > \"/dev/stderr\"
 next
-}'
+}" <lines.txt
