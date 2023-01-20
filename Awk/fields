@@ -1,31 +1,31 @@
 #!/usr/bin/env bash
 echo "cat BBS.txt"
 cat BBS.txt
-echo "awk '"'$1'" ~ /foo/ { print "'$0'" }' BBS.txt"
+printf "awk '\$1 ~ /foo/ { print \$0 }' BBS.txt\n"
 awk '$1 ~ /foo/ { print $0 }' BBS.txt
-echo "awk '/foo/ { print "'$1'", "'$NF'" }' BBS.txt"
+printf "awk '/foo/ { print \$1, \$NF }' BBS.txt\n"
 awk '/foo/ { print $1, $NF }' BBS.txt
-echo "awk '{ print "'$NR'" }' BBS.txt"
-awk '{ print $NR }' BBS.txt
-echo "awk '{ print "'$(2*2)'" }' BBS.txt"
+printf "awk '{ print \$(NR%%NF) }' BBS.txt\n"
+awk '{ print $(NR%NF) }' BBS.txt
+printf "awk '{ print \$(2*2) }' BBS.txt\n"
 awk '{ print $(2*2) }' BBS.txt
-echo "awk '{ print "'$(2-2)'" }' BBS.txt"
+printf "awk '{ print \$(2-2) }' BBS.txt\n"
 awk '{ print $(2-2) }' BBS.txt
-echo "awk '{ "'$3 = $2'" - 10; print "'$2, $3'" }' inventory.txt"
+printf "awk '{ \$3 = \$2 - 10; print \$2, \$3 }' inventory.txt\n"
 awk '{ $3 = $2 - 10; print $2, $3 }' inventory.txt
-echo "awk '{ "'$2 = $2'" - 10; print "'$0'" }' inventory.txt"
+printf "awk '{ '\$2 = \$2' - 10; print \$0 }' inventory.txt\n"
 awk '{ $2 = $2 - 10; print $0 }' inventory.txt
-echo "awk '{ "'$6 = ($5 + $4 + $3 + $2) ; print $6'" }' inventory.txt"
+printf "awk '{ \$6 = (\$5 + \$4 + \$3 + \$2) ; print \$6 }' inventory.txt\n"
 awk '{ $6 = ($5 + $4 + $3 + $2) ; print $6 }' inventory.txt
-echo "awk '{ "'$6 = ($5 + $4 + $3 + $2) ; print $0'" }' inventory.txt"
+printf "awk '{ \$6 = (\$5 + \$4 + \$3 + \$2) ; print \$0 }' inventory.txt\n"
 awk '{ $6 = ($5 + $4 + $3 + $2) ; print $0 }' inventory.txt
-echo "echo a b c d | awk '{ OFS = "'":"'"; "'$2'" = "'""'" ; print ; print NF }'"
+printf "echo a b c d | awk '{ OFS = ':'; \$2 = \"\" ; print ; print NF }'\n"
 echo a b c d | awk '{ OFS = ":"; $2 = "" ; print ; print NF }'
-echo "echo John Q. Smith, 29 Oak St., Walamazoo, MI 42139 | awk 'BEGIN { FS = "'","'" } ; { print "'$2'" }'"
+printf "echo John Q. Smith, 29 Oak St., Walamazoo, MI 42139 | awk 'BEGIN { FS = \",\" } ; { print \$2 }'"
 echo John Q. Smith, 29 Oak St., Walamazoo, MI 42139 | awk 'BEGIN { FS = "," } ; { print $2 }'
-echo "echo ' a b c d ' | awk '{ print "'$2'" }'"
+printf "echo ' a b c d ' | awk '{ print \$2 }'"
 echo ' a b c d ' | awk '{ print $2 }'
-echo "echo ' a b c d ' | awk 'BEGIN { FS = "'"[ \t]+"'" } ; { print "'$2'" }'"
+printf "echo ' a b c d ' | awk 'BEGIN { FS = \"[ \t]+\" } ; { print \$2 }'"
 echo ' a b c d ' | awk 'BEGIN { FS = "[ \t]+" } ; { print $2 }'
-echo "echo ' a b c d' | awk '{ print; "'$2 = $2'"; print }'"
+printf "echo ' a b c d' | awk '{ print; \$2 = \$2; print }'"
 echo ' a b c d' | awk '{ print; $2 = $2; print }'
