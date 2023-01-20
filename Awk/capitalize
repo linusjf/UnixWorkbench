@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-declare -u first=$(echo $1|awk '{print substr($1,1,1)}')
-rest=$(echo $1|awk '{print substr($1,2)}')
-y=$first$rest
+#shellcheck disable=SC2155
+declare -u first="$(echo "$1" | awk '{print substr($1,1,1)}')"
+rest="$(echo "$1" | awk '{print substr($1,2)}')"
+y="${first}${rest}"
 echo "$y"

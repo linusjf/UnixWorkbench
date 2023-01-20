@@ -48,7 +48,7 @@ split("auto-da-fe", a, "-");
 for (_ in a)
   print a[_];
 }'
-printf "awk 'BEGIN { str = sprintf(\"pi = %.2f (approx.)\", 22/7);
+printf "awk 'BEGIN { str = sprintf(\"pi = %%.2f (approx.)\", 22/7);
 print str;}'\n"
 awk 'BEGIN { str = sprintf("pi = %.2f (approx.)", 22/7);
 print str;}'
