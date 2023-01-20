@@ -24,27 +24,27 @@ echo "FQDN${FIELD_SEPARATOR}$(hostname -f)"
 dmidecode -t system | grep -E 'Manufacturer:|Product Name:|Serial Number:' | sed 's/^\s*//' | sed "s/: /${FIELD_SEPARATOR}/"
 
 # OS, kernel, platform.
-echo "Release${FIELD_SEPARATOR}$(cat /etc/redhat-release 2> /dev/null || cat $PREFIX/etc/os-release)"
+echo "Release${FIELD_SEPARATOR}$(cat "/etc/redhat-release" 2>/dev/null || cat "${PREFIX}/etc/os-release")"
 echo "Kernel Release${FIELD_SEPARATOR}$(uname -r)"
 echo "Architecture${FIELD_SEPARATOR}$(uname -m)"
 
 # Memory:
 # Assumes MB are being reported by dmidecode.
-MEMORY_IN_KB=$(cat /proc/meminfo | grep -e 'MemTotal:' | awk -F ':' '{print $2}' | awk -F ' ' '{print $1}')
-MEMORY_IN_MB=$(($MEMORY_IN_KB / 1024))
-MEMORY_IN_GB=$(($MEMORY_IN_MB / 1024))
+MEMORY_IN_KB="$(grep -e 'MemTotal:' <"/proc/meminfo" | awk -F ':' '{print $2}' | awk -F ' ' '{print $1}')"
+MEMORY_IN_MB=$((MEMORY_IN_KB / 1024))
+MEMORY_IN_GB=$((MEMORY_IN_MB / 1024))
 echo "Memory in GB${FIELD_SEPARATOR}${MEMORY_IN_GB}"
 
 # CPU info:
-echo "CPU Model${FIELD_SEPARATOR}$(lscpu 2> /dev/null | grep 'Model name' | cut -f2 -d: | sort -u | sed 's/^\s*//')"
+echo "CPU Model${FIELD_SEPARATOR}$(lscpu 2>/dev/null | grep 'Model name' | cut -f2 -d: | sort -u | sed 's/^\s*//')"
 echo "Number of processors${FIELD_SEPARATOR}$(nproc --all)"
 SIZE_IN_KB=$(df -h --output=size -k | awk '{sum+=$1} END{print sum}')
-SIZE_IN_MB=$(($SIZE_IN_KB / 1024))
-SIZE_IN_GB=$(($SIZE_IN_MB / 1024))
+SIZE_IN_MB=$((SIZE_IN_KB / 1024))
+SIZE_IN_GB=$((SIZE_IN_MB / 1024))
 echo "Storage assigned to volume groups in GB${FIELD_SEPARATOR}${SIZE_IN_GB}"
 
 # NICS
-echo "Network interfaces${FIELD_SEPARATOR}$(netstat -i 2> /dev/null| grep -Ev 'Iface|Interface' | awk '{print $1}' | grep -v "^lo$" | sort | xargs)"
+echo "Network interfaces${FIELD_SEPARATOR}$(netstat -i 2>/dev/null | grep -Ev 'Iface|Interface' | awk '{print $1}' | grep -v "^lo$" | sort | xargs)"
 echo "IP Addresses${FIELD_SEPARATOR}$(ip -4 -o addr | awk '{print $4}' | cut -f1 -d/ | grep -v '127.0.0.1' | xargs)"
 
 # Timezone
