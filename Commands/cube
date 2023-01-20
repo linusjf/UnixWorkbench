@@ -1,42 +1,45 @@
 #!/usr/bin/env bash
-function usage() {  
-echo "usage: $0 -height height [-width width] [-depth depth] [-die]"  
+function usage() {
+  echo "usage: $0 -height height [-width width] [-depth depth] [-die]"
 }
 
-function parseArgs()  {  
-heightcheck=0  
-while test -n "$1" 
-do
-case "$1" in  
-  -height) 
-    height="$2"
-    heightCheck=1  
-    shift  ;; 
-  -width) 
-    width="$2"  
-    shift  ;;  
-  -depth) 
-    depth="$2"  
-    shift  ;;  
-  -die) 
-    die=1  ;;  
-esac  
-shift  
-done  
-# make sure we got a height on the command line... 
-if [[ "$heightcheck" == 0 ]]; then 
-  usage 
-  exit 2 
-fi
+function parseArgs() {
+  heightcheck=0
+  while test -n "$1"; do
+    case "$1" in
+    -height)
+      height="$2"
+      heightcheck=1
+      shift
+      ;;
+    -width)
+      width="$2"
+      shift
+      ;;
+    -depth)
+      depth="$2"
+      shift
+      ;;
+    -die)
+      die=1
+      ;;
+    esac
+    shift
+  done
+  # make sure we got a height on the command line...
+  if [[ "$heightcheck" == 0 ]]; then
+    usage
+    exit 2
+  fi
 }
 
-# Parse Command Line 
-parseArgs $*  
-# Next, We will set the defaults. 
-# Set defaults if these args 
-# were not set on command line. 
-width=${width:-"$height"} 
-depth=${depth:-"$height"} 
+# Parse Command Line
+parseArgs "$@"
+# Next, We will set the defaults.
+# Set defaults if these args
+# were not set on command line.
+width=${width:-"$height"}
+depth=${depth:-"$height"}
 die=${die:-0}
 echo "$height,$width,$depth,$die"
 exit 0
