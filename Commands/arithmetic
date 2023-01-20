@@ -1,15 +1,20 @@
 #!/usr/bin/env bash
-MAX=$((2**8))
+declare -i COUNT=0
+declare -i MAX
+MAX=$((2 ** 8))
 COUNT=$((COUNT + 5 + MAX * 2))
 echo $COUNT
-let COUNT+=5+MAX*2
+COUNT+=$((5 + MAX * 2))
 echo $COUNT
 Y=20
-echo $(( X+=5 , Y*=3 ))
-let X+=5 Y*=3
+echo $((X += 5))
+echo $((X += 5, Y *= 3))
+echo $((Y *= 3))
+((X += 5, Y *= 3))
+echo $X
 echo $Y
 
-let Y=(X+2)*10
+((Y = (X + 2) * 10))
 echo $Y
-Y=$(( ( X + 2 ) * 10 ))
+Y=$(((X + 2) * 10))
 echo $Y
