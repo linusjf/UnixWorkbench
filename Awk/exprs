@@ -25,15 +25,15 @@ printf \"a = %%s\\\\n\", a \n
 a += 0 # make 'a' numeric only again \n
 printf \"a = %%s\\\\n\", a # use 'a' as string \n
 }'\n"
-awk 'BEGIN {
-CONVFMT = "%2.2f"
+awk "BEGIN {
+CONVFMT = \"%%2.2f\"
 a = 123.456
-b = a "" # force 'a' to have string value too
-printf "a = %s\n", a
-CONVFMT = "%.6g"
-printf "a = %s\n", a
+b = a \"\" # force 'a' to have string value too
+printf \"a = %%s\n\", a
+CONVFMT = \"%%.6g\"
+printf \"a = %%s\n\", a
 a += 0 # make 'a' numeric only again
-printf "a = %s\n", a # use 'a' as string
-}'
+printf \"a = %%s\n\", a # use 'a' as string
+}"
 printf "echo 16 | awk '{ print \"The square root of\", \$1, \"is\", sqrt(\$1) }'\n"
 echo 16 | awk '{ print "The square root of", $1, "is", sqrt($1) }'
