@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # cookbook filename: check_unset
-#
+#shellcheck disable=SC2034
 USAGE="usage: $0 scratchdir sourcefile conversion"
 FILEDIR=${1:?"Error. You must supply a scratch directory. $USAGE"}
 FILESRC=${2:?"Error. You must supply a source file. $USAGE"}
@@ -11,5 +11,5 @@ CVTTYPE=${3:?"Error. ${USAGE}"}
 # ./myscript: line 5: 3: Error. usage: myscript scracthdir sourcefile conversion
 # Because you have no control over this part of the message, and since it looks like an
 # error in the shell script itself, combined with the issue of readability, this technique is
-# not so popular in commercial-grade shell scripts. 
+# not so popular in commercial-grade shell scripts.
 # (It is handy for debugging, though.)
