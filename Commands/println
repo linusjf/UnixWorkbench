@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+println() {
+  printf '%s\n' "$*"
+}

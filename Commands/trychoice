@@ -1,32 +1,33 @@
 #!/usr/bin/env bash
+#shellcheck disable=SC1091
 source func_choice
 until [ "$CHOICE" = "y" ]; do
- printf "%b" "This package's date is $THISPACKAGE\n" >&2
- choice "Is that correct? [Y/,<New date>]: "
- if [ -z "$CHOICE" ]; then
- CHOICE='y'
- elif [ "$CHOICE" != "y" ]; then
- printf "%b" "Overriding $THISPACKAGEwith ${CHOICE}\n"
- THISPACKAGE=$CHOICE
- fi
+  printf "%b" "This package's date is $THISPACKAGE\n" >&2
+  choice "Is that correct? [Y/,<New date>]: "
+  if [ -z "$CHOICE" ]; then
+    CHOICE='y'
+  elif [ "$CHOICE" != "y" ]; then
+    printf "%b" "Overriding $THISPACKAGE with ${CHOICE}\n"
+    THISPACKAGE=$CHOICE
+  fi
 done
 # Build the package here
 
 # If the user types anything except a case insensitive 'n', they will
 # see the error log
 choice "Do you want to look at the error log file? [Y/n]: "
-if [ "$choice" != "n" ]; then
- less error.log
+if [ "$CHOICE" != "n" ]; then
+  less error.log
 fi
 # If the user types anything except a case insensitive 'y', they will
 # not see the message log
 choice "Do you want to look at the message log file? [y/N]: "
-if [ "$choice" = "y" ]; then
- less message.log
+if [ "$CHOICE" = "y" ]; then
+  less message.log
 fi
 choice "Enter your favorite color, if you have one: "
 if [ -n "$CHOICE" ]; then
- printf "%b" "You chose: $CHOICE"
+  printf "%b" "You chose: $CHOICE"
 else
- printf "%b" "You do not have a favorite color."
+  printf "%b" "You do not have a favorite color."
 fi
