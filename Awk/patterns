@@ -1,31 +1,34 @@
 #!/usr/bin/env bash
-echo "awk '/foo/ { print "'$2'" }' BBS.txt"
+println() {
+  printf '%s\n' "$*"
+}
+println "awk '/foo/ { print \$2 }' BBS.txt"
 awk '/foo/ { print $2 }' BBS.txt
-echo "awk '"'$1'" ~ /J/' inventory.txt"
+println "awk '\$1 ~ /J/' inventory.txt"
 awk '$1 ~ /J/' inventory.txt
-echo "awk '{ if ("'$1'" ~ /J/) print }' inventory.txt"
+println "awk '{ if (\$1 ~ /J/) print }' inventory.txt"
 awk '{ if ($1 ~ /J/) print }' inventory.txt
-echo "awk '"'$1'" !~ /J/' inventory.txt"
+println "awk '\$1 !~ /J/' inventory.txt"
 awk '$1 !~ /J/' inventory.txt
-echo "awk 'tolower("'$1'") ~ /foo/ { print }' BBS.txt"
+println "awk 'tolower(\$1) ~ /foo/ { print }' BBS.txt"
 awk 'tolower($1) ~ /foo/ { print }' BBS.txt
-echo "awk '"'$1'" == "'"foo"'" { print "'$2'" }' BBS.txt"
+println "awk \$1 == \"foo\" { print \$2 }' BBS.txt"
 awk '$1 == "foo" { print $2 }' BBS.txt
-echo "awk '"'$1'" ~ "'"foo"'" { print "'$2'" }' BBS.txt"
+println "awk \$1 ~ \"foo\" { print \$2 }' BBS.txt"
 awk '$1 ~ "foo" { print $2 }' BBS.txt
-echo "awk '"'$1'" ~ /foo/ { print "'$2'" }' BBS.txt"
+println "awk '\$1 ~ /foo/ { print \$2 }' BBS.txt"
 awk '$1 ~ /foo/ { print $2 }' BBS.txt
-echo "awk '/2400/ && /foo/' BBS.txt"
+println "awk '/2400/ && /foo/' BBS.txt"
 awk '/2400/ && /foo/' BBS.txt
-echo "awk '/2400/ || /foo/' BBS.txt"
+println "awk '/2400/ || /foo/' BBS.txt"
 awk '/2400/ || /foo/' BBS.txt
-echo "awk '! /foo/' BBS.txt"
+println "awk '! /foo/' BBS.txt"
 awk '! /foo/' BBS.txt
-echo "awk 'BEGIN { print "'"Analysis of '"'foo'"'"'" } \
+println "awk 'BEGIN { print \"Analysis of foo\" } \
 /foo/ { ++foobar } \
-END { print "'"'"'foo'"' appears " foobar " times." }'"' BBS.txt"
-awk 'BEGIN { print "Analysis of ‘foo’" }
+END { print \"foo\" appears \" foobar \" times.\" }' BBS.txt"
+awk 'BEGIN { print "Analysis of foo" }
 /foo/ { ++foobar }
-END { print "‘foo’ appears " foobar " times." }' BBS.txt
-printf "awk '{ print \$1 }' BBS.txt\n"
+END { print "foo appears " foobar " times." }' BBS.txt
+println "awk '{ print \$1 }' BBS.txt"
 awk '{ print $1 }' BBS.txt
