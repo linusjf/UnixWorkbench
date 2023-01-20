@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 day=$(date +%d)
-month=$(date +%m) 
-year=$(date +%Y) 
-echo "Today is $month/$day/$year" 
-lmonth=$(expr $month - 1) 
-if test "$lmonth" -eq "0" 
-then 
-  lmonth=12 
-  year=$(expr $year - 1) 
-fi 
-echo "Last month was $lmonth/$year" 
-lday=$(cal $lmonth $year |awk '$0~/[0-9]/ {print $NF}'|tail -1) 
-echo "First day of last month was $lmonth/01/$year"
-echo "Last day of last month was $lmonth/$lday/$year"
+month=$(date +%m)
+year=$(date +%Y)
+echo "Today is $month/$day/$year"
+lmonth=$((month - 1))
+if test "$lmonth" -eq "0"; then
+  lmonth=12
+  year=$((year - 1))
+fi
+echo "Last month was $lmonth/$year"
+lday=$(cal "$lmonth" "$year" | awk '$0~/[0-9]/ {print $NF}' | tail -1)
+echo "First day of last month was ${lmonth}/01/${year}"
+echo "Last day of last month was ${lmonth}/${lday}/${year}"
