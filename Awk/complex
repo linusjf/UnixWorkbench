@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
-echo "ls -l | awk '"'$6'" ==" '"Jun"' "{ sum += "'$5'" }
-END { print sum }'"
-ls -l | awk '$6 == "Jun" { sum += $5 }
-END { print sum }'
+# shellcheck disable=SC2012
+printf "ls -l | awk '\$6 == \"{month}\" { sum += \$5 } END { print sum }'\n"
+ls -l | awk '$6 == "Jan" { sum += $5 } END { print sum }'
+ls -l | awk '$6 == "Feb" { sum += $5 } END { print sum }'
+ls -l | awk '$6 == "Mar" { sum += $5 } END { print sum }'
+ls -l | awk '$6 == "Apr" { sum += $5 } END { print sum }'
+ls -l | awk '$6 == "May" { sum += $5 } END { print sum }'
+ls -l | awk '$6 == "Jun" { sum += $5 } END { print sum }'
+ls -l | awk '$6 == "Jul" { sum += $5 } END { print sum }'
+ls -l | awk '$6 == "Aug" { sum += $5 } END { print sum }'
+ls -l | awk '$6 == "Sep" { sum += $5 } END { print sum }'
+ls -l | awk '$6 == "Oct" { sum += $5 } END { print sum }'
+ls -l | awk '$6 == "Nov" { sum += $5 } END { print sum }'
+ls -l | awk '$6 == "Dec" { sum += $5 } END { print sum }'
