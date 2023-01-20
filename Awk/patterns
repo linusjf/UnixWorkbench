@@ -24,11 +24,11 @@ println "awk '/2400/ || /foo/' BBS.txt"
 awk '/2400/ || /foo/' BBS.txt
 println "awk '! /foo/' BBS.txt"
 awk '! /foo/' BBS.txt
-println "awk 'BEGIN { print \"Analysis of foo\" } \
+println "awk \"BEGIN { print \"Analysis of 'foo'\" } \
 /foo/ { ++foobar } \
-END { print \"foo\" appears \" foobar \" times.\" }' BBS.txt"
-awk 'BEGIN { print "Analysis of foo" }
+END { print \"'foo'\" appears \" foobar \" times.\" }\" BBS.txt"
+awk "BEGIN { print \"Analysis of 'foo'\" }
 /foo/ { ++foobar }
-END { print "foo appears " foobar " times." }' BBS.txt
+END { print \"'foo' appears \" foobar \" times.\" }" BBS.txt
 println "awk '{ print \$1 }' BBS.txt"
 awk '{ print $1 }' BBS.txt
