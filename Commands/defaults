@@ -1,25 +1,25 @@
 #!/usr/bin/env bash
-FILEDIR=${1:-"/tmp"}
+FILEDIR="${1:-"/tmp"}"
 echo "$FILEDIR"
 unset FILEDIR
-echo ${FILEDIR:="/tmp"}
+echo "${FILEDIR:="/tmp"}"
 echo "$FILEDIR"
 unset FILEDIR
-echo ${FILEDIR:-"/newtmp"}
+echo "${FILEDIR:-"/newtmp"}"
 echo "$FILEDIR"
 unset FILEDIR
-echo ${FILEDIR:="/newtmp"}
+echo "${FILEDIR:="/newtmp"}"
 echo "$FILEDIR"
 # no substitution needed
-echo ${FILEDIR=/tmp} 
+echo "${FILEDIR=/tmp}"
 # generally not wise
-FILEDIR="" 
+FILEDIR=""
 # will NOT substitute
-echo ${FILEDIR=/tmp} 
+echo "${FILEDIR=/tmp}"
 # generally not wise
-unset FILEDIR 
+unset FILEDIR
 # will substitute
-echo ${FILEDIR=/tmp} 
-echo $FILEDIR
-cd ${BASE:="$(pwd)"}
+echo "${FILEDIR=/tmp}"
+echo "$FILEDIR"
+cd "${BASE:="$(pwd)"}" || true
 echo "$BASE"
