@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # here is a "here" document
 #
-grep $1 <<EOF
+grep "$1" <<EOF
 mike x.123
 joe x.234
 sue x.555
