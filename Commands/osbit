@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 # are we on a 32 or 64 bit OS?
-if [ $(getconf LONG_BIT) = "64" ]
-then
+if [ "$(getconf LONG_BIT)" = "64" ]; then
   # 64 bit
   echo "64-bit machine."
 else
