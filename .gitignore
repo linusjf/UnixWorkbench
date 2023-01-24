@@ -5,5 +5,5 @@
 *.bash
 *.tst
 *.csv
-*.out
+*.*out
 commit.txt
