@@ -9,22 +9,24 @@
 # 'printf "%b" "See you later Professor Falkin."' >&2
 # Returns: nothing
 function choose {
- local default="$1"
- local prompt="$2"
- local choice_yes="$3"
- local choice_no="$4"
- local answer
- read -p "$prompt" answer
- [ -z "$answer" ] && answer="$default"
- case "$answer" in
- [yY1] ) eval "$choice_yes"
- # error check
- ;;
-[nN0] ) eval "$choice_no"
- # error check
- ;;
- * ) printf "%b" "Unexpected answer '$answer'!" >&2 ;;
- esac
+  local default="$1"
+  local prompt="$2"
+  local choice_yes="$3"
+  local choice_no="$4"
+  local answer
+  read -r -p "$prompt" answer
+  [ -z "$answer" ] && answer="$default"
+  case "$answer" in
+  [yY1])
+    eval "$choice_yes"
+    # error check
+    ;;
+  [nN0])
+    eval "$choice_no"
+    # error check
+    ;;
+  *) printf "%b" "Unexpected answer '$answer'!" >&2 ;;
+  esac
 } # end of function choose
 choose "y" \
   "Do you want to play a game? " \
