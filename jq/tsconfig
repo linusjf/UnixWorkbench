@@ -1,5 +1,3 @@
 #!/usr/bin/env bash
-cat tsconfig.json \
-| strip-json-comments \
-| jq -r '.compilerOptions | to_entries[] | "--\(.key) \(.value)"' 
-
+strip-json-comments <tsconfig.json |
+  jq -r '.compilerOptions | to_entries[] | "--\(.key) \(.value)"'

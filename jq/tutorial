@@ -1,32 +1,30 @@
 #!/usr/bin/env bash
 echo "curl -s -o tutorial.json 'https://api.github.com/repos/stedolan/jq/commits?per_page=5'"
 echo
-if [[ ! -e "tutorial.json" ]]
-then
+if [[ ! -e "tutorial.json" ]]; then
   curl -s -o tutorial.json 'https://api.github.com/repos/stedolan/jq/commits?per_page=5'
 fi
 echo
-echo "cat tutorial.json | jq -c '.'"
-cat tutorial.json | jq -c '.'
+echo "jq -c '.' <tutorial.json"
+jq -c '.' <tutorial.json
 echo
-echo "cat tutorial.json | jq -c '.[0]"
+echo "jq -c '.[0] < tutorial.json"
 echo
-cat tutorial.json | jq -c '.[0]'
+jq -c '.[0]' <tutorial.json
 echo
-echo "cat tutorial.json | jq -c '.[0] | {message: .commit.message, name: .commit.committer.name}'"
+echo "jq -c '.[0] <tutorial.json | {message: .commit.message, name: .commit.committer.name}'"
 echo
-cat tutorial.json | jq -c '.[0] | {message: .commit.message, name: .commit.committer.name}'
+jq -c '.[0] <tutorial.json | {message: .commit.message, name: .commit.committer.name}'
 echo
-echo "cat tutorial.json | jq -c '[.[] | {message: .commit.message, name: .commit.committer.name, parents: [.parents[].html_url]}]'" 
+echo "jq -c '[.[] <tutorial.json | {message: .commit.message, name: .commit.committer.name, parents: [.parents[].html_url]}]'"
 echo
-cat tutorial.json | jq -c '[.[] | {message: .commit.message, name: .commit.committer.name, parents: [.parents[].html_url]}]'
+jq -c '[.[] <tutorial.json | {message: .commit.message, name: .commit.committer.name, parents: [.parents[].html_url]}]'
 echo
 printf "echo '{\"fruit\":{\"name\":\"apple\",\"color\":\"green\",\"price\":1.20}}' | jq -c '.'\n"
 echo '{"fruit":{"name":"apple","color":"green","price":1.20}}' | jq -c '.'
 printf "echo '{\"fruit\":{\"name\":\"apple\",\"color\":\"green\",\"price\":1.20}}' > fruit.json\n"
-if [[ ! -e "fruit.json" ]]
-then
-  echo '{"fruit":{"name":"apple","color":"green","price":1.20}}' > fruit.json
+if [[ ! -e "fruit.json" ]]; then
+  echo '{"fruit":{"name":"apple","color":"green","price":1.20}}' >fruit.json
 fi
 echo "jq -c . fruit.json"
 echo
@@ -36,9 +34,9 @@ echo "curl -s http://api.open-notify.org/iss-now.json | jq -c '.'"
 echo
 curl -s http://api.open-notify.org/iss-now.json | jq -c '.'
 echo
-echo "cat fruit.json | jq -c .fruit"
+echo "jq -c .fruit <tutorial.json"
 echo
-cat fruit.json | jq -c .fruit
+jq -c .fruit <tutorial.json
 echo
 echo "jq -c '.fruit.color' fruit.json"
 echo
@@ -105,5 +103,3 @@ printf "jq -c '.[] | select(.color==\"yellow\")' fruits.json\n"
 echo
 jq -c '.[] | select(.color=="yellow")' fruits.json
 echo
-
-
