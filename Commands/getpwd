@@ -1,2 +1,3 @@
-#!/usr/bin/env bash 
-read -s -p "password: " PASSWD ; printf "%b" "\n"
+#!/usr/bin/env bash
+read -r -s -p "password: " PASSWD
+printf "%b" "$PASSWD" "\n"
