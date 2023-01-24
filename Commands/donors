@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # simple lookup of our generous donors
 #
-grep $1 <<\EOF
+grep "$1" <<\EOF
 # name amt
 pete $100
 joe $200
