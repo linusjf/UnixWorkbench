@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
-# Instructions: 
+# Instructions:
 # Place this script in /tmp
-# Description: 
+# Description:
 # This script simulates a service or a daemon.
-PID_FILE="/tmp/sleep-walking-server.pid" 
-trap "rm $PID_FILE; exit 1;" SIGHUP SIGINT SIGTERM 
-echo "$$" > $PID_FILE 
-while true 
-do 
-:
+removepid() {
+  PID_FILE="/tmp/sleep-walking-server.pid"
+  rm "$PID_FILE"
+  exit 1
+}
+trap removepid SIGHUP SIGINT SIGTERM
+echo "$$" >"$PID_FILE"
+while true; do
+  :
 done
