@@ -55,7 +55,6 @@ if [ $# -eq 0 ] || [ $# -eq 1 ]; then
   usage
 fi
 for i in *."$1"; do
-  j="$i"
-  j=${j/\.$1/\.$2}
+  j=${i/\.$1/\.$2}
   execute mv "$i" "$j"
 done
