@@ -1,16 +1,15 @@
 #!/usr/bin/env bash
 touch testfile.tst
 FILE="testfile.tst"
-if [ -r $FILE -a -w $FILE ]
-  then
+if [ -r $FILE ] && [ -w $FILE ]; then
   echo "testfile is rw"
 fi
 FN="$FILE"
-if [ -r "$FN" -a \( -f "$FN" -o -p "$FN" \) ]
-  then
-  echo "testfile is r"
+if [ -r "$FN" ]; then
+  if [ -f "$FN" ] || [ -p "$FN" ]; then
+    echo "testfile is r"
+  fi
 fi
-if [ -z "$V1" -o -z "${V2:=YIKES}" ]
-then
+if [ -z "$V1" ] || [ -z "${V2:=YIKES}" ]; then
   echo "$V2"
 fi
