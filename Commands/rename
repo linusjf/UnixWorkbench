@@ -2,18 +2,16 @@
 # NOTE: This requires GNU getopt.  On Mac OS X and FreeBSD, you have to install this
 # separately; see below.
 function usage() {
-  echo "usage: $0 [-d|--dryrun] ext1 ext2";
-  exit 2;
+  echo "usage: $0 [-d|--dryrun] ext1 ext2"
+  exit 2
 }
-if [ "$#" == 0 -o "$#" -gt 3 ]
-then
+if [ $# -eq 0 ] || [ $# -gt 3 ]; then
   usage
 fi
-TEMP=$(getopt -o d --longoptions dryrun -n 'rename' -- "$@")
-if [ "$?" != 0 ]
-then 
-  echo "Terminating..." >&2 ; 
-  exit 1 ; 
+
+if ! TEMP=$(getopt -o d --longoptions dryrun -n 'rename' -- "$@"); then
+  echo "Terminating..." >&2
+  exit 1
 fi
 # Note the quotes around '$TEMP':
 # they are essential!
@@ -21,41 +19,43 @@ eval set -- "$TEMP"
 
 # dry is a variable that indicates whether we want to do dry run or not
 # Currently dry run is enabled. To disable it, set the dry variable to any other string
-# Note: define the dry variable above the execute function below so 
+# Note: define the dry variable above the execute function below so
 # that its available in the execute function
 dry=false
 while true; do
   case "$1" in
-    -d | --dryrun )
-      dry=true; 
-      shift ;;
-    -- ) shift; break ;;
-    * ) break ;;
+  -d | --dryrun)
+    dry=true
+    shift
+    ;;
+  --)
+    shift
+    break
+    ;;
+  *) break ;;
   esac
 done
 
 # Function: execute
-function execute(){
-  # Irrespective of whether dry run is enabled or not, we display 
+function execute() {
+  # Irrespective of whether dry run is enabled or not, we display
   # the command on the screen
-	echo "COMMAND: ${@}"
+  echo "COMMAND: $*"
 
-  # if dry run is enabled then simply return 
-	if "$dry" 
-  then
+  # if dry run is enabled then simply return
+  if "$dry"; then
     return 0
-	fi
-   
+  fi
+
   # if dry run is disabled, then execute the command
-	eval "$@"
+  eval "$*"
 }
 
-if [ "$#" == 0 -o "$#" == 1 ]
-then
+if [ $# -eq 0 ] || [ $# -eq 1 ]; then
   usage
 fi
-for i in *."$1"
-do
-  j=$(echo $i | sed s/\."$1"/\."$2"/) 
-  execute mv $i $j  
+for i in *."$1"; do
+  j="$i"
+  j=${j/\.$1/\.$2}
+  execute mv "$i" "$j"
 done
