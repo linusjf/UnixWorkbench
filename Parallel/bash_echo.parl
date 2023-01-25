@@ -1,2 +1,2 @@
-#!/usr/bin/parallel  --shebang-wrap --colsep " " /bin/bash
+#!/usr/bin/parallel  --shebang-wrap /bin/bash
 echo Arguments: $@
