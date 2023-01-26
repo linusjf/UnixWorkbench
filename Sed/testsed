@@ -1,22 +1,18 @@
 #!/usr/bin/env bash
-if [ "$#" -eq 0 ]
-then
-  printf "usage: $0 {sed script} data1 data2 data3 ...\n"
+if [ "$#" -eq 0 ]; then
+  printf "usage: %s {sed script} data1 data2 data3 ...\n" "$0"
   exit 127
 fi
 sedscr="$1"
 declare -i ret=0
-if [ ! -f "$sedscr" ]
-then
+if [ ! -f "$sedscr" ]; then
   echo "$sedscr" does not exist!
   exit 1
 fi
 shift
-for x
-do
-  if [ -f "$x" ]
-  then
-    sed -f "$sedscr" "$x" > tmp."$x"
+for x; do
+  if [ -f "$x" ]; then
+    sed -f "$sedscr" "$x" >tmp."$x"
     diff "$x" tmp."$x"
   else
     ret=$ret+1
