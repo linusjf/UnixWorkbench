@@ -1,2 +1,3 @@
+#!/usr/bin/env bash
 seq 6 | sed -n 'N;l;D'
 sed '/./{H;$!d};x;s/^/\nSTART-->/;s/$/\n<--END/' input.txt
