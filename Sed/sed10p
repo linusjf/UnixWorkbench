@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-for file
-do
-  sed -n 1,10p $file
+for file; do
+  sed -n 1,10p "$file"
 done
