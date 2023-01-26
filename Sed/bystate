@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 awk -F, '{
 print $4 ", " $0
-}' $* |
-sort |
-awk -F, '
+}' "$@" |
+  sort |
+  awk -F, '
 $1 == LastState {
 print "\t" $2
 }
