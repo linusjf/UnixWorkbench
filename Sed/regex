@@ -31,7 +31,7 @@ printf "grep -e '[0-9]' lines.txt\n"
 grep -e '[0-9]' lines.txt
 printf "grep -e '[cC]hapter [1-9]' lines.txt\n"
 grep -e '[cC]hapter [1-9]' lines.txt
-grep -e '[0-9a-z?,.;:’"]' lines.txt
+grep -e "[0-9a-z?,.;:'\"]" lines.txt
 printf "grep -e \"[0-9a-z?,.;:'\"]\" lines.txt\n"
 grep -e "[0-9a-z?,.;:'\"]" lines.txt
 printf "grep -e '[a-zA-Z][.?!]' lines.txt\n"
@@ -73,9 +73,9 @@ grep -e '<.*>' lines.txt
 printf "grep -e \"can[ no']*t\" lines.txt\n"
 grep -e "can[ no']*t" lines.txt
 printf "egrep '80[234]?86' lines.txt\n"
-egrep '80[2-4]?86' lines.txt
+grep -E '80[2-4]?86' lines.txt
 printf "egrep ' book.? ' lines.txt\n"
-egrep ' book.? ' lines.txt
+grep -E ' book.? ' lines.txt
 printf "grep -c '^$' lines.txt\n"
 grep -c '^$' lines.txt
 printf "grep -c '^[[:blank:]]*$' lines.txt\n"
