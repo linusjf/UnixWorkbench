@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 sed '2{N;s/\n//;}' mlines.txt
-sed -e ':x /\\$/ { N; s/\\\n//g ; bx }'  1.txt
+sed -e ':x /\\$/ { N; s/\\\n//g ; bx }' 1.txt
 sed -E ':a ; $!N ; s/\n\s+/ / ; ta ;P;D  ' 2.txt
