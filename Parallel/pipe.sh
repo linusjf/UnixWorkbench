@@ -1,108 +1,104 @@
 #!/usr/bin/env bash
-echo -e "cat num1000000 | parallel --pipe wc\n"
-cat num1000000 | parallel --pipe wc
+printf "parallel --pipe wc < num1000000\n"
+parallel --pipe wc <num1000000
 echo
-echo -e "cat num1000000 | parallel --pipe --block 2M wc\n"
-cat num1000000 | parallel --pipe --block 2M wc
+printf "parallel --pipe --block 2M wc < num1000000\n"
+parallel --pipe --block 2M wc <num1000000
 echo
-echo -e "cat num1000000 | parallel --pipe -j4 --round-robin wc\n"
-cat num1000000 | parallel --pipe -j4 --round-robin wc
+printf "parallel --pipe -j4 --round-robin wc < num1000000\n"
+parallel --pipe -j4 --round-robin wc <num1000000
 echo
-echo -e "cat num1000000 | parallel --pipe -j4 --keep-order --round-robin wc\n"
-cat num1000000 | parallel --pipe -j4 --keep-order --round-robin wc
+printf "parallel --pipe -j4 --keep-order --round-robin wc < num1000000\n"
+parallel --pipe -j4 --keep-order --round-robin wc <num1000000
 echo
-echo -e "cat num1000000 | parallel --pipe -N140000 wc\n"
-cat num1000000 | parallel --pipe -N140000 wc
+printf "parallel --pipe -N140000 wc < num1000000\n"
+parallel --pipe -N140000 wc <num1000000
 echo
-echo -e "cat num1000000 | parallel --pipe -L75 wc\n"
-cat num1000000 | parallel --keep-order --pipe -L75 wc
+printf "parallel --pipe -L75 wc < num1000000\n"
+parallel --keep-order --pipe -L75 wc <num1000000
 echo
-echo -e "echo /foo, bar/, /baz, qux/, | \
- parallel --dryrun -kN1 --recend ', ' --pipe echo JOB{#}\;cat\;echo END\n"
-echo /foo, bar/, /baz, qux/, | \
-  parallel --dryrun -kN1 --recend ', ' --pipe echo JOB{#}\;cat\;echo END
+printf "echo /foo, bar/, /baz, qux/, | \
+  parallel --dryrun -kN1 --recend ', ' --pipe echo \"JOB{#}\"\;cat\;echo END\n"
+echo /foo, bar/, /baz, qux/, |
+  parallel --dryrun -kN1 --recend ', ' --pipe echo "JOB{#}"\;cat\;echo END
 echo
-echo -e "echo -n '/foo, bar/, /baz, qux/, ' | \
- parallel -kN1 --recend ', ' --pipe echo JOB{#}\;cat\;echo END\n"
-echo -n '/foo, bar/, /baz, qux/, ' | \
-  parallel -kN1 --recend ', ' --pipe echo JOB{#}\;cat\;echo END
+printf "echo -n '/foo, bar/, /baz, qux/, ' | \
+  parallel -kN1 --recend ', ' --pipe echo \"JOB{#}\"\;cat\;echo END\n"
+echo -n '/foo, bar/, /baz, qux/, ' |
+  parallel -kN1 --recend ', ' --pipe echo "JOB{#}"\;cat\;echo END
 echo
-echo -e "echo -n '/foo, bar/, /baz, qux/, ' | \
- parallel -kN1 --recstart / --pipe echo JOB{#}\;cat\;echo END\n"
-echo -n '/foo, bar/, /baz, qux/, ' | \
-  parallel -kN1 --recstart / --pipe echo JOB{#}\;cat\;echo END
+printf "echo -n '/foo, bar/, /baz, qux/, ' | \
+  parallel -kN1 --recstart / --pipe echo \"JOB{#}\"\;cat\;echo END\n"
+echo -n '/foo, bar/, /baz, qux/, ' |
+  parallel -kN1 --recstart / --pipe echo "JOB{#}"\;cat\;echo END
 echo
-echo -e "echo /foo, bar/, /baz, qux/, | \
- parallel -kN1 --recend ', ' --recstart / --pipe \
- echo JOB{#}\;cat\;echo END\n"
-echo -n '/foo, bar/, /baz, qux/, ' | \
+printf "echo /foo, bar/, /baz, qux/, | \
   parallel -kN1 --recend ', ' --recstart / --pipe \
-  echo JOB{#}\;cat\;echo END
+  echo \"JOB{#}\"\;cat\;echo END\n"
+echo -n '/foo, bar/, /baz, qux/, ' |
+  parallel -kN1 --recend ', ' --recstart / --pipe \
+    echo "JOB{#}"\;cat\;echo END
 echo
-echo -e "echo -n 'foo,bar,_baz,__qux ' | \
- parallel -kN1 --regexp --recend ,_* --pipe \
- echo JOB{#}\;cat\;echo END\n"
-echo -n 'foo,bar,_baz,__qux ' | \
+printf "echo -n 'foo,bar,_baz,__qux ' | \
   parallel -kN1 --regexp --recend ,_* --pipe \
-  echo JOB{#}\;cat\;echo END
+  echo \"JOB{#}\"\;cat\;echo END\n"
+echo -n 'foo,bar,_baz,__qux ' |
+  parallel -kN1 --regexp --recend ,_* --pipe \
+    echo "JOB{#}"\;cat\;echo END
 echo
-echo -e "echo -n 'foo,bar,_baz,__qux' | \
- parallel -kN1 --rrs --regexp --recend ,_* --pipe \
- echo JOB{#}\;cat\;echo END\n"
-echo -n 'foo,bar,_baz,__qux' | \
+printf "echo -n 'foo,bar,_baz,__qux' | \
   parallel -kN1 --rrs --regexp --recend ,_* --pipe \
-  echo JOB{#}\;cat\;echo END
-echo
-echo -e "echo -n 'foo,bar,_baz,__qux' | \
- parallel -kN1 --rrs --regexp --recend ,_* --pipe \
- echo JOB{#}';'cat';'echo END\n"
-echo -n 'foo,bar,_baz,__qux' | \
+  echo \"JOB{#}\"\;cat\;echo END\n"
+echo -n 'foo,bar,_baz,__qux' |
   parallel -kN1 --rrs --regexp --recend ,_* --pipe \
-  echo JOB{#}';'cat';'echo END
+    echo "JOB{#}"\;cat\;echo END
 echo
-echo -e "cat num_%header | \
- parallel --dryrun --header '(%.*\n)*' --pipe -N3 echo JOB{#}\;cat\n"
-cat num_%header | \
-  parallel --dryrun --header '(%.*\n)*' --pipe -N3 echo JOB{#}\;cat
+printf "echo -n 'foo,bar,_baz,__qux' | \
+  parallel -kN1 --rrs --regexp --recend ,_* --pipe \
+  echo \"JOB{#}';'cat';'echo END\"\n"
+echo -n 'foo,bar,_baz,__qux' |
+  parallel -kN1 --rrs --regexp --recend ,_* --pipe \
+    echo "JOB{#}';'cat';'echo END"
 echo
-echo -e "cat num_%header | \
- parallel -k --header '(%.*\n)*' --pipe -N3 echo JOB{#}\;cat\n"
-cat num_%header | \
-  parallel -k --header '(%.*\n)*' --pipe -N3 echo JOB{#}\;cat
+printf "parallel --dryrun --header '(%%.*\n)*' --pipe -N3 echo \"JOB{#}\"\;cat <num_%%header\n"
+parallel --dryrun --header '(%.*\n)*' --pipe -N3 echo "JOB{#}"\;cat <num_%header
 echo
-echo -e "cat num_%header | parallel --header 2 --pipe -N3 echo JOB{#}\;cat\n"
-cat num_%header | parallel --header 2 --pipe -N3 echo JOB{#}\;cat
+printf "parallel -k --header '(%%.*\n)*' --pipe -N3 echo \"JOB{#}\"\;cat < num_%%header\n"
+parallel -k --header '(%.*\n)*' --pipe -N3 echo "JOB{#}"\;cat <num_%header
 echo
-echo -e "cat fixedlen | parallel --pipe --header .{4} --block 3 --recend '' \
- 'echo start; cat; echo'\n"
-cat fixedlen | parallel --pipe --header .{4} --block 3 --recend '' \
-  'echo start; cat; echo'
+printf "parallel --header 2 --pipe -N3 echo \"JOB{#}\"\;cat < num_%%header\n"
+parallel --header 2 --pipe -N3 echo "JOB{#}"\;cat <num_%header
 echo
-echo -e "cat num1000000 | parallel --pipe --cat wc {}\n"
-cat num1000000 | parallel --pipe --cat wc {}
+printf "parallel --pipe --header .{4} --block 3 --recend '' \
+  'echo start; cat; echo' <fixedlen\n"
+parallel --pipe --header ."{4}" --block 3 --recend '' \
+  'echo start; cat; echo' <fixedlen
 echo
-echo -e "cat num1000000 | parallel --pipe --cat --gnu time wc {}\n"
-cat num1000000 | parallel --pipe --cat --gnu time wc {}
+printf "parallel --pipe --cat wc {} < num1000000\n"
+parallel --pipe --cat wc {} <num1000000
 echo
-echo -e "cat num1000000 | parallel --pipe --fifo --gnu time wc {}\n"
-cat num1000000 | parallel --pipe --fifo --gnu time wc {}
+printf "parallel --pipe --cat --gnu time wc {} < num1000000\n"
+parallel --pipe --cat --gnu time wc {} <num1000000
 echo
-echo -e "parallel --pipepart -a num1000000 --block 3m wc\n"
+printf "parallel --pipe --fifo --gnu time wc {} < num1000000\n"
+parallel --pipe --fifo --gnu time wc {} <num1000000
+echo
+printf "parallel --pipepart -a num1000000 --block 3m wc\n"
 parallel --pipepart -a num1000000 --block 3m wc
 echo
-echo -e "parallel --pipepart -a num1000000 --block -3 -j5 -k wc\n"
+printf "parallel --pipepart -a num1000000 --block -3 -j5 -k wc\n"
 parallel --pipepart -a num1000000 --block -3 -j5 -k wc
 echo
-echo -e "seq 1000 | parallel --dryrun --pipe --tee -v wc {} ::: -w -l -c\n"
+printf "seq 1000 | parallel --dryrun --pipe --tee -v wc {} ::: -w -l -c\n"
 seq 1000 | parallel --dryrun --pipe --tee -v wc {} ::: -w -l -c
 echo
-echo -e "seq 1000 | parallel --pipe --tee -v wc {} ::: -w -l -c\n"
+printf "seq 1000 | parallel --pipe --tee -v wc {} ::: -w -l -c\n"
 seq 1000 | parallel --pipe --tee -v wc {} ::: -w -l -c
 echo
-echo -e "seq 30 | parallel --dryrun -v --pipe --tee --tag grep {} ::: 4 5 6\n"
+printf "seq 30 | parallel --dryrun -v --pipe --tee --tag grep {} ::: 4 5 6\n"
 seq 30 | parallel --dryrun -v --pipe --tee --tag grep {} ::: 4 5 6
 echo
-echo -e "seq 30 | parallel -v --pipe --tee --tag grep {} ::: 4 5 6\n"
+printf "seq 30 | parallel -v --pipe --tee --tag grep {} ::: 4 5 6\n"
 seq 30 | parallel -v --pipe --tee --tag grep {} ::: 4 5 6
 echo
 exit 0
