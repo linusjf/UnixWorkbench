@@ -1,4 +1,4 @@
-#!/usr/bin/env -S sed -E -f 
+#!/usr/bin/env -S sed -E -f
 
 /[^0-9]/ d
 
