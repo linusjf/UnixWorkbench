@@ -1,2 +1,2 @@
-#!/usr/bin/parallel  --shebang-wrap /bin/bash
-echo Arguments: $@
+#!/usr/bin/parallel --shebang-wrap /usr/bin/bash
+echo "Arguments: $@"
