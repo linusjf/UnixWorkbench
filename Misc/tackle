@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# define a function
+tackleit() {
+  echo "$@"
+}
+
+# export function: tackle
+export -f tackleit
+
+# use bash -c to execute function: tackle
+xargs -a "args.txt" -I{} bash -c "tackleit {}"
+parallel tackleit ::: <"args.txt"
+
+#shellcheck disable=SC1090
+source "$(which env_parallel.bash)"
+
+# define a function
+tacklethem() {
+  echo "$@"
+}
+
+env_parallel tacklethem ::: <"args.txt"
