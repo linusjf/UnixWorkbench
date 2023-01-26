@@ -2,7 +2,7 @@
 <?php
 echo "Arguments: ";
 foreach(array_slice($argv,1) as $v) {
- echo " $v";
+echo " $v";
 }
 echo "\n";
 ?>
