@@ -32,7 +32,7 @@ function fib() {
     fi
   else
     value=$(fib "$((-$1))")
-    if [[ $((1 % 2)) -eq 0 ]]; then
+    if [[ $(($1 % 2)) -eq 0 ]]; then
       value=$((-1 * value))
     fi
     echo "$value"
