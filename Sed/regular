@@ -2,16 +2,16 @@
 sed -n '/hello/p' hello.txt
 printf "%s\n" abode bad bed bit bid byte body | sed -n '/^b.d/p'
 printf "\n---------------\n"
-echo 'a+b=c' > foo
+echo 'a+b=c' >foo
 sed -n '/a+b/p' foo
 printf "\n---------------\n"
-echo 'a+b=c' > foo
+echo 'a+b=c' >foo
 sed -E -n '/a\+b/p' foo
 printf "\n---------------\n"
-echo aab > foo
+echo aab >foo
 sed -n '/a\+b/p' foo
 printf "\n---------------\n"
-echo aab > foo
+echo aab >foo
 sed -E -n '/a+b/p' foo
 printf "\n---------------\n"
 echo "abcdef abcdef" | sed 's/abcdef/\U&/g'
@@ -19,80 +19,80 @@ printf "\n---------------\n"
 echo "bab" | sed 's/a*b/\
 &/g' | sed '1d'
 printf "\n---------------\n"
-echo "bab" | \
-  sed -E 's/a*b/\n&/g' | \
+echo "bab" |
+  sed -E 's/a*b/\n&/g' |
   sed '1d'
 printf "\n---------------\n"
 echo "bab" | sed 's/a\?b/\
 &/g' | sed '1d'
 printf "\n---------------\n"
-echo "bab" | \
-  sed -E 's/a?b/\n&/g' | \
+echo "bab" |
+  sed -E 's/a?b/\n&/g' |
   sed '1d'
 printf "\n---------------\n"
-echo "abaaaababbbbbaaaaaabbbbbbb" \
-  | sed 's/a\+b/\
+echo "abaaaababbbbbaaaaaabbbbbbb" |
+  sed 's/a\+b/\
 &/g' | sed '1d'
 printf "\n---------------\n"
-echo "abaaaababbbbbaaaaaabbbbbbb" \
-  | sed -E 's/a+b/\n&/g' \
-  | sed '1d'
+echo "abaaaababbbbbaaaaaabbbbbbb" |
+  sed -E 's/a+b/\n&/g' |
+  sed '1d'
 printf "\n---------------\n"
-echo "abaaaababbbbbaaaaaabbbbbbb" \
-  | sed -n 's/.*/&/p'
+echo "abaaaababbbbbaaaaaabbbbbbb" |
+  sed -n 's/.*/&/p'
 printf "\n---------------\n"
-echo  \
-  | sed -n 's/.*/&/p'
+echo |
+  sed -n 's/.*/&/p'
 printf "\n---------------\n"
-echo "main(int argc, char* argv)" \
-  | sed -n 's/^main.*(.*)/&/p'
+echo "main(int argc, char* argv)" |
+  sed -n 's/^main.*(.*)/&/p'
 printf "\n---------------\n"
-echo "#main(int argc, char* argv)" \
-  | sed -n 's/^#/&/p'
+echo "#main(int argc, char* argv)" |
+  sed -n 's/^#/&/p'
 printf "\n---------------\n"
-echo "https://google.com/index/" \
-  | sed -n 's/\/$/&/p'
+echo "https://google.com/index/" |
+  sed -n 's/\/$/&/p'
 printf "\n---------------\n"
-echo "https://google.com/index/" \
-  | sed -n 's/\/$/&/p'
+echo "https://google.com/index/" |
+  sed -n 's/\/$/&/p'
 printf "\n---------------\n"
-echo "https://google.com/index/" \
-  | sed 's/[a-zA-Z0-9]/\
+echo "https://google.com/index/" |
+  sed 's/[a-zA-Z0-9]/\
 &/g' | sed '1d'
 printf "\n---------------\n"
-echo "https://google.com/index/" \
-  | sed -n 's/[^\  ]/&/p'
+echo "https://google.com/index/" |
+  sed -n 's/[^\  ]/&/p'
 printf "\n---------------\n"
-echo "https://google.com/index/" \
-  | sed -n 's/[^  ]/&/p'
+echo "https://google.com/index/" |
+  sed -n 's/[^  ]/&/p'
 printf "\n---------------\n"
-echo "Words are words" \
-  | sed -n 's/[^\  ]\+/\
+echo "Words are words" |
+  sed -n 's/[^\  ]\+/\
 &/gp' | sed '1d'
 printf "\n---------------\n"
-echo "Words are words" \
-  | sed -n -E 's/[^  ]+/\n&/gp' \
-  | sed '1d'
+echo "Words are words" |
+  sed -n -E 's/[^  ]+/\n&/gp' |
+  sed '1d'
 printf "\n---------------\n"
-printf "New\nNew\n" \
-  | sed -n 'N;s,^\(.*\)\n\1$,&,pg'
+printf "New\nNew\n" |
+  sed -n 'N;s,^\(.*\)\n\1$,&,pg'
 printf "\n---------------\n"
-printf "New\nNew\n" \
-  | sed -n -E 'N;s,^(.*)\n\1$,&,pg'
+printf "New\nNew\n" |
+  sed -n -E 'N;s,^(.*)\n\1$,&,pg'
 printf "\n---------------\n"
-echo "123456789A" | \
+echo "123456789A" |
   sed 's/.\{9\}A$/&/'
 printf "\n---------------\n"
-echo "123456789A" | \
+echo "123456789A" |
   sed -E 's/.{9}A$/&/'
 printf "\n---------------\n"
-echo "123456789ABCDEA" | \
+echo "123456789ABCDEA" |
   sed 's/.\{15\}A$/&/'
 printf "\n---------------\n"
-echo "123456789ABCDEA" | \
+echo "123456789ABCDEA" |
   sed -E 's/.{15}A$/&/'
 printf "\n---------------\n"
-printf "grey gray\n" | \
+printf "grey gray\n" |
   sed 's/gr[ae]y/blue/g'
 printf "\n---------------\n"
 echo 1 | sed 's/[[:digit:]]/X/'
@@ -103,17 +103,17 @@ echo a1 | sed 's/[[:alnum:]]/X/g'
 printf "\n---------------\n"
 echo "  " | sed 's/[[:blank:]]/X/g'
 printf "\n---------------\n"
-echo "" | sed 's/[[:cntrl:]]/X/g'
+echo " " | sed 's/[[:cntrl:]]/X/g'
 printf "\n---------------\n"
 echo "'\"" | sed 's/[[:punct:]]/X/g'
 printf "\n---------------\n"
 echo AbCdeFgHiJkLmN | sed 's/[[:lower:]]/X/g'
 printf "\n---------------\n"
-printf "\" # $ %% \& ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ \` { | } ~\n" \
-  | sed 's/[[:graph:]]/X/g'
+printf "\" # $ %% \& ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ \` { | } ~\n" |
+  sed 's/[[:graph:]]/X/g'
 printf "\n---------------\n"
-printf "\" # $ %% \& ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ \` { | } ~\n" \
-  | sed 's/[[:print:]]/X/g'
+printf "\" # $ %% \& ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ \` { | } ~\n" |
+  sed 's/[[:print:]]/X/g'
 printf "\n---------------\n"
 printf "0 1 2 3 4 5 6 7 8 9 A B C D E F a b c d e f\n" |
   sed 's/[[:xdigit:]]/X/g'
@@ -174,13 +174,13 @@ printf 'a\xCEc\n' | sed 's/.*//' | od -tx1c -An
 printf "\n---------------\n"
 printf 'a\xCEc\n' | sed 'z' | od -tx1c -An
 printf "\n---------------\n"
-printf 'ab\nc\n\xCE\xCEde\n\xCE\xA3f\n' > invalid.txt
+printf 'ab\nc\n\xCE\xCEde\n\xCE\xA3f\n' >invalid.txt
 cat invalid.txt
-sed -n 's/.//g ; H ; ${x;s/\n//g;l}' invalid.txt
+sed -n "s/.//g ; H ; \${x;s/\n//g;l}" invalid.txt
 printf "\n---------------\n"
-sed -n 's/.//g;=;l' invalid.txt | paste - -  | awk '$2!="$"'
+sed -n 's/.//g;=;l' invalid.txt | paste - - | awk '$2!="$"'
 printf "\n---------------\n"
-LC_ALL=C sed '3s/\o316\o316//' invalid.txt > fixed.txt
+LC_ALL=C sed '3s/\o316\o316//' invalid.txt >fixed.txt
 printf "\n---------------\n"
 #printf 'ABC\u03a3\n'
 #printf 'ABC\u03a3\n' | sed 's/.\+/\L&/'
