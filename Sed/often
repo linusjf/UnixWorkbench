@@ -5,7 +5,7 @@ seq 6 | sed '0~3s/./x/'
 printf "\n-------------------\n"
 seq 3 | sed -n '2{s/2/X/ ; p}'
 printf "\n-------------------\n"
-echo hello world | sed 'y/abcdefghij/0123456789/'
+echo "hello world" | sed 'y/abcdefghij/0123456789/'
 printf "\n-------------------\n"
 seq 3 | sed '2a hello'
 printf "\n-------------------\n"
@@ -17,11 +17,12 @@ hello\
 world
 3s/./X/'
 printf "\n-------------------\n"
-seq 3 | sed -e '2a\' -e hello
+sed -e "2a\\" -e hello <(seq 3)
 printf "\n-------------------\n"
-printf '%s\n' aaa bbb ccc | sed =
+read -r
+printf '%s\n' "aaa bbb ccc" | sed '='
 printf "\n-------------------\n"
-seq 3 | sed -e '2c\' -e hello
+seq 3 | sed -e "2c\\" -e hello
 printf "\n-------------------\n"
 seq 3 | sed '2c\
 hello
@@ -59,7 +60,7 @@ Hello
 2d'
 printf "\n-------------------\n"
 seq 2 | sed '1w hello.txt ; 2d'
-ls -log *hello*
+ls -log ./*hello*
 cat 'hello.txt ; 2d'
 rm -f 'hello.txt ; 2d'
 echo x | sed '1rhello.txt ; N'
