@@ -1,5 +1,7 @@
 # Shell scripts created for exercises in the book The Unix Workbench by Sean Kross.
 
+[![Hits-of-Code](https://hitsofcode.com/github/linusjf/UnixWorkbench?branch=main)](https://hitsofcode.com/github/linusjf/UnixWorkbench/view?branch=main)
+
 ### Dir Programs
 
 - add.sh
