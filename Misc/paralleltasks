@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# Define tasks as functions
+process1() {
+  echo "Process 1 started..."
+  sleep 10
+  echo "Process 1 ended..."
+}
+
+process2() {
+  echo "Process 2 started..."
+  sleep 20
+  echo "Process 2 ended..."
+}
+
+# Start each process in the background
+process1 &
+pid1=$!
+process2 &
+pid2=$!
+
+# Wait for each process to complete
+wait $pid1
+wait $pid2
+
+echo "Proceses completed."
